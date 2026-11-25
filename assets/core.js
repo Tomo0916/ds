@@ -36,7 +36,7 @@ window.AI = (function () {
   const cache = {};
   async function load(path) {
     if (!cache[path]) {
-      const r = await fetch(path);
+      const r = await fetch(path, { cache: "no-cache" });
       if (!r.ok) throw new Error(path);
       cache[path] = await r.json();
     }

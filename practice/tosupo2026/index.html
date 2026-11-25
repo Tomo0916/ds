@@ -41,6 +41,9 @@
 .bt-tabs button:nth-child(4n){border-right:0}.bt-tabs button:nth-child(n+5){border-bottom:0}
 .bt-tabs button.on{background:var(--acc);color:#fff}
 @media(min-width:760px){.bt-tabs{grid-template-columns:repeat(8,1fr)}.bt-tabs button{border-bottom:0}.bt-tabs button:nth-child(4n){border-right:1px solid var(--rule)}.bt-tabs button:last-child{border-right:0}}
+.jp{font-size:.85em;color:var(--sub);font-weight:600;margin-left:2px}
+.bt-tabs small.jp{display:block;margin:2px 0 0;font-size:12px}
+.bt-tabs button.on .jp,.m-tabs button.on .jp{color:inherit;opacity:.85}
 .bt-sub{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 .m-tabs{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
 .m-tabs button{font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border:0;background:var(--card);color:var(--sub);cursor:pointer}
@@ -130,6 +133,14 @@ function estOdds(t, sel) {
 }
 
 let L, u, result = null;
+const JPT = { win: "単勝", place: "複勝", wakuren: "枠連", umaren: "馬連", wide: "ワイド", umatan: "馬単", trio: "3連複", trifecta: "3連単" };
+const JPM = { n: "通常", f: "フォーメーション", b: "ボックス" };
+const isJa = () => lang === "ja" || lang === "easy";
+const loc = v => String(v).replace(/\s*[(（][^()（）]*[)）]\s*$/, "");
+// bet type name: Japanese UI → as is; others → local name + Japanese name
+const tName = t => isJa() ? rb(L.types[t]) : `${rb(loc(L.types[t]))} <span class="jp">${JPT[t]}</span>`;
+const tTab = t => isJa() ? rb(L.types[t]) : `${rb(loc(L.types[t]))}<small class="jp">${JPT[t]}</small>`;
+const mName = m => { const k = { n: "modeN", f: "modeF", b: "modeB" }[m]; return isJa() ? rb(L[k]) : `${rb(loc(L[k]))} <span class="jp">${JPM[m]}</span>`; };
 function horseOpts(sel) { return H.map(h => `<option value="${h[1]}"${sel === h[1] ? " selected" : ""}>${h[1]} ${esc(h[2])}</option>`).join(""); }
 function frameOpts() { return [1, 2, 3, 4, 5, 6, 7, 8].map(f => `<option value="${f}">${f}</option>`).join(""); }
 function label(t, sel) {
@@ -165,8 +176,8 @@ async function render() {
     <section class="card" id="simc"><h2>${rb(L.simH)}</h2><p>${rb(L.simLead)}</p>
       <div class="sim">
         <div class="wallet"><span>${rb(L.budget)} <b>${yen(BUDGET)}</b></span><span>${rb(L.used)} <b id="used"></b></span><span>${rb(L.left)} <b id="left"></b></span></div>
-        <div class="bt-tabs" id="btabs">${Object.keys(TYPES).map(t => `<button type="button" data-t="${t}">${rb(L.types[t]).replace(/ \(.*\)$/, "")}</button>`).join("")}</div>
-        <div class="bt-sub"><div class="m-tabs" id="moderow"><button type="button" data-m="n">${rb(L.modeN)}</button><button type="button" data-m="f">${rb(L.modeF)}</button><button type="button" data-m="b">${rb(L.modeB)}</button></div><span class="note" id="rateNote"></span></div>
+        <div class="bt-tabs" id="btabs">${Object.keys(TYPES).map(t => `<button type="button" data-t="${t}">${tTab(t)}</button>`).join("")}</div>
+        <div class="bt-sub"><div class="m-tabs" id="moderow"><button type="button" data-m="n">${mName("n")}</button><button type="button" data-m="f">${mName("f")}</button><button type="button" data-m="b">${mName("b")}</button></div><span class="note" id="rateNote"></span></div>
         <div class="scroll"><table class="ptab" id="pick"></table></div>
         <div class="buybar"><div class="bb-pts"><span>${rb(L.ptsH)}</span><b id="npts">0</b></div>
           <label class="bb-amt"><span>${rb(L.perTicket)}</span><span class="amtbox"><input type="number" id="amt" min="100" step="100" value="100"><span>${rb(L.yenUnit)}</span></span></label>
@@ -211,8 +222,8 @@ function setupSim() {
   };
   const colLabel = i => {
     const T = TYPES[bt];
-    if (T.n === 1) return L.types[bt].replace(/ \(.*\)$/, "");
-    if (mode === "b") return L.modeB;
+    if (T.n === 1) return isJa() ? L.types[bt] : loc(L.types[bt]);
+    if (mode === "b") return isJa() ? L.modeB : loc(L.modeB);
     if (T.ord) return fill(L.fin, { n: i + 1 });
     return T.frame ? fill(L.frameN, { n: i + 1 }) : fill(L.horseN, { n: i + 1 });
   };
@@ -278,7 +289,7 @@ function drawTickets() {
   tb.innerHTML = `<thead><tr><th>${rb(L.type)}</th><th>${rb(L.pickH)}</th><th class="num">${rb(L.amount)}</th><th class="num">${rb(L.estOdds)}</th><th class="num">${rb(L.ifHit)}</th>${result ? `<th>${rb(L.payH)}</th>` : ""}<th></th></tr></thead><tbody>` +
     bets.map((b, i) => {
       const o = estOdds(b.t, b.s), h = result && hits(b.t, b.s, ...result);
-      return `<tr class="${h ? "hit" : ""}"><td>${rb(L.types[b.t])}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num">${o ? o.toFixed(1) : "—"}</td><td class="num">${o ? yen(b.a / 100 * Math.round(o * 100)) : "—"}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> <input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
+      return `<tr class="${h ? "hit" : ""}"><td>${tName(b.t)}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num">${o ? o.toFixed(1) : "—"}</td><td class="num">${o ? yen(b.a / 100 * Math.round(o * 100)) : "—"}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> <input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
     }).join("") + `</tbody>`;
   tb.querySelectorAll("[data-del]").forEach(x => x.onclick = () => { bets.splice(+x.dataset.del, 1); save(); drawTickets(); if (result) summary(); });
   tb.querySelectorAll("input[data-i]").forEach(x => x.oninput = () => { bets[+x.dataset.i].act = x.value; save(); summary(); });
