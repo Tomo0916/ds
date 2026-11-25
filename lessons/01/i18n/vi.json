@@ -1,0 +1,278 @@
+{
+"title": "Kiến thức cơ bản về đua ngựa và làm quen với dữ liệu",
+"sub": "Thử thách \"bức tường 80%\" bằng khoa học dữ liệu",
+"goal": [
+"Giải thích được cách đua ngựa ở Nhật hoạt động, điều kiện và hạng của cuộc đua",
+"Đọc được bảng xuất phát và nói được có những thông tin gì",
+"Giải thích được tỷ lệ cược, mức ưa chuộng và tỷ lệ trả thưởng (bức tường 80%)",
+"Tìm và xem được dữ liệu đua ngựa trên Kaggle"
+],
+"sec": [
+{
+"h": "Môn học này làm gì",
+"p": [
+"Trong 11 buổi, chúng ta sẽ phân tích dữ liệu đua ngựa. Mục tiêu là suy nghĩ \"làm thế nào để tăng vốn ảo một cách có thể lặp lại\".",
+"Đua ngựa có rất nhiều yếu tố đan xen: ngựa, nài ngựa, cự ly, thời tiết, mức ưa chuộng… Không thể nhìn tất cả cùng lúc. Vì vậy, \"góc nhìn\" — chú ý vào đâu — rất quan trọng.",
+"Với một góc nhìn phù hợp, ngay cả trong dữ liệu phức tạp cũng có thể thấy những khác biệt rõ ràng về mặt thống kê. Rèn luyện cảm giác đó là mục tiêu của môn học.",
+"Tất cả tiền đều là ảo, không đặt cược thật. Ở Nhật, luật quy định phải từ 20 tuổi mới được mua vé cược."
+]
+},
+{
+"h": "Đua ngựa ở Nhật hoạt động thế nào",
+"p": [
+"Nhật có đua ngựa trung ương do JRA (Hiệp hội Đua ngựa Nhật Bản) tổ chức và đua ngựa địa phương do chính quyền địa phương tổ chức. Dữ liệu của chúng ta là đua ngựa trung ương.",
+"Đua ngựa trung ương diễn ra ở 10 trường đua: Sapporo, Hakodate, Fukushima, Niigata, Tokyo, Nakayama, Chukyo, Kyoto, Hanshin, Kokura.",
+"Các cuộc đua chủ yếu vào thứ Bảy và Chủ nhật. Mỗi cuộc đua có tối đa 18 ngựa."
+]
+},
+{
+"h": "Điều kiện cuộc đua",
+"p": [
+"Đường đua có hai loại: cỏ và đất (cát). Có ngựa giỏi chạy trên cỏ, có ngựa giỏi trên đất.",
+"Cự ly khoảng từ 1000m đến 3600m. Có ngựa giỏi cự ly ngắn, có ngựa giỏi cự ly dài.",
+"Khi mưa làm đường ướt, việc chạy sẽ thay đổi. Đây gọi là tình trạng mặt đường, chia làm 4 mức: tốt (良), hơi nặng (稍重), nặng (重), xấu (不良).",
+"Mỗi trường đua còn khác nhau về chiều chạy phải/trái, độ dài đoạn thẳng cuối, có dốc hay không…"
+]
+},
+{
+"h": "Hạng cuộc đua",
+"p": [
+"Mỗi lần thắng, ngựa được lên hạng. Bắt đầu từ cuộc đua ra mắt (新馬戦) và cuộc đua cho ngựa chưa thắng (未勝利戦), rồi hạng 1 trận thắng, hạng 2 trận thắng, hạng 3 trận thắng, hạng mở.",
+"Các cuộc đua hạng cao nhất trong hạng mở là giải trọng điểm: G3, G2, G1 theo thứ tự tăng dần. G1 gồm Japanese Derby, Japan Cup, Arima Kinen…",
+"Hạng càng cao, ngựa mạnh càng tập trung. \"Kết quả bất ngờ có khác nhau theo hạng không\" là một góc nhìn chúng ta sẽ nghiên cứu.",
+"Tên hạng đã đổi vào năm 2019. Trước đó gọi là 500万下, 1000万下, 1600万下, tương ứng với hạng 1, 2, 3 trận thắng hiện nay. Khi dùng dữ liệu cũ cần thống nhất tên."
+]
+},
+{
+"h": "Đọc bảng xuất phát",
+"p": [
+"Trước cuộc đua, \"bảng xuất phát\" (出馬表) được công bố. Đó là danh sách các ngựa tham gia.",
+"Bảng có số khung (1–8) và số ngựa, tên ngựa, giới tính và tuổi, trọng lượng mang (斤量, kg), nài ngựa, cân nặng và mức tăng giảm so với lần trước, kết quả lần đua trước…",
+"Mỗi khung có màu riêng. Từ khung 1: trắng, đen, đỏ, xanh dương, vàng, xanh lá, cam, hồng."
+],
+"tool": [
+"card"
+]
+},
+{
+"h": "Tỷ lệ cược và mức ưa chuộng",
+"p": [
+"Tỷ lệ cược không do ban tổ chức quyết định, mà do tỷ lệ số tiền mọi người đặt. Đây gọi là phương thức pari-mutuel.",
+"Tiền đặt cho một con ngựa thắng càng ít thì tỷ lệ cược (số lần nhận lại khi trúng) càng cao.",
+"Nhưng không phải toàn bộ tiền đều được trả lại. Với cược thắng, 80% dùng để trả thưởng, 20% còn lại bị trừ.",
+"Theo tỷ lệ cược từ thấp đến cao gọi là \"được ưa chuộng thứ 1, thứ 2…\". Mức ưa chuộng là dự đoán của nhiều người, không phải sức mạnh. Chỗ nào dự đoán của mọi người bị lệch, chỗ đó có cơ hội phân tích."
+],
+"tool": [
+"odds"
+]
+},
+{
+"h": "Các loại vé cược và tỷ lệ trả thưởng",
+"p": [
+"Thắng (単勝): đoán ngựa về nhất (tỷ lệ trả thưởng 80%)",
+"Vào hạng (複勝): đoán ngựa về trong top 3; nếu 7 ngựa trở xuống thì top 2 (80%)",
+"Khung kép (枠連): tổ hợp khung của ngựa nhất và nhì (77.5%)",
+"Ngựa kép (馬連): tổ hợp ngựa nhất và nhì, không cần thứ tự (77.5%)",
+"Wide (ワイド): tổ hợp 2 ngựa cùng vào top 3 (77.5%)",
+"Ngựa kép thứ tự (馬単): đoán đúng nhất và nhì theo thứ tự (75%)",
+"Bộ ba (3連複): tổ hợp 3 ngựa top 3, không cần thứ tự (75%)",
+"Bộ ba thứ tự (3連単): đoán đúng top 3 theo thứ tự (72.5%)",
+"Nghĩa là nếu cứ mua mà không suy nghĩ, trung bình tiền sẽ giảm còn 80% hoặc thấp hơn. Đây là \"bức tường 80%\" mà môn học sẽ thử thách."
+]
+},
+{
+"h": "Tìm dữ liệu đua ngựa trên Kaggle",
+"p": [
+"Kaggle là trang web nơi các nhà khoa học dữ liệu trên thế giới chia sẻ dữ liệu và thi phân tích.",
+"1. Tạo tài khoản Kaggle (miễn phí)",
+"2. Mở trang \"JRA日本中央競馬会 Horse Racing Dataset\" (đường link ở mục \"Muốn học thêm?\" bên dưới)",
+"3. Đọc phần mô tả dữ liệu (Data Card) và tên các cột, được viết bằng tiếng Nhật và tiếng Anh",
+"4. Ở tab \"Code\", xem người khác đã phân tích thế nào",
+"Dữ liệu gồm kết quả đua, tỷ lệ cược… từ năm 1986 đến tháng 7/2021, rất lớn, Excel không mở hết được. Chính vì vậy cần quyết định \"chú ý vào đâu\".",
+"Hãy tải dữ liệu bằng tài khoản của riêng mình. Đừng chia cho người khác hay đăng lên mạng."
+]
+}
+],
+"summary": [
+"Đua ngựa trung ương do JRA tổ chức ở 10 trường đua, tối đa 18 ngựa mỗi cuộc",
+"Điều kiện: cỏ/đất, cự ly, tình trạng mặt đường (tốt, hơi nặng, nặng, xấu), trường đua",
+"Hạng: ra mắt/chưa thắng → hạng 1, 2, 3 trận thắng → mở → G3, G2, G1",
+"Tỷ lệ cược do tỷ lệ tiền đặt quyết định. Ưa chuộng là dự đoán, không phải sức mạnh",
+"Tỷ lệ trả thưởng cược thắng, vào hạng là 80%. Mua không suy nghĩ sẽ lỗ (bức tường 80%)",
+"Dữ liệu Kaggle rất lớn, nên quyết định chú ý vào đâu là điều quan trọng"
+],
+"quiz": [
+{
+"q": "Đua ngựa trung ương có bao nhiêu trường đua?",
+"o": [
+"5",
+"8",
+"10",
+"18"
+],
+"a": 2,
+"e": "Có 10 trường, từ Sapporo đến Kokura."
+},
+{
+"q": "Tình trạng mặt đường nào ướt nhất?",
+"o": [
+"Tốt (良)",
+"Hơi nặng (稍重)",
+"Nặng (重)",
+"Xấu (不良)"
+],
+"a": 3,
+"e": "Theo thứ tự tốt → hơi nặng → nặng → xấu, đường càng ướt."
+},
+{
+"q": "Hạng nào cao nhất?",
+"o": [
+"G1",
+"G2",
+"G3",
+"Mở"
+],
+"a": 0,
+"e": "Hạng tăng theo thứ tự G3 → G2 → G1."
+},
+{
+"q": "Điều gì quyết định tỷ lệ cược?",
+"o": [
+"Chuyên gia của JRA",
+"Thành tích cũ của ngựa",
+"Tỷ lệ tiền mọi người đặt",
+"Bình chọn nài ngựa"
+],
+"a": 2,
+"e": "Theo phương thức pari-mutuel, tỷ lệ cược phụ thuộc vào tỷ lệ tiền đặt."
+},
+{
+"q": "Tỷ lệ trả thưởng của cược thắng là bao nhiêu?",
+"o": [
+"100%",
+"90%",
+"80%",
+"50%"
+],
+"a": 2,
+"e": "Cược thắng và vào hạng là 80%. Phần còn lại bị trừ nên mua không suy nghĩ thì trung bình sẽ lỗ."
+},
+{
+"q": "\"Được ưa chuộng thứ 1\" nghĩa là gì?",
+"o": [
+"Con ngựa mạnh nhất",
+"Con ngựa có tỷ lệ cược thấp nhất",
+"Con ngựa có thời gian nhanh nhất",
+"Con ngựa trẻ nhất"
+],
+"a": 1,
+"e": "Mức ưa chuộng phụ thuộc vào số tiền đặt, không phải sức mạnh."
+}
+],
+"next": "Ngày 2/12 (buổi 7): Đường cơ sở — mua tất cả thì tỷ lệ thu hồi là bao nhiêu?",
+"more": [
+[
+"https://www.kaggle.com/datasets/takamotoki/jra-horse-racing-dataset",
+"JRA日本中央競馬会 Horse Racing Dataset(Kaggle)",
+"Dữ liệu đua ngựa dùng trong môn học"
+],
+[
+"https://www.jra.go.jp/kouza/baken/",
+"JRA: Các loại vé cược",
+"Giải thích chính thức về loại vé và cách mua (tiếng Nhật)"
+],
+[
+"https://www.jra.go.jp/news/other/20140303.html",
+"JRA: Tỷ lệ trả thưởng theo loại vé",
+"Thông báo chính thức về tỷ lệ trả thưởng (tiếng Nhật)"
+]
+],
+"slides": [
+{
+"kind": "title"
+},
+{
+"t": "Mục tiêu môn học",
+"b": [
+"Tìm cách tăng vốn ảo bằng dữ liệu đua ngựa",
+"Nhìn dữ liệu phức tạp bằng góc nhìn",
+"* Không đặt cược thật (từ 20 tuổi ở Nhật)"
+]
+},
+{
+"t": "Đua ngựa ở Nhật",
+"b": [
+"Trung ương (JRA) và địa phương",
+"Trung ương: 10 trường đua",
+"Tối đa 18 ngựa mỗi cuộc"
+]
+},
+{
+"t": "Điều kiện cuộc đua",
+"b": [
+"Cỏ và đất",
+"Cự ly: khoảng 1000m–3600m",
+"Mặt đường: tốt, hơi nặng, nặng, xấu"
+]
+},
+{
+"t": "Hạng cuộc đua",
+"b": [
+"Ra mắt/chưa thắng → 1 → 2 → 3 trận thắng",
+"Mở → G3 → G2 → G1",
+"Đổi tên năm 2019 (500万下 → hạng 1 trận thắng…)"
+]
+},
+{
+"t": "Đọc bảng xuất phát",
+"b": [
+"Khung, số, trọng lượng mang, nài ngựa",
+"Cân nặng, lần đua trước",
+"Ngựa nào sẽ được ưa chuộng?"
+],
+"tool": "card"
+},
+{
+"t": "Tỷ lệ cược hoạt động thế nào",
+"b": [
+"Tỷ lệ cược = tỷ lệ tiền mọi người đặt",
+"Nhiều tiền → tỷ lệ thấp → được ưa chuộng",
+"Ưa chuộng = dự đoán, không phải sức mạnh"
+],
+"tool": "odds"
+},
+{
+"t": "Loại vé và tỷ lệ trả thưởng",
+"b": [
+"Thắng, vào hạng: 80%",
+"Khung kép, ngựa kép, wide: 77.5%",
+"Kép thứ tự, bộ ba: 75%; bộ ba thứ tự: 72.5%"
+],
+"big": "Mua không suy nghĩ → tiền còn dưới 80%"
+},
+{
+"t": "Tìm trên Kaggle",
+"b": [
+"JRA日本中央競馬会 Horse Racing Dataset",
+"1986 – 7/2021, rất lớn",
+"Không xem hết được → chú ý vào đâu?"
+]
+},
+{
+"t": "Bài tập hôm nay",
+"b": [
+"Tạo tài khoản Kaggle",
+"Đọc mô tả dữ liệu và tên cột",
+"Viết ra 3 góc nhìn muốn tìm hiểu"
+]
+},
+{
+"t": "Tóm tắt",
+"b": [
+"Điều kiện, hạng, mức ưa chuộng đan xen",
+"Tỷ lệ cược là dự đoán của mọi người",
+"Góc nhìn có vượt được bức tường 80%?"
+]
+}
+]
+}

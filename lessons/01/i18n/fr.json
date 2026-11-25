@@ -1,0 +1,278 @@
+{
+"title": "Bases des courses hippiques et première rencontre avec les données",
+"sub": "Relever le défi du « mur des 80 % » avec la data science",
+"goal": [
+"Expliquer le fonctionnement des courses au Japon, les conditions et les niveaux de course",
+"Lire un programme de course et dire quelles informations il contient",
+"Expliquer les cotes, la popularité et le taux de retour (le mur des 80 %)",
+"Trouver les données de courses sur Kaggle et les explorer"
+],
+"sec": [
+{
+"h": "Ce que nous ferons dans ce cours",
+"p": [
+"En 11 séances, nous analyserons des données de courses hippiques. L'objectif : réfléchir à comment faire croître un capital virtuel de façon reproductible.",
+"Les courses mêlent de nombreux facteurs : chevaux, jockeys, distance, météo, popularité… Impossible de tout regarder à la fois. D'où l'importance d'un point de vue : où regarder.",
+"Avec le bon point de vue, on peut voir des différences statistiquement nettes même dans des données complexes. Développer cette intuition est le but du cours.",
+"Tout l'argent est virtuel. Nous ne parions jamais pour de vrai. Au Japon, la loi impose d'avoir 20 ans pour acheter des paris."
+]
+},
+{
+"h": "Les courses hippiques au Japon",
+"p": [
+"Le Japon a les courses centrales, organisées par la JRA (Japan Racing Association), et les courses locales, organisées par les collectivités. Nos données viennent des courses centrales.",
+"Les courses centrales ont lieu sur 10 hippodromes : Sapporo, Hakodate, Fukushima, Niigata, Tokyo, Nakayama, Chukyo, Kyoto, Hanshin et Kokura.",
+"Les courses ont lieu surtout le samedi et le dimanche. Jusqu'à 18 chevaux peuvent courir dans une course."
+]
+},
+{
+"h": "Conditions de course",
+"p": [
+"La piste est en gazon ou en sable (dirt). Certains chevaux préfèrent le gazon, d'autres le sable.",
+"Les distances vont d'environ 1 000 m à 3 600 m. Certains chevaux sont bons sur courte distance, d'autres sur longue distance.",
+"Quand la pluie mouille la piste, la course change. C'est l'état de la piste, en 4 niveaux : bon (良), légèrement lourd (稍重), lourd (重) et très lourd (不良).",
+"Les hippodromes diffèrent aussi : sens à droite ou à gauche, longueur de la ligne droite finale, présence d'une côte…"
+]
+},
+{
+"h": "Les niveaux de course (classes)",
+"p": [
+"À chaque victoire, un cheval monte de classe : courses de débutants (新馬戦), courses pour chevaux sans victoire (未勝利戦), puis classe 1 victoire, 2 victoires, 3 victoires, et classe ouverte.",
+"Les courses de plus haut niveau parmi les ouvertes sont les courses de groupe : G3, G2 et G1, par ordre croissant. Les G1 incluent le Derby japonais, la Japan Cup et l'Arima Kinen.",
+"Plus le niveau est élevé, plus les chevaux sont forts. « Les surprises varient-elles selon le niveau ? » est l'un des points de vue que nous étudierons.",
+"Les noms de classes ont changé en 2019. Avant, on disait 500万下, 1000万下 et 1600万下, équivalents des classes 1, 2 et 3 victoires actuelles. Avec des données anciennes, il faut harmoniser les noms."
+]
+},
+{
+"h": "Lire un programme de course",
+"p": [
+"Avant la course, un programme (出馬表) est publié : la liste des chevaux au départ.",
+"On y trouve la stalle (1–8) et le numéro, le nom du cheval, son sexe et son âge, le poids porté (斤量, en kg), le jockey, le poids du cheval et son écart avec la dernière fois, le résultat de la dernière course, etc.",
+"Chaque stalle a une couleur. De la stalle 1 : blanc, noir, rouge, bleu, jaune, vert, orange, rose."
+],
+"tool": [
+"card"
+]
+},
+{
+"h": "Cotes et popularité",
+"p": [
+"Les cotes ne sont pas fixées par l'organisateur, mais par la part de l'argent parié par tous. C'est le système du pari mutuel.",
+"Moins un cheval reçoit de mises gagnantes, plus sa cote (ce qu'on touche s'il gagne) est élevée.",
+"Mais tout l'argent n'est pas redistribué. Pour le pari gagnant, 80 % vont aux gains et les 20 % restants sont prélevés.",
+"Du plus bas au plus haut, on dit « 1er favori, 2e favori… ». La popularité est la prédiction de beaucoup de gens, pas la force elle-même. Là où les prédictions sont biaisées, il y a une chance pour l'analyse."
+],
+"tool": [
+"odds"
+]
+},
+{
+"h": "Types de paris et taux de retour",
+"p": [
+"Gagnant (単勝) : trouver le premier (taux de retour 80 %)",
+"Placé (複勝) : un cheval dans les 3 premiers ; les 2 premiers s'il y a 7 partants ou moins (80 %)",
+"Couplé stalles (枠連) : les stalles du 1er et du 2e (77,5 %)",
+"Couplé (馬連) : les chevaux 1er et 2e, dans n'importe quel ordre (77,5 %)",
+"Wide (ワイド) : deux chevaux tous deux dans les 3 premiers (77,5 %)",
+"Couplé ordre (馬単) : 1er et 2e dans l'ordre exact (75 %)",
+"Trio (3連複) : les 3 premiers dans n'importe quel ordre (75 %)",
+"Tiercé ordre (3連単) : les 3 premiers dans l'ordre exact (72,5 %)",
+"Autrement dit, si l'on parie sans réfléchir, son argent baisse en moyenne à 80 % ou moins. C'est le « mur des 80 % » que nous allons tenter de franchir."
+]
+},
+{
+"h": "Trouver les données sur Kaggle",
+"p": [
+"Kaggle est un site où des data scientists du monde entier partagent des données et rivalisent dans l'analyse.",
+"1. Créer un compte Kaggle (gratuit)",
+"2. Ouvrir la page « JRA日本中央競馬会 Horse Racing Dataset » (le lien est plus bas, dans « Pour aller plus loin »)",
+"3. Lire la description des données (Data Card) et les noms de colonnes, en japonais et en anglais",
+"4. Dans l'onglet « Code », regarder comment d'autres ont analysé les données",
+"Les données couvrent les résultats, les cotes, etc. de 1986 à juillet 2021. Elles sont trop grandes pour être ouvertes entièrement dans Excel. C'est justement pourquoi il faut décider où regarder.",
+"Téléchargez les données avec votre propre compte. Ne les donnez pas à d'autres et ne les publiez pas sur Internet."
+]
+}
+],
+"summary": [
+"Les courses centrales sont organisées par la JRA sur 10 hippodromes, jusqu'à 18 chevaux par course",
+"Conditions : gazon ou sable, distance, état de la piste (bon, légèrement lourd, lourd, très lourd), hippodrome",
+"Niveaux : débutants/sans victoire → classes 1, 2, 3 victoires → ouverte → G3, G2, G1",
+"Les cotes dépendent de la part de l'argent parié. La popularité est une prédiction, pas la force",
+"Le taux de retour gagnant et placé est de 80 %. Parier sans réfléchir fait perdre (le mur des 80 %)",
+"Les données Kaggle sont grandes : décider où regarder est essentiel"
+],
+"quiz": [
+{
+"q": "Combien y a-t-il d'hippodromes de la JRA ?",
+"o": [
+"5",
+"8",
+"10",
+"18"
+],
+"a": 2,
+"e": "Il y en a 10, de Sapporo à Kokura."
+},
+{
+"q": "Quel état de piste est le plus mouillé ?",
+"o": [
+"Bon (良)",
+"Légèrement lourd (稍重)",
+"Lourd (重)",
+"Très lourd (不良)"
+],
+"a": 3,
+"e": "Du bon au très lourd, la piste est de plus en plus mouillée."
+},
+{
+"q": "Quel est le niveau le plus élevé ?",
+"o": [
+"G1",
+"G2",
+"G3",
+"Ouverte"
+],
+"a": 0,
+"e": "Le niveau monte de G3 à G2 puis G1."
+},
+{
+"q": "Qu'est-ce qui fixe les cotes ?",
+"o": [
+"Les experts de la JRA",
+"Les résultats passés du cheval",
+"La part de l'argent parié par tous",
+"Un vote de popularité des jockeys"
+],
+"a": 2,
+"e": "Dans le pari mutuel, les cotes dépendent de la part de l'argent parié."
+},
+{
+"q": "Quel est le taux de retour du pari gagnant ?",
+"o": [
+"100 %",
+"90 %",
+"80 %",
+"50 %"
+],
+"a": 2,
+"e": "Gagnant et placé : 80 %. Le reste est prélevé, donc parier sans réfléchir fait perdre en moyenne."
+},
+{
+"q": "Que signifie « 1er favori » ?",
+"o": [
+"Le cheval le plus fort",
+"Le cheval à la cote la plus basse",
+"Le cheval le plus rapide",
+"Le cheval le plus jeune"
+],
+"a": 1,
+"e": "La popularité dépend de l'argent parié, pas de la force elle-même."
+}
+],
+"next": "2 décembre (séance 7) : la ligne de base — quel retour si l'on parie sur toutes les courses ?",
+"more": [
+[
+"https://www.kaggle.com/datasets/takamotoki/jra-horse-racing-dataset",
+"JRA日本中央競馬会 Horse Racing Dataset(Kaggle)",
+"Les données de courses utilisées dans ce cours"
+],
+[
+"https://www.jra.go.jp/kouza/baken/",
+"JRA : types de paris",
+"Explication officielle des paris (en japonais)"
+],
+[
+"https://www.jra.go.jp/news/other/20140303.html",
+"JRA : taux de retour par type de pari",
+"Annonce officielle des taux de retour (en japonais)"
+]
+],
+"slides": [
+{
+"kind": "title"
+},
+{
+"t": "Objectif du cours",
+"b": [
+"Trouver comment faire croître un capital virtuel avec les données",
+"Découper des données complexes avec un point de vue",
+"* Nous ne parions jamais (20 ans minimum au Japon)"
+]
+},
+{
+"t": "Les courses au Japon",
+"b": [
+"Courses centrales (JRA) et locales",
+"Centrales : 10 hippodromes",
+"Jusqu'à 18 chevaux par course"
+]
+},
+{
+"t": "Conditions de course",
+"b": [
+"Gazon et sable",
+"Distance : environ 1 000–3 600 m",
+"Piste : bon, légèrement lourd, lourd, très lourd"
+]
+},
+{
+"t": "Niveaux de course",
+"b": [
+"Débutants/sans victoire → 1 → 2 → 3 victoires",
+"Ouverte → G3 → G2 → G1",
+"Noms changés en 2019 (500万下 → classe 1 victoire…)"
+]
+},
+{
+"t": "Lire un programme",
+"b": [
+"Stalle et numéro, poids porté, jockey",
+"Poids du cheval, dernière course",
+"Quel cheval sera favori ?"
+],
+"tool": "card"
+},
+{
+"t": "Comment marchent les cotes",
+"b": [
+"Cote = part de l'argent parié par tous",
+"Plus d'argent → cote plus basse → favori",
+"Popularité = prédiction, pas force"
+],
+"tool": "odds"
+},
+{
+"t": "Paris et taux de retour",
+"b": [
+"Gagnant, placé : 80 %",
+"Couplé stalles, couplé, wide : 77,5 %",
+"Couplé ordre, trio : 75 % ; tiercé ordre : 72,5 %"
+],
+"big": "Parier sans réfléchir → moins de 80 %"
+},
+{
+"t": "Sur Kaggle",
+"b": [
+"JRA日本中央競馬会 Horse Racing Dataset",
+"1986 – juillet 2021, très grand",
+"Impossible de tout voir → où regarder ?"
+]
+},
+{
+"t": "Travail du jour",
+"b": [
+"Créer un compte Kaggle",
+"Lire la description et les noms de colonnes",
+"Noter 3 points de vue à étudier"
+]
+},
+{
+"t": "À retenir",
+"b": [
+"Conditions, niveaux et popularité s'entremêlent",
+"Les cotes sont la prédiction de tous",
+"Un point de vue peut-il franchir le mur des 80 % ?"
+]
+}
+]
+}

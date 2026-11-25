@@ -1,0 +1,278 @@
+{
+"title": "Dasar Pacuan Kuda dan Perkenalan dengan Data",
+"sub": "Menantang \"tembok 80%\" dengan ilmu data",
+"goal": [
+"Menjelaskan cara kerja pacuan kuda di Jepang, kondisi dan tingkat balapan",
+"Membaca daftar start dan menyebutkan informasi di dalamnya",
+"Menjelaskan odds, popularitas, dan tingkat pengembalian (tembok 80%)",
+"Menemukan dan menjelajahi data pacuan kuda di Kaggle"
+],
+"sec": [
+{
+"h": "Apa yang kita lakukan di kelas ini",
+"p": [
+"Selama 11 pertemuan, kita akan menganalisis data pacuan kuda. Tujuannya adalah memikirkan bagaimana menambah modal virtual secara konsisten dan dapat diulang.",
+"Pacuan kuda melibatkan banyak faktor: kuda, joki, jarak, cuaca, popularitas, dan lainnya. Tidak mungkin melihat semuanya sekaligus. Karena itu, sudut pandang — mau melihat ke mana — sangat penting.",
+"Dengan sudut pandang yang tepat, perbedaan yang jelas secara statistik bisa terlihat bahkan di data yang rumit. Melatih rasa itu adalah tujuan kelas ini.",
+"Semua uang bersifat virtual. Kita tidak benar-benar bertaruh. Di Jepang, hukum menetapkan bahwa tiket taruhan hanya boleh dibeli oleh orang berusia 20 tahun ke atas."
+]
+},
+{
+"h": "Cara kerja pacuan kuda di Jepang",
+"p": [
+"Jepang punya pacuan pusat yang diselenggarakan JRA (Japan Racing Association) dan pacuan daerah yang diselenggarakan pemerintah daerah. Data kita berasal dari pacuan pusat.",
+"Pacuan pusat diadakan di 10 arena: Sapporo, Hakodate, Fukushima, Niigata, Tokyo, Nakayama, Chukyo, Kyoto, Hanshin, dan Kokura.",
+"Balapan terutama diadakan hari Sabtu dan Minggu. Satu balapan diikuti paling banyak 18 kuda."
+]
+},
+{
+"h": "Kondisi balapan",
+"p": [
+"Lintasan ada dua jenis: rumput dan dirt (pasir). Ada kuda yang unggul di rumput, ada yang unggul di dirt.",
+"Jaraknya sekitar 1000m sampai 3600m. Ada kuda yang unggul di jarak pendek, ada yang di jarak jauh.",
+"Saat hujan membuat lintasan basah, cara berlari berubah. Ini disebut kondisi lintasan, dengan 4 tingkat: baik (良), agak berat (稍重), berat (重), dan buruk (不良).",
+"Setiap arena juga berbeda: putaran ke kanan atau kiri, panjang lintasan lurus terakhir, ada tanjakan atau tidak, dan sebagainya."
+]
+},
+{
+"h": "Tingkat balapan (kelas)",
+"p": [
+"Setiap kali menang, kuda naik kelas. Dimulai dari balapan debut (新馬戦) dan balapan untuk kuda yang belum pernah menang (未勝利戦), lalu kelas 1 kemenangan, 2 kemenangan, 3 kemenangan, dan kelas terbuka.",
+"Balapan paling bergengsi di kelas terbuka disebut graded stakes: G3, G2, dan G1, dari rendah ke tinggi. G1 antara lain Japanese Derby, Japan Cup, dan Arima Kinen.",
+"Semakin tinggi tingkatnya, semakin kuat kuda yang berkumpul. \"Apakah hasil mengejutkan berbeda menurut tingkat?\" adalah salah satu sudut pandang yang akan kita teliti.",
+"Nama kelas berubah pada 2019. Sebelumnya disebut 500万下, 1000万下, dan 1600万下, yang sama dengan kelas 1, 2, dan 3 kemenangan sekarang. Saat memakai data lama, nama-nama ini perlu diseragamkan."
+]
+},
+{
+"h": "Membaca daftar start",
+"p": [
+"Sebelum balapan, daftar start (出馬表) diumumkan. Isinya daftar kuda yang akan berlari.",
+"Isinya antara lain nomor gerbang (1–8) dan nomor kuda, nama kuda, jenis kelamin dan usia, beban (斤量, kg), joki, berat kuda dan perubahannya, hasil balapan terakhir, dan lainnya.",
+"Setiap gerbang punya warna. Dari gerbang 1: putih, hitam, merah, biru, kuning, hijau, oranye, merah muda."
+],
+"tool": [
+"card"
+]
+},
+{
+"h": "Odds dan popularitas",
+"p": [
+"Odds tidak ditentukan oleh penyelenggara, tetapi oleh porsi uang yang dipasang semua orang. Ini disebut sistem pari-mutuel.",
+"Semakin sedikit uang yang dipasang pada seekor kuda untuk menang, semakin tinggi odds-nya (kelipatan yang didapat jika menang).",
+"Namun tidak semua uang dikembalikan. Untuk taruhan menang, 80% untuk pembayaran dan 20% sisanya dipotong.",
+"Dari odds terendah disebut \"favorit 1, favorit 2…\". Popularitas adalah perkiraan banyak orang, bukan kekuatan itu sendiri. Di tempat perkiraan orang bias, ada peluang untuk analisis."
+],
+"tool": [
+"odds"
+]
+},
+{
+"h": "Jenis taruhan dan tingkat pengembalian",
+"p": [
+"Menang (単勝): menebak juara 1 (pengembalian 80%)",
+"Tempat (複勝): menebak kuda yang masuk 3 besar; 2 besar jika peserta 7 atau kurang (80%)",
+"Gerbang ganda (枠連): kombinasi gerbang juara 1 dan 2 (77,5%)",
+"Quinella (馬連): kombinasi kuda juara 1 dan 2, urutan bebas (77,5%)",
+"Wide (ワイド): dua kuda yang sama-sama masuk 3 besar (77,5%)",
+"Exacta (馬単): juara 1 dan 2 sesuai urutan (75%)",
+"Trio (3連複): tiga kuda 3 besar, urutan bebas (75%)",
+"Trifecta (3連単): tiga besar sesuai urutan (72,5%)",
+"Artinya, jika terus membeli tanpa berpikir, rata-rata uang akan menyusut ke 80% atau kurang. Inilah \"tembok 80%\" yang akan kita tantang."
+]
+},
+{
+"h": "Menemukan data pacuan kuda di Kaggle",
+"p": [
+"Kaggle adalah situs tempat ilmuwan data di seluruh dunia berbagi data dan beradu analisis.",
+"1. Buat akun Kaggle (gratis)",
+"2. Buka halaman \"JRA日本中央競馬会 Horse Racing Dataset\" (tautannya ada di bagian \"Ingin belajar lebih jauh?\" di bawah)",
+"3. Baca deskripsi data (Data Card) dan nama kolom, ditulis dalam bahasa Jepang dan Inggris",
+"4. Di tab \"Code\", lihat bagaimana orang lain menganalisisnya",
+"Datanya berisi hasil balapan, odds, dan lainnya dari 1986 sampai Juli 2021. Sangat besar, sehingga tidak bisa dibuka seluruhnya di Excel. Karena itulah kita perlu menentukan mau melihat ke mana.",
+"Unduh data dengan akunmu sendiri. Jangan membagikannya kepada orang lain atau menerbitkannya di internet."
+]
+}
+],
+"summary": [
+"Pacuan pusat diselenggarakan JRA di 10 arena, maksimal 18 kuda per balapan",
+"Kondisi: rumput/dirt, jarak, kondisi lintasan (baik, agak berat, berat, buruk), arena",
+"Tingkat: debut/belum menang → kelas 1, 2, 3 kemenangan → terbuka → G3, G2, G1",
+"Odds ditentukan porsi uang taruhan. Popularitas adalah perkiraan, bukan kekuatan",
+"Pengembalian taruhan menang dan tempat 80%. Membeli tanpa berpikir membuat rugi (tembok 80%)",
+"Data Kaggle sangat besar, jadi menentukan mau melihat ke mana itu penting"
+],
+"quiz": [
+{
+"q": "Ada berapa arena pacuan pusat (JRA)?",
+"o": [
+"5",
+"8",
+"10",
+"18"
+],
+"a": 2,
+"e": "Ada 10, dari Sapporo sampai Kokura."
+},
+{
+"q": "Kondisi lintasan mana yang paling basah?",
+"o": [
+"Baik (良)",
+"Agak berat (稍重)",
+"Berat (重)",
+"Buruk (不良)"
+],
+"a": 3,
+"e": "Dari baik ke buruk, lintasan makin basah."
+},
+{
+"q": "Tingkat mana yang paling tinggi?",
+"o": [
+"G1",
+"G2",
+"G3",
+"Terbuka"
+],
+"a": 0,
+"e": "Tingkatnya naik dari G3 ke G2 lalu G1."
+},
+{
+"q": "Apa yang menentukan odds?",
+"o": [
+"Ahli JRA",
+"Prestasi kuda sebelumnya",
+"Porsi uang yang dipasang semua orang",
+"Pemungutan suara popularitas joki"
+],
+"a": 2,
+"e": "Dalam sistem pari-mutuel, odds bergantung pada porsi uang taruhan."
+},
+{
+"q": "Berapa tingkat pengembalian taruhan menang?",
+"o": [
+"100%",
+"90%",
+"80%",
+"50%"
+],
+"a": 2,
+"e": "Menang dan tempat 80%. Sisanya dipotong, jadi membeli tanpa berpikir rata-rata rugi."
+},
+{
+"q": "Apa arti \"favorit 1\"?",
+"o": [
+"Kuda terkuat",
+"Kuda dengan odds terendah",
+"Kuda dengan catatan waktu tercepat",
+"Kuda termuda"
+],
+"a": 1,
+"e": "Popularitas bergantung pada banyaknya uang yang dipasang, bukan kekuatan."
+}
+],
+"next": "2 Desember (pertemuan 7): Garis dasar — berapa pengembaliannya jika membeli semua balapan?",
+"more": [
+[
+"https://www.kaggle.com/datasets/takamotoki/jra-horse-racing-dataset",
+"JRA日本中央競馬会 Horse Racing Dataset(Kaggle)",
+"Data pacuan kuda yang dipakai di kelas ini"
+],
+[
+"https://www.jra.go.jp/kouza/baken/",
+"JRA: Jenis tiket taruhan",
+"Penjelasan resmi jenis taruhan (bahasa Jepang)"
+],
+[
+"https://www.jra.go.jp/news/other/20140303.html",
+"JRA: Tingkat pengembalian per jenis",
+"Pengumuman resmi tingkat pengembalian (bahasa Jepang)"
+]
+],
+"slides": [
+{
+"kind": "title"
+},
+{
+"t": "Tujuan kelas",
+"b": [
+"Mencari cara menambah modal virtual dengan data",
+"Memotong data rumit dengan sudut pandang",
+"* Tidak bertaruh sungguhan (20 tahun ke atas di Jepang)"
+]
+},
+{
+"t": "Pacuan kuda di Jepang",
+"b": [
+"Pusat (JRA) dan daerah",
+"Pusat: 10 arena",
+"Maksimal 18 kuda per balapan"
+]
+},
+{
+"t": "Kondisi balapan",
+"b": [
+"Rumput dan dirt",
+"Jarak: sekitar 1000m–3600m",
+"Lintasan: baik, agak berat, berat, buruk"
+]
+},
+{
+"t": "Tingkat balapan",
+"b": [
+"Debut/belum menang → 1 → 2 → 3 kemenangan",
+"Terbuka → G3 → G2 → G1",
+"Nama berubah 2019 (500万下 → kelas 1 kemenangan, dll.)"
+]
+},
+{
+"t": "Membaca daftar start",
+"b": [
+"Gerbang dan nomor, beban, joki",
+"Berat kuda, balapan terakhir",
+"Kuda mana yang akan jadi favorit?"
+],
+"tool": "card"
+},
+{
+"t": "Cara kerja odds",
+"b": [
+"Odds = porsi uang yang dipasang semua orang",
+"Uang banyak → odds turun → populer",
+"Popularitas = perkiraan, bukan kekuatan"
+],
+"tool": "odds"
+},
+{
+"t": "Jenis taruhan dan pengembalian",
+"b": [
+"Menang, tempat: 80%",
+"Gerbang ganda, quinella, wide: 77,5%",
+"Exacta, trio: 75%; trifecta: 72,5%"
+],
+"big": "Membeli tanpa berpikir → uang di bawah 80%"
+},
+{
+"t": "Temukan di Kaggle",
+"b": [
+"JRA日本中央競馬会 Horse Racing Dataset",
+"1986 – Juli 2021, sangat besar",
+"Tidak bisa lihat semua → lihat ke mana?"
+]
+},
+{
+"t": "Tugas hari ini",
+"b": [
+"Buat akun Kaggle",
+"Baca deskripsi data dan nama kolom",
+"Tulis 3 sudut pandang yang ingin diteliti"
+]
+},
+{
+"t": "Rangkuman",
+"b": [
+"Kondisi, tingkat, popularitas saling terkait",
+"Odds adalah perkiraan semua orang",
+"Bisakah sudut pandang menembus tembok 80%?"
+]
+}
+]
+}

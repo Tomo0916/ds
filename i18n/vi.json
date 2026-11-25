@@ -1,0 +1,19 @@
+{
+"ui": {
+"dsTitle": "Phân tích đua ngựa bằng dữ liệu",
+"dsLead": "Tài liệu cho các buổi học thứ Tư của khoa Khoa học dữ liệu. Dùng dữ liệu đua ngựa để rèn khả năng nhìn dữ liệu phức tạp bằng một \"góc nhìn\". Tất cả tiền đều là ảo, không đặt cược thật."
+},
+"sessions": [
+"Kiến thức cơ bản về đua ngựa và làm quen với dữ liệu",
+"Đường cơ sở: mua tất cả thì tỷ lệ thu hồi là bao nhiêu?",
+"Cắt theo góc nhìn ①: hạng đua và mức ưa chuộng",
+"Cắt theo góc nhìn ②: nài ngựa, mùa, cự ly, mặt đường, khung",
+"Khác biệt thật?: số lượng và độ dao động",
+"Bẫy tìm quá nhiều và rò rỉ dữ liệu",
+"Xây dựng chiến lược",
+"Kiểm tra khả năng tái lập",
+"Mô phỏng quản lý vốn",
+"Chuẩn bị thuyết trình",
+"Thuyết trình"
+]
+}
