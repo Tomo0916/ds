@@ -1,0 +1,124 @@
+{
+ "tag": "Guide des certifications",
+ "title": "Guide des certifications en science des données",
+ "lead": "Une certification n'est pas un but : c'est une « carte de visite » qui montre ce que vous savez faire. Voici des certifications passables en anglais, ou en japonais avec une barrière linguistique faible : des gratuites à passer dès aujourd'hui jusqu'aux internationales utiles pour trouver un emploi.",
+ "findH": "Trouvez la vôtre en 3 questions",
+ "q1": "Dans quelle langue voulez-vous passer l'examen ?",
+ "q1en": "Disponible en anglais",
+ "q1ja": "En japonais",
+ "q2": "Quel est votre budget ?",
+ "q2free": "Gratuit uniquement",
+ "q2low": "Jusqu'à environ 10 000 ¥",
+ "q3": "Que voulez-vous montrer ?",
+ "q3ai": "IA et cloud",
+ "q3basics": "Bases de l'analyse de données",
+ "any": "Peu importe",
+ "count": "Résultats : {n} (cartes en couleur)",
+ "routeH": "Parcours conseillé",
+ "stepTitle": [
+  "Gratuit, dès aujourd'hui",
+  "Vrais examens à petit prix",
+  "Avancé (objectif après le diplôme)"
+ ],
+ "stepText": [
+  "Utilisez le SQL et le Python appris en cours et visez la réussite le jour même. À mettre sur votre CV et LinkedIn.",
+  "Examens officiels payants. Les réductions étudiantes ou liées aux formations gratuites réduisent le coût.",
+  "Certifications de haut niveau où l'expérience professionnelle aide. Visez-les après avoir commencé à travailler."
+ ],
+ "tipsH": "À vérifier avant l'examen",
+ "tips": [
+  "Les tarifs et contenus peuvent changer. Vérifiez toujours la page officielle avant de vous inscrire.",
+  "Inscrivez-vous avec le même nom que sur votre pièce d'identité (passeport, etc.).",
+  "Les examens en ligne exigent une caméra, un micro et une connexion stable. Certains interdisent toute autre personne dans la pièce.",
+  "Les réductions étudiantes peuvent demander une carte d'étudiant ou une adresse e-mail de l'école.",
+  "Après la réussite, gardez l'URL du certificat et ajoutez-la à votre CV, LinkedIn et portfolio."
+ ],
+ "retiredH": "Attention aux certifications arrêtées",
+ "retiredLead": "Les vieux articles et livres citent parfois des certifications qui n'existent plus.",
+ "retired": [
+  "AWS Certified Machine Learning – Specialty : dernier examen le 31 mars 2026",
+  "Microsoft Azure Data Scientist Associate (DP-100) : arrêtée en juin 2026. Remplacée par AI-300 (MLOps Engineer)",
+  "Microsoft Azure AI Fundamentals : l'examen AI-900 est remplacé par le nouvel AI-901"
+ ],
+ "checked": "Informations vérifiées en novembre 2026. Les prix peuvent varier selon la région.",
+ "langName": {
+  "en": "Anglais",
+  "ja": "Japonais",
+  "more": "autres langues aussi"
+ },
+ "costName": {
+  "free": "Gratuit",
+  "low": "Petit prix",
+  "mid": "Avancé / plus cher"
+ },
+ "typeCourse": "Cours + certificat",
+ "typeExam": "Examen",
+ "newTag": "Nouvel examen",
+ "dtWhat": "Ce que cela prouve",
+ "dtWho": "Pour qui",
+ "dtPrep": "Comment se préparer",
+ "official": "Page officielle",
+ "seeOfficial": "Voir la page officielle",
+ "c": {
+  "hr_sql": {
+   "what": "Votre capacité à écrire de vraies requêtes SQL. Trois niveaux : Basic, Intermediate, Advanced.",
+   "who": "Ceux qui résolvent les exercices de notre site SQL. La meilleure première certification.",
+   "prep": "Résolvez d'abord les exercices SQL de HackerRank. L'examen est chronométré : entraînez-vous avec un minuteur."
+  },
+  "hr_py": {
+   "what": "Votre capacité à écrire des programmes Python de base.",
+   "who": "Ceux qui connaissent les bases de Python (listes, fonctions, if).",
+   "prep": "Entraînez-vous sur les exercices Python de HackerRank en temps limité."
+  },
+  "fcc_db": {
+   "what": "Bases de SQL, des bases de données, de Bash et de Git. Obtenue avec 5 projets et un examen de 50 questions.",
+   "who": "Ceux qui veulent apprendre SQL en anglais, pas à pas, en réalisant des projets.",
+   "prep": "Suivez les leçons dans l'ordre, terminez les 5 projets, puis passez l'examen."
+  },
+  "fcc_py": {
+   "what": "Bases de Python. Obtenue avec des projets et un examen final.",
+   "who": "Ceux qui veulent apprendre Python gratuitement en réalisant des projets.",
+   "prep": "Suivez les leçons et projets, puis passez l'examen final."
+  },
+  "g_da": {
+   "what": "Tout le processus d'analyse de données, avec tableur, SQL, Tableau et Python.",
+   "who": "Ceux qui veulent apprendre l'analyse de données de façon complète avec des vidéos en anglais.",
+   "prep": "Environ 6 mois à 10 h par semaine. Demandez l'aide financière avant de commencer l'essai gratuit."
+  },
+  "py_intro": {
+   "what": "Connaissances d'initiation à Python. QCM : les connaissances comptent plus que le japonais.",
+   "who": "Débutants en Python qui veulent une certification japonaise.",
+   "prep": "Examen lancé en 2026. Vérifiez le calendrier sur la page officielle."
+  },
+  "py_basic": {
+   "what": "Grammaire de base de Python. La plupart des questions portent sur la lecture de code.",
+   "who": "Ceux qui veulent une certification japonaise pour montrer leur Python aux entreprises japonaises.",
+   "prep": "Étudiez le manuel officiel (le tutoriel Python) et les examens blancs. QCM ; réussite à 70 %."
+  },
+  "py_data": {
+   "what": "Bases de l'analyse de données avec NumPy, pandas, etc.",
+   "who": "Ceux qui veulent une certification japonaise en analyse de données après l'examen de base.",
+   "prep": "Manuel officiel et examens blancs. Le pandas vu en cours aide directement."
+  },
+  "dp900": {
+   "what": "Bases des données (bases relationnelles et non relationnelles, analyse) et du cloud Azure.",
+   "who": "Ceux qui veulent un premier examen international officiel en anglais.",
+   "prep": "Étudiez avec Microsoft Learn (gratuit). Une formation en ligne gratuite (Virtual Training Day) peut donner une réduction. Les étudiants peuvent aussi passer par Certiport."
+  },
+  "aws_aip": {
+   "what": "Bases de l'IA, du machine learning, de l'IA générative et des services IA d'AWS.",
+   "who": "Ceux qui veulent prouver leurs connaissances en IA avec une certification connue des entreprises japonaises.",
+   "prep": "Plan de préparation gratuit sur AWS Skill Builder. Disponible en anglais, japonais, etc."
+  },
+  "aws_mle": {
+   "what": "Construire des modèles de machine learning et les faire tourner en production.",
+   "who": "L'étape après AWS AI Practitioner — objectif après le diplôme.",
+   "prep": "Une nouvelle version (MLA-C02) arrive. Vérifiez la page officielle."
+  },
+  "gcp_mle": {
+   "what": "Concevoir, construire et exploiter des systèmes d'IA sur Google Cloud.",
+   "who": "Personnes ayant de l'expérience (3 ans ou plus recommandés).",
+   "prep": "Parcours officiel et questions d'exemple de Google Cloud."
+  }
+ }
+}

@@ -1,0 +1,124 @@
+{
+ "tag": "Hướng dẫn chứng chỉ",
+ "title": "Hướng dẫn chứng chỉ Khoa học dữ liệu",
+ "lead": "Chứng chỉ không phải là đích đến — đó là \"danh thiếp\" cho người khác biết bạn làm được gì. Đây là các chứng chỉ thi được bằng tiếng Anh, hoặc bằng tiếng Nhật nhưng rào cản ngôn ngữ thấp: từ loại miễn phí thi ngay hôm nay đến loại quốc tế giúp xin việc.",
+ "findH": "Tìm bằng 3 câu hỏi",
+ "q1": "Bạn muốn thi bằng ngôn ngữ nào?",
+ "q1en": "Thi được bằng tiếng Anh",
+ "q1ja": "Bằng tiếng Nhật",
+ "q2": "Ngân sách của bạn?",
+ "q2free": "Chỉ miễn phí",
+ "q2low": "Khoảng tối đa ¥10.000",
+ "q3": "Bạn muốn thể hiện điều gì?",
+ "q3ai": "AI & đám mây",
+ "q3basics": "Cơ bản về phân tích dữ liệu",
+ "any": "Không quan trọng",
+ "count": "Phù hợp: {n} (thẻ có màu)",
+ "routeH": "Lộ trình gợi ý",
+ "stepTitle": [
+  "Miễn phí, bắt đầu ngay",
+  "Kỳ thi chính thức giá rẻ",
+  "Nâng cao (mục tiêu sau tốt nghiệp)"
+ ],
+ "stepText": [
+  "Dùng SQL và Python đã học trên lớp, có thể đỗ ngay trong ngày. Ghi được vào CV và LinkedIn.",
+  "Kỳ thi chính thức có phí. Giảm giá cho sinh viên hoặc từ khóa học miễn phí giúp tiết kiệm.",
+  "Chứng chỉ khó, có kinh nghiệm làm việc sẽ có lợi. Hãy đặt mục tiêu sau khi đi làm."
+ ],
+ "tipsH": "Kiểm tra trước khi thi",
+ "tips": [
+  "Lệ phí và nội dung có thể thay đổi. Luôn kiểm tra trang chính thức trước khi đăng ký.",
+  "Đăng ký với tên viết giống giấy tờ tùy thân (ví dụ hộ chiếu).",
+  "Thi online cần camera, micro và mạng ổn định. Một số kỳ thi không cho người khác ở trong phòng.",
+  "Giảm giá sinh viên có thể cần thẻ sinh viên hoặc email của trường.",
+  "Khi đỗ, hãy lưu URL chứng chỉ và đưa vào CV, LinkedIn, portfolio."
+ ],
+ "retiredH": "Cẩn thận với chứng chỉ đã ngừng",
+ "retiredLead": "Bài viết và sách cũ đôi khi vẫn ghi những chứng chỉ không còn nữa.",
+ "retired": [
+  "AWS Certified Machine Learning – Specialty: ngày thi cuối là 31/3/2026",
+  "Microsoft Azure Data Scientist Associate (DP-100): ngừng vào tháng 6/2026. Thay thế: AI-300 (MLOps Engineer)",
+  "Microsoft Azure AI Fundamentals: kỳ thi đổi từ AI-900 sang AI-901 mới"
+ ],
+ "checked": "Thông tin được kiểm tra vào tháng 11/2026. Giá có thể khác theo khu vực.",
+ "langName": {
+  "en": "Tiếng Anh",
+  "ja": "Tiếng Nhật",
+  "more": "cả ngôn ngữ khác"
+ },
+ "costName": {
+  "free": "Miễn phí",
+  "low": "Giá rẻ",
+  "mid": "Nâng cao / đắt hơn"
+ },
+ "typeCourse": "Khóa học + chứng nhận",
+ "typeExam": "Kỳ thi",
+ "newTag": "Kỳ thi mới",
+ "dtWhat": "Chứng minh được gì",
+ "dtWho": "Phù hợp với",
+ "dtPrep": "Cách chuẩn bị",
+ "official": "Trang chính thức",
+ "seeOfficial": "Xem trang chính thức",
+ "c": {
+  "hr_sql": {
+   "what": "Khả năng viết câu truy vấn SQL thực tế. Ba cấp: Basic, Intermediate, Advanced.",
+   "who": "Người giải được bài trên trang luyện SQL của lớp. Phù hợp nhất để bắt đầu.",
+   "prep": "Giải bài luyện SQL trên HackerRank trước. Bài thi có giới hạn giờ nên hãy luyện có bấm giờ."
+  },
+  "hr_py": {
+   "what": "Khả năng viết chương trình Python cơ bản.",
+   "who": "Người biết Python cơ bản (list, hàm, if).",
+   "prep": "Luyện bài Python trên HackerRank trong thời gian giới hạn."
+  },
+  "fcc_db": {
+   "what": "Cơ bản về SQL, cơ sở dữ liệu, Bash và Git. Nhận được sau 5 dự án và bài thi 50 câu.",
+   "who": "Người muốn học SQL bằng tiếng Anh từng bước qua các dự án.",
+   "prep": "Học theo thứ tự, hoàn thành 5 dự án rồi thi."
+  },
+  "fcc_py": {
+   "what": "Cơ bản về Python. Nhận được sau các dự án và bài thi cuối.",
+   "who": "Người muốn học Python miễn phí qua các dự án.",
+   "prep": "Học bài và làm dự án, rồi thi cuối khóa."
+  },
+  "g_da": {
+   "what": "Toàn bộ quy trình phân tích dữ liệu với bảng tính, SQL, Tableau và Python.",
+   "who": "Người muốn học phân tích dữ liệu bài bản qua video tiếng Anh.",
+   "prep": "Khoảng 6 tháng nếu học 10 giờ/tuần. Hãy xin hỗ trợ tài chính (financial aid) trước khi bắt đầu dùng thử miễn phí."
+  },
+  "py_intro": {
+   "what": "Kiến thức nhập môn Python. Trắc nghiệm nên kiến thức quan trọng hơn tiếng Nhật.",
+   "who": "Người mới học Python muốn có chứng chỉ tiếng Nhật.",
+   "prep": "Kỳ thi mới bắt đầu năm 2026. Hãy xem lịch trên trang chính thức."
+  },
+  "py_basic": {
+   "what": "Ngữ pháp cơ bản của Python. Phần lớn câu hỏi là đọc code.",
+   "who": "Người muốn có chứng chỉ tiếng Nhật để chứng minh Python với công ty Nhật.",
+   "prep": "Học sách chính thức (Python Tutorial) và đề thi thử. Trắc nghiệm; đỗ khi đúng 70%."
+  },
+  "py_data": {
+   "what": "Kiến thức cơ bản về phân tích dữ liệu với NumPy, pandas...",
+   "who": "Người muốn chứng chỉ tiếng Nhật về phân tích dữ liệu sau kỳ thi cơ bản.",
+   "prep": "Sách chính thức và đề thi thử. pandas học trên lớp giúp ích trực tiếp."
+  },
+  "dp900": {
+   "what": "Cơ bản về dữ liệu (CSDL quan hệ, phi quan hệ, phân tích) và đám mây Azure.",
+   "who": "Người muốn kỳ thi quốc tế chính thức đầu tiên bằng tiếng Anh.",
+   "prep": "Học với Microsoft Learn (miễn phí). Khóa học online miễn phí (Virtual Training Day) có thể được giảm giá. Sinh viên cũng có thể đăng ký qua Certiport."
+  },
+  "aws_aip": {
+   "what": "Cơ bản về AI, học máy, AI tạo sinh và dịch vụ AI của AWS.",
+   "who": "Người muốn chứng minh kiến thức AI bằng chứng chỉ được công ty IT Nhật biết đến.",
+   "prep": "Dùng kế hoạch ôn thi miễn phí trên AWS Skill Builder. Thi được bằng tiếng Anh, tiếng Nhật..."
+  },
+  "aws_mle": {
+   "what": "Xây dựng mô hình học máy và vận hành trong môi trường thực.",
+   "who": "Bước tiếp theo sau AWS AI Practitioner — mục tiêu sau tốt nghiệp.",
+   "prep": "Phiên bản mới (MLA-C02) đang được áp dụng. Hãy xem trang chính thức."
+  },
+  "gcp_mle": {
+   "what": "Thiết kế, xây dựng và vận hành hệ thống AI trên Google Cloud.",
+   "who": "Người đã có kinh nghiệm làm việc (khuyến nghị từ 3 năm).",
+   "prep": "Lộ trình học chính thức và câu hỏi mẫu của Google Cloud."
+  }
+ }
+}

@@ -1,0 +1,124 @@
+{
+ "tag": "Certification guide",
+ "title": "Data Science Certification Guide",
+ "lead": "A certification is not a goal — it is a \"business card\" that shows others what you can do. Here are certifications you can take in English, or in Japanese with a low language barrier: from free ones you can take today to international ones that help you get a job.",
+ "findH": "Find yours with 3 questions",
+ "q1": "Which language do you want to take it in?",
+ "q1en": "Available in English",
+ "q1ja": "In Japanese",
+ "q2": "What is your budget?",
+ "q2free": "Free only",
+ "q2low": "Up to about ¥10,000",
+ "q3": "What do you want to show?",
+ "q3ai": "AI & cloud",
+ "q3basics": "Data analysis basics",
+ "any": "No preference",
+ "count": "Matches: {n} (highlighted cards)",
+ "routeH": "Recommended path",
+ "stepTitle": [
+  "Free, start today",
+  "Low-cost real exams",
+  "Advanced (goal after graduation)"
+ ],
+ "stepText": [
+  "Use the SQL and Python you learned in class and aim to pass the same day. You can put them on your CV and LinkedIn.",
+  "Official exams with a fee. Student discounts and free-training discounts can keep the cost low.",
+  "High-level certifications where work experience helps. Aim for them after you start working."
+ ],
+ "tipsH": "Check before you take an exam",
+ "tips": [
+  "Fees and exam contents can change. Always check the latest information on the official page before you register.",
+  "Register with the same name spelling as on your ID (e.g. your passport).",
+  "Online exams need a camera, a microphone and a stable internet connection. Some exams do not allow anyone else in the room.",
+  "Student discounts may require a student ID card or a school email address.",
+  "When you pass, save the certificate URL and add it to your CV, LinkedIn and portfolio."
+ ],
+ "retiredH": "Watch out for certifications that have ended",
+ "retiredLead": "Old articles and books may still list certifications that no longer exist.",
+ "retired": [
+  "AWS Certified Machine Learning – Specialty: last exam date was 31 March 2026",
+  "Microsoft Azure Data Scientist Associate (DP-100): ended June 2026. Successor: AI-300 (MLOps Engineer)",
+  "Microsoft Azure AI Fundamentals: the exam changed from AI-900 to the new AI-901"
+ ],
+ "checked": "Information checked in November 2026. Prices may include tax and may differ by region.",
+ "langName": {
+  "en": "English",
+  "ja": "Japanese",
+  "more": "other languages too"
+ },
+ "costName": {
+  "free": "Free",
+  "low": "Low cost",
+  "mid": "Advanced / higher cost"
+ },
+ "typeCourse": "Course + certificate",
+ "typeExam": "Exam",
+ "newTag": "New exam",
+ "dtWhat": "What it proves",
+ "dtWho": "Recommended for",
+ "dtPrep": "How to prepare",
+ "official": "Official page",
+ "seeOfficial": "See official page",
+ "c": {
+  "hr_sql": {
+   "what": "Your ability to actually write SQL queries. Three levels: Basic, Intermediate and Advanced.",
+   "who": "Anyone who can solve the problems on our SQL practice site. The best first certification.",
+   "prep": "Solve HackerRank's SQL practice problems first. The test is timed, so practise with a timer."
+  },
+  "hr_py": {
+   "what": "Your ability to write basic Python programs.",
+   "who": "Anyone who knows basic Python (lists, functions, if statements).",
+   "prep": "Practise HackerRank's Python problems within a time limit."
+  },
+  "fcc_db": {
+   "what": "Basics of SQL, databases, Bash and Git. You earn it with 5 projects and a 50-question exam.",
+   "who": "Anyone who wants to learn SQL in English step by step, by building projects.",
+   "prep": "Work through the lessons in order, finish the 5 projects, then take the exam."
+  },
+  "fcc_py": {
+   "what": "Python basics. You earn it with projects and a final exam.",
+   "who": "Anyone who wants to learn Python for free by building projects.",
+   "prep": "Follow the lessons and projects, then take the final exam."
+  },
+  "g_da": {
+   "what": "The whole data analysis process (ask, prepare, process, analyse, visualise, share), using spreadsheets, SQL, Tableau and Python.",
+   "who": "Anyone who wants to learn data analysis systematically from English videos.",
+   "prep": "About 6 months at 10 hours a week. Apply for financial aid before starting the free trial."
+  },
+  "py_intro": {
+   "what": "Introductory Python knowledge. Multiple choice, so knowledge matters more than Japanese.",
+   "who": "Python beginners who want a Japanese certification.",
+   "prep": "This exam started in 2026. Check the schedule and details on the official page."
+  },
+  "py_basic": {
+   "what": "Basic Python grammar. Most questions are about reading code.",
+   "who": "Anyone who wants a Japanese certification to show Python skills to Japanese companies.",
+   "prep": "Study the official textbook (the Python Tutorial) and practice exams. Multiple choice; pass with 70%."
+  },
+  "py_data": {
+   "what": "Basic data analysis knowledge with NumPy, pandas and more.",
+   "who": "Anyone who wants to show data analysis skills with a Japanese certification after the Python basic exam.",
+   "prep": "Study the official textbook and practice exams. The pandas you use in class helps directly."
+  },
+  "dp900": {
+   "what": "Data basics (relational and non-relational databases, analytics) and cloud (Azure) basics.",
+   "who": "Anyone who wants a first official international exam in English.",
+   "prep": "Study with free Microsoft Learn materials. Free online training (Virtual Training Day) can give an exam discount. Students can also register through Certiport."
+  },
+  "aws_aip": {
+   "what": "Basics of AI, machine learning and generative AI, and AWS AI services.",
+   "who": "Anyone who wants to show AI knowledge with a certification known by Japanese IT companies.",
+   "prep": "Use the free exam prep plan on AWS Skill Builder. Available in English, Japanese and more."
+  },
+  "aws_mle": {
+   "what": "Building machine learning models and running them in production.",
+   "who": "The next goal after AWS AI Practitioner — a goal after graduation.",
+   "prep": "A new version (MLA-C02) is being introduced. Check the latest information on the official page."
+  },
+  "gcp_mle": {
+   "what": "Designing, building and running AI systems on Google Cloud.",
+   "who": "People with work experience (3+ years recommended).",
+   "prep": "Use Google Cloud's official learning path and sample questions."
+  }
+ }
+}

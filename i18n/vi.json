@@ -4,7 +4,8 @@
   "dsLead": "Tài liệu cho các buổi học thứ Tư của khoa Khoa học dữ liệu. Dùng dữ liệu đua ngựa để rèn khả năng nhìn dữ liệu phức tạp bằng một \"góc nhìn\". Tất cả tiền đều là ảo, không đặt cược thật.",
   "practice": "Luyện dự đoán",
   "pr1": "Tokyo Sports Hai",
-  "pr2": "Mile Championship"
+  "pr2": "Mile Championship",
+  "certs": "Hướng dẫn chứng chỉ: nên nhắm đến cái nào?"
  },
  "sessions": [
   "Kiến thức cơ bản về đua ngựa và làm quen với dữ liệu",

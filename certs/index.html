@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>資格ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Bengali:wght@400;700&family=Noto+Sans+Sinhala:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css?v=20261126a">
+<style>
+.finder{display:grid;gap:14px}
+.fq{display:grid;gap:8px}
+.fq b{font-size:15px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg button{font:inherit;font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer}
+.seg button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.count{font-size:14px;color:var(--sub)}
+.steps{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.stp{border-radius:14px;padding:14px 16px;background:var(--card);border:1px solid var(--rule)}
+.stp .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700;margin-right:8px}
+.stp h3{margin:0 0 6px;font-size:17px;display:flex;align-items:center}
+.stp p{margin:0;font-size:14px;color:var(--sub)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.cc{border-radius:16px;padding:16px;background:var(--card);border:1px solid var(--rule);display:flex;flex-direction:column;gap:10px}
+.cc.dim{opacity:.35}
+.cc.hit{border-color:var(--acc);box-shadow:0 0 0 2px var(--accsoft)}
+.cc h3{margin:0;font-size:17px;line-height:1.35}
+.cc .org{font-size:13px;color:var(--sub);margin-top:-6px}
+.cc .chips{display:flex;flex-wrap:wrap;gap:6px}
+.cc .k{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--accsoft);color:var(--acctext);white-space:nowrap}
+.cc .k.g{background:light-dark(#e6e8eb,#2a2d31);color:var(--sub)}
+.cc .k.free{background:light-dark(#e3f5ea,#0f2a1c);color:var(--ok)}
+.cc dl{margin:0;display:grid;gap:6px;font-size:14px}
+.cc dt{font-size:12px;color:var(--sub);font-weight:700}
+.cc dd{margin:0}
+.cc .meta{font-size:13px;color:var(--sub);display:grid;gap:2px}
+.cc .go{margin-top:auto}
+.stepH{margin:26px 0 10px;display:flex;align-items:center;gap:10px}
+.stepH .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700}
+.retired li{margin:4px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><a class="home" id="home" href="../index.html">← <span data-t="toc"></span></a><label class="langsel"><span data-t="lang"></span><select id="lang"></select></label></div>
+ <main id="main"></main>
+ <footer data-t="footer"></footer>
+</div>
+<script src="../assets/core.js?v=20261126a"></script>
+<script src="data.js?v=20261126a"></script>
+<script>
+{
+const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, plain } = window.AI;
+const C = window.CERTS;
+let lang = detect(), L, u;
+const sel = { lang: "any", cost: "any", skill: "any" };
+const main = document.getElementById("main");
+
+function match(c) {
+  if (sel.lang === "en" && !c.langs.includes("en")) return false;
+  if (sel.lang === "ja" && !c.langs.includes("ja")) return false;
+  if (sel.cost === "free" && c.cost !== "free") return false;
+  if (sel.cost === "low" && c.cost === "mid") return false;
+  if (sel.skill !== "any" && !c.skills.includes(sel.skill)) return false;
+  return true;
+}
+const langChip = c => c.langs.map(l => `<span class="k g">${rb(L.langName[l])}</span>`).join("");
+function card(c) {
+  const T = L.c[c.id], on = match(c), any = sel.lang !== "any" || sel.cost !== "any" || sel.skill !== "any";
+  return `<article class="cc ${on ? (any ? "hit" : "") : "dim"}">
+    <h3>${esc(c.name)}</h3><div class="org">${esc(c.org)}</div>
+    <div class="chips"><span class="k ${c.cost === "free" ? "free" : ""}">${rb(L.costName[c.cost])}</span>${langChip(c)}<span class="k g">${rb(c.course ? L.typeCourse : L.typeExam)}</span>${c.isNew ? `<span class="k">${rb(L.newTag)}</span>` : ""}</div>
+    <div class="meta"><span>💴 ${esc(c.price === "—" ? plain(L.seeOfficial) : c.price)}</span><span>⏱ ${esc(c.fmt)}</span></div>
+    <dl><dt>${rb(L.dtWhat)}</dt><dd>${rb(T.what)}</dd><dt>${rb(L.dtWho)}</dt><dd>${rb(T.who)}</dd><dt>${rb(L.dtPrep)}</dt><dd>${rb(T.prep)}</dd></dl>
+    <a class="btn go" href="${c.url}" target="_blank" rel="noopener">${rb(L.official)} ↗</a>
+  </article>`;
+}
+function seg(key, opts) {
+  return `<div class="seg" data-k="${key}">${opts.map(([v, t]) => `<button type="button" data-v="${v}" class="${sel[key] === v ? "on" : ""}">${rb(t)}</button>`).join("")}</div>`;
+}
+function draw() {
+  const n = C.filter(match).length;
+  const list = [1, 2, 3].map(s => `<h2 class="stepH"><span class="n">${s}</span>${rb(L.stepTitle[s - 1])}</h2><div class="grid">${C.filter(c => c.step === s).map(card).join("")}</div>`).join("");
+  main.innerHTML = `<span class="tag">${rb(L.tag)}</span><h1>${rb(L.title)}</h1><p class="note" style="font-size:17px;margin-top:0">${rb(L.lead)}</p>
+  <section class="card"><h2>${rb(L.findH)}</h2><div class="finder">
+    <div class="fq"><b>Q1. ${rb(L.q1)}</b>${seg("lang", [["any", L.any], ["en", L.q1en], ["ja", L.q1ja]])}</div>
+    <div class="fq"><b>Q2. ${rb(L.q2)}</b>${seg("cost", [["any", L.any], ["free", L.q2free], ["low", L.q2low]])}</div>
+    <div class="fq"><b>Q3. ${rb(L.q3)}</b>${seg("skill", [["any", L.any], ["sql", "SQL"], ["python", "Python"], ["ai", L.q3ai], ["basics", L.q3basics]])}</div>
+    <div class="count">${rb(fill(L.count, { n }))}</div></div></section>
+  <section class="card"><h2>${rb(L.routeH)}</h2><div class="steps">${[0, 1, 2].map(i => `<div class="stp"><h3><span class="n">${i + 1}</span>${rb(L.stepTitle[i])}</h3><p>${rb(L.stepText[i])}</p></div>`).join("")}</div></section>
+  ${list}
+  <section class="card" style="margin-top:26px"><h2>${rb(L.tipsH)}</h2><ul>${L.tips.map(t => `<li>${rb(t)}</li>`).join("")}</ul></section>
+  <section class="card"><h2>${rb(L.retiredH)}</h2><p>${rb(L.retiredLead)}</p><ul class="retired">${L.retired.map(t => `<li>${rb(t)}</li>`).join("")}</ul></section>
+  <p class="note">${rb(L.checked)}</p>`;
+  main.querySelectorAll(".seg").forEach(s => s.querySelectorAll("button").forEach(b => b.onclick = () => { sel[s.dataset.k] = b.dataset.v; draw(); }));
+}
+async function render() {
+  const [U, D] = await loadAll(["../assets/i18n", "i18n"], lang);
+  u = U.ui; L = D;
+  apply(lang); fillText(u);
+  document.getElementById("home").href = `../index.html?lang=${lang}`;
+  document.title = plain(L.title);
+  draw();
+}
+langSelect(document.getElementById("lang"), lang, v => { lang = v; render(); });
+render();
+}
+</script>
+</body>
+</html>

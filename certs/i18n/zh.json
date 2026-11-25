@@ -1,0 +1,124 @@
+{
+ "tag": "资格指南",
+ "title": "数据科学资格指南",
+ "lead": "资格不是终点,而是向别人展示你能力的「名片」。这里汇集了可以用英语参加、或虽然是日语但语言门槛较低的资格:从今天就能免费参加的,到对求职有帮助的国际资格。",
+ "findH": "用3个问题来找",
+ "q1": "想用哪种语言参加?",
+ "q1en": "可用英语参加",
+ "q1ja": "想用日语",
+ "q2": "预算多少?",
+ "q2free": "只要免费的",
+ "q2low": "约1万日元以内",
+ "q3": "想展示什么?",
+ "q3ai": "AI・云",
+ "q3basics": "数据分析基础",
+ "any": "都可以",
+ "count": "符合条件:{n}个(有颜色的卡片)",
+ "routeH": "推荐路线",
+ "stepTitle": [
+  "免费,今天就开始",
+  "低价的正式考试",
+  "高级(毕业后的目标)"
+ ],
+ "stepText": [
+  "用课上学的SQL和Python,当天就能争取通过。可以写进简历和LinkedIn。",
+  "需要考试费的正式考试。利用学生折扣或免费课程的折扣可以减轻负担。",
+  "有工作经验更有利的高级资格。作为工作后的目标吧。"
+ ],
+ "tipsH": "考试前的确认",
+ "tips": [
+  "费用和考试内容可能会变。报名前一定要在官网确认最新信息。",
+  "报名时的姓名要和护照等身份证件的拼写一致。",
+  "在线考试需要摄像头、麦克风和稳定的网络。有的考试不允许房间里有其他人。",
+  "使用学生折扣时,可能需要学生证或学校邮箱。",
+  "通过后保存证书的URL,写进简历、LinkedIn和作品集。"
+ ],
+ "retiredH": "注意已经停止的资格",
+ "retiredLead": "旧文章和参考书里可能还写着已经停止的资格。",
+ "retired": [
+  "AWS Certified Machine Learning – Specialty:2026年3月31日停止考试",
+  "Microsoft Azure Data Scientist Associate(DP-100):2026年6月停止,后继为AI-300(MLOps Engineer)",
+  "Microsoft Azure AI Fundamentals:考试由AI-900改为新的AI-901"
+ ],
+ "checked": "信息于2026年11月确认。价格可能因地区而不同。",
+ "langName": {
+  "en": "英语",
+  "ja": "日语",
+  "more": "也有其他语言"
+ },
+ "costName": {
+  "free": "免费",
+  "low": "低价",
+  "mid": "高级・较贵"
+ },
+ "typeCourse": "课程+结业证书",
+ "typeExam": "考试",
+ "newTag": "新考试",
+ "dtWhat": "能证明什么",
+ "dtWho": "推荐给",
+ "dtPrep": "怎么准备",
+ "official": "官网",
+ "seeOfficial": "请看官网",
+ "c": {
+  "hr_sql": {
+   "what": "实际编写SQL查询的能力。分Basic、Intermediate、Advanced三个级别。",
+   "who": "能做出SQL练习网站题目的人。最推荐作为第一个资格。",
+   "prep": "先做HackerRank的SQL练习题。考试有时间限制,练习时要计时。"
+  },
+  "hr_py": {
+   "what": "编写Python基本程序的能力。",
+   "who": "懂Python基础(列表、函数、if)的人。",
+   "prep": "在HackerRank上限时练习Python题目。"
+  },
+  "fcc_db": {
+   "what": "SQL、数据库、Bash、Git的基础。完成5个项目并通过50题考试即可获得。",
+   "who": "想一边做项目一边用英语学SQL的人。",
+   "prep": "按顺序学习课程,完成5个项目后参加考试。"
+  },
+  "fcc_py": {
+   "what": "Python基础。完成项目并通过期末考试即可获得。",
+   "who": "想免费、一边做项目一边学Python的人。",
+   "prep": "学习课程、完成项目,最后参加考试。"
+  },
+  "g_da": {
+   "what": "数据分析的完整流程,使用表格、SQL、Tableau和Python。",
+   "who": "想通过英语视频系统学习数据分析的人。",
+   "prep": "每周10小时约需6个月。请在开始免费试用前申请经济资助(financial aid)。"
+  },
+  "py_intro": {
+   "what": "Python入门知识。选择题,知识比日语更重要。",
+   "who": "刚开始学Python、想要日语资格的人。",
+   "prep": "2026年刚开始的考试。请在官网确认时间。"
+  },
+  "py_basic": {
+   "what": "Python语法基础。题目以读代码为主。",
+   "who": "想用日语资格向日本公司展示Python能力的人。",
+   "prep": "用官方教材(Python教程)和模拟考试练习。选择题,70%正确即合格。"
+  },
+  "py_data": {
+   "what": "使用NumPy、pandas等进行数据分析的基础知识。",
+   "who": "在Python基础考试之后,想用日语资格证明数据分析能力的人。",
+   "prep": "用官方教材和模拟考试练习。课上学的pandas直接有用。"
+  },
+  "dp900": {
+   "what": "数据基础(关系型、非关系型数据库、分析)和Azure云基础。",
+   "who": "想参加第一个英语国际正式考试的人。",
+   "prep": "用Microsoft Learn免费教材学习。参加免费在线课程(Virtual Training Day)可能获得折扣。学生也可通过Certiport报名。"
+  },
+  "aws_aip": {
+   "what": "AI、机器学习、生成式AI的基础,以及AWS的AI服务。",
+   "who": "想用日本IT企业也熟悉的资格证明AI知识的人。",
+   "prep": "用AWS Skill Builder的免费备考计划。可用英语、日语、中文等参加。"
+  },
+  "aws_mle": {
+   "what": "构建机器学习模型并在生产环境运行的能力。",
+   "who": "AWS AI Practitioner之后的目标,毕业后的目标。",
+   "prep": "正在换成新版本(MLA-C02)。请在官网确认。"
+  },
+  "gcp_mle": {
+   "what": "在Google Cloud上设计、构建、运营AI系统的能力。",
+   "who": "有工作经验的人(建议3年以上)。",
+   "prep": "使用Google Cloud官方学习路径和样题。"
+  }
+ }
+}

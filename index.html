@@ -27,6 +27,7 @@
  <div class="top"><span class="home" data-t="dsTitle"></span><label class="langsel"><span data-t="lang"></span><select id="lang"></select></label></div>
  <h1 data-t="dsTitle"></h1>
  <p data-t="dsLead"></p>
+ <p><a class="btn primary" id="certlink" href="certs/index.html">🎓 <span id="certtxt"></span></a></p>
  <ol class="route" id="route"></ol>
  <footer data-t="footer"></footer>
 </div>
@@ -41,6 +42,7 @@ let lang = detect();
 async function render() {
   const [U, D] = await loadAll(["assets/i18n", "i18n"], lang);
   apply(lang); fillText(U.ui); fillText(D.ui); document.title = AI.plain(D.ui.dsTitle);
+  document.getElementById("certtxt").innerHTML = rb(D.ui.certs); document.getElementById("certlink").href = `certs/index.html?lang=${lang}`;
   const items = [];
   SCHEDULE.forEach((s, j) => {
     if (s.breakBefore) items.push(`<li class="brk"><span class="dot"></span><div class="st">${rb(U.ui.winterBreak)}</div></li>`);

@@ -1,0 +1,124 @@
+{
+ "tag": "Panduan sertifikasi",
+ "title": "Panduan Sertifikasi Sains Data",
+ "lead": "Sertifikasi bukan tujuan akhir — ia adalah \"kartu nama\" yang menunjukkan kemampuanmu. Berikut sertifikasi yang bisa diambil dalam bahasa Inggris, atau dalam bahasa Jepang dengan hambatan bahasa yang rendah: dari yang gratis dan bisa diambil hari ini sampai yang internasional dan berguna untuk mencari kerja.",
+ "findH": "Temukan dengan 3 pertanyaan",
+ "q1": "Ingin ujian dalam bahasa apa?",
+ "q1en": "Tersedia dalam bahasa Inggris",
+ "q1ja": "Dalam bahasa Jepang",
+ "q2": "Berapa anggaranmu?",
+ "q2free": "Gratis saja",
+ "q2low": "Sampai sekitar ¥10.000",
+ "q3": "Apa yang ingin kamu tunjukkan?",
+ "q3ai": "AI & cloud",
+ "q3basics": "Dasar analisis data",
+ "any": "Bebas",
+ "count": "Cocok: {n} (kartu berwarna)",
+ "routeH": "Urutan yang disarankan",
+ "stepTitle": [
+  "Gratis, mulai hari ini",
+  "Ujian resmi berbiaya rendah",
+  "Lanjutan (target setelah lulus)"
+ ],
+ "stepText": [
+  "Gunakan SQL dan Python dari kelas dan targetkan lulus di hari yang sama. Bisa ditulis di CV dan LinkedIn.",
+  "Ujian resmi berbayar. Diskon pelajar atau diskon dari pelatihan gratis bisa memperkecil biaya.",
+  "Sertifikasi tingkat tinggi yang terbantu oleh pengalaman kerja. Targetkan setelah mulai bekerja."
+ ],
+ "tipsH": "Cek sebelum ujian",
+ "tips": [
+  "Biaya dan isi ujian bisa berubah. Selalu cek halaman resmi sebelum mendaftar.",
+  "Daftarkan nama dengan ejaan yang sama dengan identitasmu (misalnya paspor).",
+  "Ujian online butuh kamera, mikrofon, dan internet yang stabil. Beberapa ujian melarang orang lain berada di ruangan.",
+  "Diskon pelajar mungkin perlu kartu pelajar atau email sekolah.",
+  "Setelah lulus, simpan URL sertifikat dan cantumkan di CV, LinkedIn, dan portofolio."
+ ],
+ "retiredH": "Hati-hati dengan sertifikasi yang sudah berakhir",
+ "retiredLead": "Artikel dan buku lama kadang masih mencantumkan sertifikasi yang sudah tidak ada.",
+ "retired": [
+  "AWS Certified Machine Learning – Specialty: ujian terakhir 31 Maret 2026",
+  "Microsoft Azure Data Scientist Associate (DP-100): berakhir Juni 2026. Penggantinya AI-300 (MLOps Engineer)",
+  "Microsoft Azure AI Fundamentals: ujian berubah dari AI-900 ke AI-901 yang baru"
+ ],
+ "checked": "Informasi dicek pada November 2026. Harga bisa berbeda per wilayah.",
+ "langName": {
+  "en": "Inggris",
+  "ja": "Jepang",
+  "more": "bahasa lain juga"
+ },
+ "costName": {
+  "free": "Gratis",
+  "low": "Murah",
+  "mid": "Lanjutan / lebih mahal"
+ },
+ "typeCourse": "Kursus + sertifikat",
+ "typeExam": "Ujian",
+ "newTag": "Ujian baru",
+ "dtWhat": "Yang dibuktikan",
+ "dtWho": "Cocok untuk",
+ "dtPrep": "Cara persiapan",
+ "official": "Halaman resmi",
+ "seeOfficial": "Lihat halaman resmi",
+ "c": {
+  "hr_sql": {
+   "what": "Kemampuan menulis query SQL sungguhan. Tiga level: Basic, Intermediate, Advanced.",
+   "who": "Yang bisa menyelesaikan soal di situs latihan SQL kita. Paling disarankan sebagai yang pertama.",
+   "prep": "Kerjakan soal latihan SQL di HackerRank dulu. Ujiannya berwaktu, jadi latihan dengan timer."
+  },
+  "hr_py": {
+   "what": "Kemampuan menulis program Python dasar.",
+   "who": "Yang memahami dasar Python (list, fungsi, if).",
+   "prep": "Latih soal Python di HackerRank dengan batas waktu."
+  },
+  "fcc_db": {
+   "what": "Dasar SQL, basis data, Bash, dan Git. Didapat dengan 5 proyek dan ujian 50 soal.",
+   "who": "Yang ingin belajar SQL dalam bahasa Inggris sambil membuat proyek.",
+   "prep": "Ikuti pelajaran berurutan, selesaikan 5 proyek, lalu ikuti ujian."
+  },
+  "fcc_py": {
+   "what": "Dasar Python. Didapat dengan proyek dan ujian akhir.",
+   "who": "Yang ingin belajar Python gratis sambil membuat proyek.",
+   "prep": "Ikuti pelajaran dan proyek, lalu ikuti ujian akhir."
+  },
+  "g_da": {
+   "what": "Seluruh proses analisis data dengan spreadsheet, SQL, Tableau, dan Python.",
+   "who": "Yang ingin belajar analisis data secara sistematis lewat video berbahasa Inggris.",
+   "prep": "Sekitar 6 bulan dengan 10 jam per minggu. Ajukan bantuan biaya (financial aid) sebelum memulai uji coba gratis."
+  },
+  "py_intro": {
+   "what": "Pengetahuan dasar Python. Pilihan ganda, jadi pengetahuan lebih penting daripada bahasa Jepang.",
+   "who": "Pemula Python yang ingin sertifikasi berbahasa Jepang.",
+   "prep": "Ujian ini baru dimulai tahun 2026. Cek jadwalnya di halaman resmi."
+  },
+  "py_basic": {
+   "what": "Tata bahasa dasar Python. Kebanyakan soal adalah membaca kode.",
+   "who": "Yang ingin sertifikasi Jepang untuk menunjukkan kemampuan Python ke perusahaan Jepang.",
+   "prep": "Pelajari buku resmi (Python Tutorial) dan ujian latihan. Pilihan ganda; lulus dengan 70%."
+  },
+  "py_data": {
+   "what": "Dasar analisis data dengan NumPy, pandas, dan lainnya.",
+   "who": "Yang ingin sertifikasi analisis data berbahasa Jepang setelah ujian dasar.",
+   "prep": "Buku resmi dan ujian latihan. pandas dari kelas sangat membantu."
+  },
+  "dp900": {
+   "what": "Dasar data (basis data relasional dan non-relasional, analitik) dan cloud Azure.",
+   "who": "Yang ingin ujian internasional resmi pertama dalam bahasa Inggris.",
+   "prep": "Belajar dengan Microsoft Learn (gratis). Pelatihan online gratis (Virtual Training Day) bisa memberi diskon ujian. Pelajar juga bisa mendaftar lewat Certiport."
+  },
+  "aws_aip": {
+   "what": "Dasar AI, machine learning, AI generatif, dan layanan AI di AWS.",
+   "who": "Yang ingin menunjukkan pengetahuan AI dengan sertifikasi yang dikenal perusahaan IT Jepang.",
+   "prep": "Gunakan rencana persiapan gratis di AWS Skill Builder. Tersedia dalam bahasa Inggris, Jepang, dll."
+  },
+  "aws_mle": {
+   "what": "Membangun model machine learning dan menjalankannya di produksi.",
+   "who": "Langkah setelah AWS AI Practitioner — target setelah lulus.",
+   "prep": "Versi baru (MLA-C02) sedang diperkenalkan. Cek halaman resmi."
+  },
+  "gcp_mle": {
+   "what": "Merancang, membangun, dan menjalankan sistem AI di Google Cloud.",
+   "who": "Yang sudah berpengalaman kerja (disarankan 3 tahun atau lebih).",
+   "prep": "Jalur belajar resmi dan contoh soal dari Google Cloud."
+  }
+ }
+}
