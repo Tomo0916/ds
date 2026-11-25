@@ -2,7 +2,9 @@
  "ui": {
   "dsTitle": "Horse Racing Analytics with Data",
   "dsLead": "Materials for the Data Science Department's Wednesday classes. Using horse racing data, we build the skill of cutting complex data with a clear point of view. All money is virtual; we never actually bet.",
-  "practice": "Practice prediction"
+  "practice": "Practice prediction",
+  "pr1": "Tokyo Sports Hai",
+  "pr2": "Mile Championship"
  },
  "sessions": [
   "Horse racing basics and meeting the data",

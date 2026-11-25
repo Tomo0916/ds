@@ -2,7 +2,9 @@
  "ui": {
   "dsTitle": "Analisis Pacuan Kuda dengan Data",
   "dsLead": "Materi kelas Rabu Jurusan Ilmu Data. Dengan data pacuan kuda, kita melatih kemampuan memotong data yang rumit dengan sebuah sudut pandang. Semua uang bersifat virtual; kita tidak pernah benar-benar bertaruh.",
-  "practice": "Latihan prediksi"
+  "practice": "Latihan prediksi",
+  "pr1": "Tokyo Sports Hai",
+  "pr2": "Mile Championship"
  },
  "sessions": [
   "Dasar pacuan kuda dan perkenalan dengan data",

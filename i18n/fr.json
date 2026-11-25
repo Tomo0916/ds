@@ -2,7 +2,9 @@
  "ui": {
   "dsTitle": "Analyser les courses hippiques avec les données",
   "dsLead": "Supports des cours du mercredi du département Data Science. Avec des données de courses hippiques, nous apprenons à découper des données complexes avec un point de vue. Tout l'argent est virtuel : nous ne parions jamais pour de vrai.",
-  "practice": "Pronostic d'entraînement"
+  "practice": "Pronostic d'entraînement",
+  "pr1": "Tokyo Sports Hai",
+  "pr2": "Mile Championship"
  },
  "sessions": [
   "Bases des courses et première rencontre avec les données",

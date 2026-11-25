@@ -92,7 +92,7 @@ const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, plain } = w
 const R = window.RACE, H = R.horses;
 let lang = detect();
 const main = document.getElementById("main");
-const KEY = "ds-tosupo2026-bets";
+const KEY = "ds-" + location.pathname.split("/").filter(Boolean).slice(-1)[0] + "-bets";
 let bets = [];
 try { bets = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { bets = []; }
 const save = () => { try { localStorage.setItem(KEY, JSON.stringify(bets)); } catch (e) {} };
@@ -101,9 +101,10 @@ const yen = n => "¥" + Math.round(n).toLocaleString("en-US");
 
 /* ---- probability model (Harville) from win odds: only an estimate ---- */
 const raw = H.map(h => 0.8 / h[8]), tot = raw.reduce((a, b) => a + b, 0);
-const p = raw.map(x => x / tot); // index 0..11 = horse no 1..12
+const p = raw.map(x => x / tot); // index = horse no - 1
 const P3 = []; // ordered top-3 probabilities
-for (let i = 0; i < 12; i++) for (let j = 0; j < 12; j++) if (j !== i) for (let k = 0; k < 12; k++) if (k !== i && k !== j)
+const NH = H.length;
+for (let i = 0; i < NH; i++) for (let j = 0; j < NH; j++) if (j !== i) for (let k = 0; k < NH; k++) if (k !== i && k !== j)
   P3.push([i, j, k, p[i] * p[j] / (1 - p[i]) * p[k] / (1 - p[i] - p[j])]);
 const frameOf = n => H[n - 1][0];
 const TYPES = {
@@ -165,17 +166,19 @@ async function render() {
   const latin = !["ja", "easy"].includes(lang);
   const last = h => {
     const r = h[5], k = r.k === "nw" ? L.nw : r.k === "mw" ? L.mw : r.k;
-    return `${r.d} ${rb(L.courses[r.c])} ${rb(L.turf)}${r.dist}m ${rb(k)} · ${rb(fill(L.fin, { n: h[6] }))} (${rb(fill(L.popn, { n: h[7] }))})`;
+    const place = r.c === null || r.c === undefined ? "" : typeof r.c === "number" ? rb(L.courses[r.c]) + " " : rb((L.abroad || {})[r.c] || r.c) + " ";
+    const dist = r.dist ? `${rb(L.turf)}${r.dist}m ` : "";
+    return `${r.d ? r.d + " " : ""}${place}${dist}${rb(k)} · ${rb(fill(L.fin, { n: h[6] }))}${h[7] ? ` (${rb(fill(L.popn, { n: h[7] }))})` : ""}`;
   };
-  const dchg = h => { const d = R.dist - h[5].dist; return d === 0 ? `<span class="chip g">${rb(L.same)}</span>` : `<span class="chip">${d > 0 ? "+" : ""}${d}m</span>`; };
-  const rows = H.map((h, i) => `<tr><td><span class="waku" style="background:${["#ffffff", "#222222", "#e53935", "#1e5bd8", "#f2c200", "#2e9d3a", "#f57c00", "#ec6fa8"][h[0] - 1]};color:${["#111", "#fff", "#fff", "#fff", "#111", "#fff", "#fff", "#111"][h[0] - 1]}">${h[0]}</span></td><td class="num">${h[1]}</td><td class="hn">${esc(h[2])}</td><td style="white-space:nowrap">${esc(latin ? h[4] : h[3])}</td><td class="last">${last(h)}</td><td>${dchg(h)}</td><td class="num"><b>${h[8].toFixed(1)}</b></td><td class="num" style="white-space:nowrap">${plTxt(h[1])}</td><td class="num">${h[9]}</td><td class="num"><span class="pbar" style="width:${Math.round(80 / h[8] * 1.6)}px"></span>${(80 / h[8]).toFixed(1)}%</td></tr>`).join("");
+  const dchg = h => { if (!h[5].dist) return `<span class="note">—</span>`; const d = R.dist - h[5].dist; return d === 0 ? `<span class="chip g">${rb(L.same)}</span>` : `<span class="chip">${d > 0 ? "+" : ""}${d}m</span>`; };
+  const rows = H.map((h, i) => `<tr><td><span class="waku" style="background:${["#ffffff", "#222222", "#e53935", "#1e5bd8", "#f2c200", "#2e9d3a", "#f57c00", "#ec6fa8"][h[0] - 1]};color:${["#111", "#fff", "#fff", "#fff", "#111", "#fff", "#fff", "#111"][h[0] - 1]}">${h[0]}</span></td><td class="num">${h[1]}</td><td class="hn">${esc(h[2])}</td><td style="white-space:nowrap">${esc(latin ? h[4] : h[3])}</td>${R.showKin ? `<td class="num">${h[10].toFixed(1)}</td>` : ""}<td class="last">${last(h)}</td><td>${dchg(h)}</td><td class="num"><b>${h[8].toFixed(1)}</b></td><td class="num" style="white-space:nowrap">${plTxt(h[1])}</td><td class="num">${h[9]}</td><td class="num"><span class="pbar" style="width:${Math.round(80 / h[8] * 1.6)}px"></span>${(80 / h[8]).toFixed(1)}%</td></tr>`).join("");
   const byPop = [...H].sort((a, b) => a[9] - b[9]);
   const why = byPop.map(h => `<div class="w"><span class="chip">${rb(fill(L.popn, { n: h[9] }))}</span><div><b>${h[1]} ${esc(h[2])}</b> <span class="note">${h[8].toFixed(1)}</span><p>${rb(L.reasons[h[1] - 1])}</p></div></div>`).join("");
     main.innerHTML = `<span class="tag">${rb(L.tag)}</span>
     <h1>${rb(L.title)}</h1><p class="note" style="font-size:18px;margin-top:0">${rb(L.sub)}</p>
     <div class="goalbox"><h3>${rb(L.howH)}</h3><ol class="goal">${L.how.map(x => `<li>${rb(x)}</li>`).join("")}</ol></div>
     <section class="card"><h2>${rb(L.raceH)}</h2><ul>${L.race.map(x => `<li>${rb(x)}</li>`).join("")}</ul><p>${rb(L.course)}</p></section>
-    <section class="card"><h2>${rb(L.cardH)}</h2><div class="scroll"><table class="rtab"><thead><tr><th>${rb(u.cardW)}</th><th>${rb(u.cardN)}</th><th>${rb(u.cardName)}</th><th>${rb(u.cardJockey)}</th><th>${rb(L.colLast)}</th><th>${rb(L.colDist)}</th><th>${rb(L.colOdds)}</th><th>${rb(L.colPlace)}</th><th>${rb(L.colPop)}</th><th>${rb(L.colProb)}</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <section class="card"><h2>${rb(L.cardH)}</h2><div class="scroll"><table class="rtab"><thead><tr><th>${rb(u.cardW)}</th><th>${rb(u.cardN)}</th><th>${rb(u.cardName)}</th><th>${rb(u.cardJockey)}</th>${R.showKin ? `<th>${rb(u.cardKin)}</th>` : ""}<th>${rb(L.colLast)}</th><th>${rb(L.colDist)}</th><th>${rb(L.colOdds)}</th><th>${rb(L.colPlace)}</th><th>${rb(L.colPop)}</th><th>${rb(L.colProb)}</th></tr></thead><tbody>${rows}</tbody></table></div>
       <p class="note">${rb(L.cardNote)}</p></section>
     <section class="card"><h2>${rb(L.whyH)}</h2><p>${rb(L.whyLead)}</p><div class="why">${why}</div></section>
     <section class="card"><h2>${rb(L.hintH)}</h2><ul>${L.hints.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section>

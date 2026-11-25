@@ -34,7 +34,7 @@
 <script src="assets/schedule.js?v=20261125c"></script>
 <script>
 const DS_READY = { "06": "01" };
-const PRACTICE = { "06": "practice/tosupo2026/index.html" };
+const PRACTICE = { "06": [["practice/tosupo2026/index.html", "pr1"], ["practice/milecs2026/index.html", "pr2"]] };
 {
 const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, locale } = window.AI;
 let lang = detect();
@@ -46,7 +46,7 @@ async function render() {
     if (s.breakBefore) items.push(`<li class="brk"><span class="dot"></span><div class="st">${rb(U.ui.winterBreak)}</div></li>`);
     const open = DS_READY[s.id];
     const d = fmtDate(s.date, locale(lang));
-    const acts = open ? `<div class="acts"><a class="btn primary" href="lessons/${DS_READY[s.id]}/index.html?lang=${lang}">${rb(U.ui.read)}</a><a class="btn" href="lessons/${DS_READY[s.id]}/slides.html?lang=${lang}">${rb(U.ui.slides)}</a>${PRACTICE[s.id] ? `<a class="btn" href="${PRACTICE[s.id]}?lang=${lang}">🏇 ${rb(D.ui.practice)}</a>` : ""}</div>` : `<div class="d">${rb(U.ui.soon)}</div>`;
+    const acts = open ? `<div class="acts"><a class="btn primary" href="lessons/${DS_READY[s.id]}/index.html?lang=${lang}">${rb(U.ui.read)}</a><a class="btn" href="lessons/${DS_READY[s.id]}/slides.html?lang=${lang}">${rb(U.ui.slides)}</a>${(PRACTICE[s.id] || []).map(([href, k]) => `<a class="btn" href="${href}?lang=${lang}">🏇 ${rb(D.ui.practice)}: ${rb(D.ui[k])}</a>`).join("")}</div>` : `<div class="d">${rb(U.ui.soon)}</div>`;
     items.push(`<li class="${open ? "open" : ""}"><span class="dot">${s.n}</span><div class="st"><div class="d">${rb(fill(U.ui.cls, { k: s.n }))} · ${esc(d)}</div><div class="t">${rb(D.sessions[j])}</div>${acts}</div></li>`);
   });
   document.getElementById("route").innerHTML = items.join("");
