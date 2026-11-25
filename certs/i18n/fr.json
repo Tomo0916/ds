@@ -161,5 +161,28 @@
   "ai": "IA"
  },
  "mapH": "Parcours par domaine",
- "mapLead": "Domaines en colonnes, étapes en lignes. Touchez un nom pour voir le détail."
+ "mapLead": "Domaines en colonnes, étapes en lignes. Touchez un nom pour voir le détail.",
+ "valH": "Les badges gratuits servent-ils vraiment ? L'avis des recruteurs",
+ "valLead": "Nous avons rassemblé l'avis de recruteurs et d'apprenants du monde entier sur les badges gratuits comme ceux de HackerRank. Connaissez le bon et le moins bon, et utilisez-les intelligemment.",
+ "goodH": "Ce qui aide",
+ "good": [
+  "C'est gratuit, et en cas de réussite vous obtenez un certificat à mettre sur LinkedIn et votre CV.",
+  "Quand une offre demande « SQL » ou « Python », un badge est une preuve vérifiée par un tiers. C'est un plus, surtout pour les jeunes diplômés et les débutants.",
+  "Beaucoup d'entreprises utilisent HackerRank pour leurs propres tests de recrutement. S'entraîner ici vous habitue au vrai test."
+ ],
+ "badH": "Attention",
+ "bad": [
+  "Beaucoup de recruteurs en data disent regarder peu les certificats : ils veulent voir de vraies compétences.",
+  "Certains disent durement qu'un badge n'est « qu'une décoration sur le profil ».",
+  "Un badge ne permet presque jamais de sauter un entretien ou un test. Beaucoup bloquent quand ils doivent coder devant quelqu'un.",
+  "Il y a peu de questions, et certains réussissent en apprenant les réponses par cœur. Un badge seul peut donc ne pas convaincre.",
+  "Au Japon, beaucoup de gens ne connaissent pas encore ce badge."
+ ],
+ "doH": "Alors, utilisez-le ainsi",
+ "do": [
+  "Le badge n'est pas un but, c'est un premier pas. Après la réussite, passez au niveau suivant ou à un vrai examen.",
+  "N'apprenez pas les réponses par cœur : apprenez à résoudre vous-même. En entretien, on vous demandera comment vous avez réfléchi.",
+  "Montrez avec le badge un projet où vous avez analysé des données en SQL (portfolio). « Badge + projet + explication » est un trio fort.",
+  "Pour une entreprise japonaise, expliquez en une phrase ce que prouve le badge (ex. : « J'ai réussi un test de 2 problèmes SQL en 30 minutes »)."
+ ]
 }

@@ -6,7 +6,7 @@
 <title>資格ガイド</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Bengali:wght@400;700&family=Noto+Sans+Sinhala:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=20261126b">
+<link rel="stylesheet" href="../assets/style.css?v=20261126c">
 <style>
 .finder{display:grid;gap:14px}
 .fq{display:grid;gap:8px}
@@ -48,6 +48,9 @@
 .mtx a{display:block;margin:0 0 6px;color:var(--ink);text-decoration:none;border-left:3px solid var(--acc);padding-left:6px;line-height:1.35}
 .mtx a.off{opacity:.35}
 .cc{scroll-margin-top:16px}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:10px}
+.vbox{border-radius:12px;padding:12px 14px;border:1px solid #e3e7ee}.vbox h3{margin:0 0 6px;font-size:1rem}.vbox ul{margin:0;padding-left:1.2em}.vbox li{margin:.35em 0;line-height:1.6}
+.v-good{background:#effaf3;border-color:#bfe6cc}.v-bad{background:#fff7ea;border-color:#f3d9a6}.v-do{background:#eef4ff;border-color:#c4d6fb}
 </style>
 </head>
 <body>
@@ -56,8 +59,8 @@
  <main id="main"></main>
  <footer data-t="footer"></footer>
 </div>
-<script src="../assets/core.js?v=20261126b"></script>
-<script src="data.js?v=20261126b"></script>
+<script src="../assets/core.js?v=20261126c"></script>
+<script src="data.js?v=20261126c"></script>
 <script>
 {
 const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, plain } = window.AI;
@@ -101,6 +104,7 @@ function draw() {
     <div class="count">${rb(fill(L.count, { n }))}</div></div></section>
   <section class="card"><h2>${rb(L.routeH)}</h2><div class="steps">${[0, 1, 2].map(i => `<div class="stp"><h3><span class="n">${i + 1}</span>${rb(L.stepTitle[i])}</h3><p>${rb(L.stepText[i])}</p></div>`).join("")}</div></section>
   <section class="card"><h2>${rb(L.mapH)}</h2><p class="note" style="margin-top:0">${rb(L.mapLead)}</p><div class="scroll"><table class="mtx"><thead><tr><th></th>${FIELDS.map(f => `<th>${FICON[f]} ${rb(L.fields[f])}</th>`).join("")}</tr></thead><tbody>${[1, 2, 3].map(st => `<tr><th><span class="n">${st}</span></th>${FIELDS.map(f => `<td>${C.filter(c => c.step === st && c.field === f).map(c => `<a href="#c-${c.id}" class="${match(c) ? "" : "off"}">${esc(c.name.replace(/ \(.*\)$/, ""))}</a>`).join("") || "—"}</td>`).join("")}</tr>`).join("")}</tbody></table></div></section>
+  <section class="card val"><h2>${rb(L.valH)}</h2><p class="note" style="margin-top:0">${rb(L.valLead)}</p><div class="vgrid">${[["good","👍"],["bad","⚠️"],["do","✅"]].map(([k,ic]) => `<div class="vbox v-${k}"><h3>${ic} ${rb(L[k+"H"])}</h3><ul>${L[k].map(t => `<li>${rb(t)}</li>`).join("")}</ul></div>`).join("")}</div></section>
   ${list}
   <section class="card" style="margin-top:26px"><h2>${rb(L.tipsH)}</h2><ul>${L.tips.map(t => `<li>${rb(t)}</li>`).join("")}</ul></section>
   <section class="card"><h2>${rb(L.retiredH)}</h2><p>${rb(L.retiredLead)}</p><ul class="retired">${L.retired.map(t => `<li>${rb(t)}</li>`).join("")}</ul></section>

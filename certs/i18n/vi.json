@@ -161,5 +161,28 @@
   "ai": "AI"
  },
  "mapH": "Lộ trình theo lĩnh vực",
- "mapLead": "Lĩnh vực theo hàng ngang, bước theo hàng dọc. Bấm vào tên để xem chi tiết."
+ "mapLead": "Lĩnh vực theo hàng ngang, bước theo hàng dọc. Bấm vào tên để xem chi tiết.",
+ "valH": "Huy hiệu miễn phí có thật sự hữu ích? Ý kiến của nhà tuyển dụng",
+ "valLead": "Chúng tôi tổng hợp ý kiến của nhà tuyển dụng và người học trên thế giới về huy hiệu miễn phí như của HackerRank. Hãy biết cả mặt tốt lẫn mặt chưa tốt để dùng cho khéo.",
+ "goodH": "Điểm hữu ích",
+ "good": [
+  "Miễn phí, và khi đỗ bạn nhận chứng chỉ có thể đưa lên LinkedIn và CV.",
+  "Khi tin tuyển dụng ghi \"SQL\" hay \"Python\", huy hiệu là bằng chứng do bên thứ ba kiểm tra. Đặc biệt có lợi cho sinh viên mới ra trường và người mới.",
+  "Nhiều công ty dùng HackerRank cho chính bài thi tuyển dụng. Luyện ở đây giúp bạn quen với bài thi thật."
+ ],
+ "badH": "Điểm cần chú ý",
+ "bad": [
+  "Nhiều nhà tuyển dụng ngành dữ liệu nói họ ít xem chứng chỉ — họ muốn thấy kỹ năng thật.",
+  "Có ý kiến gay gắt rằng huy hiệu \"chỉ là đồ trang trí trên hồ sơ\".",
+  "Có huy hiệu hầu như không giúp bỏ qua phỏng vấn hay bài kiểm tra. Nhiều người bị đứng hình khi phải viết code trước mặt người khác.",
+  "Số câu hỏi ít, có người đỗ nhờ học thuộc đáp án. Vì vậy chỉ huy hiệu thôi có thể chưa đủ thuyết phục.",
+  "Ở Nhật, vẫn còn nhiều người chưa biết huy hiệu này."
+ ],
+ "doH": "Vậy hãy dùng như sau",
+ "do": [
+  "Huy hiệu không phải là đích, mà là bước đầu tiên. Đỗ rồi hãy tiến lên cấp tiếp theo hoặc kỳ thi chính thức.",
+  "Đừng học thuộc đáp án; hãy tự suy nghĩ để giải được. Khi phỏng vấn, bạn sẽ được hỏi đã suy nghĩ thế nào khi viết câu SQL.",
+  "Hãy cho xem sản phẩm phân tích dữ liệu bằng SQL (portfolio) cùng với huy hiệu. \"Huy hiệu + sản phẩm + giải thích được\" là bộ ba mạnh.",
+  "Khi ứng tuyển công ty Nhật, hãy giải thích một câu huy hiệu chứng minh điều gì (vd: \"Tôi đã đỗ bài thi giải 2 câu SQL trong 30 phút\")."
+ ]
 }

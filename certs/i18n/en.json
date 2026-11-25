@@ -161,5 +161,28 @@
   "ai": "AI"
  },
  "mapH": "Path by field",
- "mapLead": "Fields across, steps down. Tap a name to jump to its details."
+ "mapLead": "Fields across, steps down. Tap a name to jump to its details.",
+ "valH": "Do free badges really help? What hiring people say",
+ "valLead": "We collected opinions from recruiters and other learners around the world about free badges like HackerRank's. Know the good and the bad, and use them wisely.",
+ "goodH": "Where they help",
+ "good": [
+  "They are free, and when you pass you get a certificate you can put on LinkedIn and your CV.",
+  "When a job ad asks for \"SQL\" or \"Python\", a badge is evidence checked by a third party. It is a plus, especially for new graduates and beginners.",
+  "Many companies use HackerRank for their own hiring tests. Practising here gets you used to the real test."
+ ],
+ "badH": "Be careful",
+ "bad": [
+  "Many data recruiters say they don't look at certificates much — they want to see real skills.",
+  "Some people say harshly that a badge is \"just decoration on your profile\".",
+  "A badge almost never lets you skip interviews or tests. Many people freeze when they have to write code in front of someone.",
+  "There are few questions, and some people pass by memorising answers. So a badge alone may not convince people of your real skill.",
+  "In Japan, many people still don't know this badge."
+ ],
+ "doH": "So, use it like this",
+ "do": [
+  "A badge is not the goal — it is your first step. After passing, move on to the next level or a full exam.",
+  "Don't memorise answers; learn to solve problems yourself. In interviews you will be asked how you thought when you wrote the SQL.",
+  "Show a project where you analysed data with SQL (a portfolio) together with the badge. \"Badge + project + explaining\" is a strong set.",
+  "When you apply to Japanese companies, explain in one sentence what the badge proves (e.g. \"I passed a test solving 2 SQL problems in 30 minutes\")."
+ ]
 }

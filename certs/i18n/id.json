@@ -161,5 +161,28 @@
   "ai": "AI"
  },
  "mapH": "Jalur per bidang",
- "mapLead": "Bidang ke samping, langkah ke bawah. Ketuk nama untuk melihat detailnya."
+ "mapLead": "Bidang ke samping, langkah ke bawah. Ketuk nama untuk melihat detailnya.",
+ "valH": "Apakah lencana gratis benar-benar membantu? Kata para perekrut",
+ "valLead": "Kami mengumpulkan pendapat perekrut dan pelajar dari seluruh dunia tentang lencana gratis seperti HackerRank. Ketahui sisi baik dan buruknya, lalu gunakan dengan bijak.",
+ "goodH": "Yang membantu",
+ "good": [
+  "Gratis, dan jika lulus kamu mendapat sertifikat yang bisa ditaruh di LinkedIn dan CV.",
+  "Jika lowongan meminta \"SQL\" atau \"Python\", lencana adalah bukti yang dicek pihak ketiga. Ini nilai plus, terutama untuk lulusan baru dan pemula.",
+  "Banyak perusahaan memakai HackerRank untuk tes rekrutmen mereka. Berlatih di sini membuatmu terbiasa dengan tes sungguhan."
+ ],
+ "badH": "Hati-hati",
+ "bad": [
+  "Banyak perekrut bidang data bilang mereka jarang melihat sertifikat — mereka ingin melihat kemampuan nyata.",
+  "Ada yang berkata keras bahwa lencana \"hanya hiasan di profil\".",
+  "Lencana hampir tidak pernah membuatmu bisa melewati wawancara atau tes. Banyak orang membeku saat harus menulis kode di depan orang lain.",
+  "Jumlah soalnya sedikit, dan ada yang lulus dengan menghafal jawaban. Jadi lencana saja mungkin tidak meyakinkan.",
+  "Di Jepang, masih banyak orang yang belum mengenal lencana ini."
+ ],
+ "doH": "Jadi, gunakan seperti ini",
+ "do": [
+  "Lencana bukan tujuan — itu langkah pertama. Setelah lulus, lanjut ke level berikutnya atau ujian resmi.",
+  "Jangan hafalkan jawaban; belajarlah menyelesaikan sendiri. Saat wawancara kamu akan ditanya bagaimana cara berpikirmu saat menulis SQL.",
+  "Tunjukkan proyek analisis data dengan SQL (portofolio) bersama lencana. \"Lencana + proyek + bisa menjelaskan\" adalah paket yang kuat.",
+  "Saat melamar ke perusahaan Jepang, jelaskan dalam satu kalimat apa yang dibuktikan lencana (mis. \"Saya lulus tes menyelesaikan 2 soal SQL dalam 30 menit\")."
+ ]
 }
