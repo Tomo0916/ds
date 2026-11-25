@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>データサイエンス 第1回</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Bengali:wght@400;700&family=Noto+Sans+Sinhala:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><a class="home" id="home" href="../../index.html">← <span data-t="toc"></span></a><label class="langsel"><span data-t="lang"></span><select id="lang"></select></label></div>
+ <main id="main"></main>
+ <footer data-t="footer"></footer>
+</div>
+<script src="../../assets/core.js"></script>
+<script src="../../assets/schedule.js"></script>
+<script src="../../assets/tools.js"></script>
+<script>
+{
+const ID = "06";
+const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, locale, plain } = window.AI;
+let lang = detect();
+const main = document.getElementById("main");
+async function render() {
+  const [U, L] = await loadAll(["../../assets/i18n", "i18n"], lang);
+  const u = U.ui;
+  apply(lang); fillText(u);
+  document.getElementById("home").href = `../../index.html?lang=${lang}`;
+  const s = SCHEDULE.find(x => x.id === ID);
+  document.title = plain(fill(u.cls, { k: s.n }) + " " + L.title);
+  const li = a => a.map(x => `<li>${rb(x)}</li>`).join("");
+  const secs = L.sec.map(x => `<section class="card"><h2>${rb(x.h)}</h2>${x.p.map(p => `<p>${rb(p)}</p>`).join("")}${(x.tool || []).map(t => `<div data-tool="${t}"></div>`).join("")}</section>`).join("");
+  const quiz = L.quiz.map((q, i) => `<div class="q" data-i="${i}"><p>${i + 1}. ${rb(q.q)}</p><div class="opts">${q.o.map((o, j) => `<label><input type="radio" name="q${i}" value="${j}"><span>${rb(o)}</span></label>`).join("")}</div><p class="err" hidden>${rb(u.quizNeed)}</p><div class="fb" hidden></div></div>`).join("");
+  main.innerHTML = `<span class="tag">${rb(fill(u.cls, { k: s.n }))} · ${esc(fmtDate(s.date, locale(lang)))}</span>
+    <h1>${rb(L.title)}</h1><p class="note" style="font-size:18px;margin-top:0">${rb(L.sub)}</p>
+    <div class="goalbox"><h3>${rb(u.goalH)}</h3><ul class="goal">${li(L.goal)}</ul></div>
+    <p><a class="btn" href="slides.html?lang=${lang}">${rb(u.openSlides)}</a></p>
+    ${secs}
+    <section class="card"><h2>${rb(u.sumH)}</h2><ul class="sum">${li(L.summary)}</ul></section>
+    <section class="card" id="quiz"><h2>${rb(u.quizTitle)}</h2>${quiz}<p class="err" id="qerr" hidden>${rb(u.quizNeedAll)}</p><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" id="check">${rb(u.quizCheck)}</button><button class="btn" id="retry" hidden>${rb(u.quizRetry)}</button></div><p class="score" id="score" hidden></p></section>
+    <section class="card"><h2>${rb(u.nextH)}</h2><p>${rb(L.next)}</p></section>
+    <section class="card"><h2>${rb(u.moreH)}</h2><ul>${L.more.map(m => `<li><a href="${esc(m[0])}" target="_blank" rel="noopener">${esc(m[1])}</a> — ${rb(m[2])}</li>`).join("")}</ul><p class="note">${rb(u.enNote)}</p></section>`;
+  Tools.mount(main, u);
+  const qs = [...main.querySelectorAll(".q")];
+  qs.forEach(q => q.querySelectorAll("input").forEach(r => r.addEventListener("change", () => { q.querySelector(".err").hidden = true; document.getElementById("qerr").hidden = true; })));
+  document.getElementById("check").onclick = () => {
+    let missing = false, score = 0;
+    qs.forEach(q => { const c = q.querySelector("input:checked"); q.querySelector(".err").hidden = !!c; if (!c) missing = true; });
+    if (missing) { document.getElementById("qerr").hidden = false; return; }
+    qs.forEach((q, i) => {
+      const a = L.quiz[i], c = +q.querySelector("input:checked").value, ok = c === a.a;
+      if (ok) score++;
+      const fb = q.querySelector(".fb"); fb.hidden = false; fb.className = "fb " + (ok ? "ok" : "ng");
+      fb.innerHTML = `<b>${rb(ok ? u.quizRight : u.quizWrong)}</b> ${ok ? "" : rb(fill(u.quizAns, { a: a.o[a.a] })) + " "}${rb(a.e)}`;
+      q.querySelectorAll("input").forEach(r => r.disabled = true);
+    });
+    const sc = document.getElementById("score"); sc.hidden = false; sc.innerHTML = rb(fill(u.quizScore, { s: score, t: qs.length }));
+    document.getElementById("check").hidden = true; document.getElementById("retry").hidden = false;
+  };
+  document.getElementById("retry").onclick = () => {
+    qs.forEach(q => { q.querySelectorAll("input").forEach(r => { r.disabled = false; r.checked = false; }); q.querySelector(".fb").hidden = true; });
+    document.getElementById("score").hidden = true; document.getElementById("check").hidden = false; document.getElementById("retry").hidden = true;
+  };
+}
+langSelect(document.getElementById("lang"), lang, v => { lang = v; render(); });
+render();
+}
+</script>
+</body>
+</html>

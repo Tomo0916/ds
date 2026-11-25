@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>データサイエンス 第1回</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Bengali:wght@400;700&family=Noto+Sans+Sinhala:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+html,body{height:100%}
+body{display:flex;flex-direction:column;overflow:hidden}
+.bar{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 14px;flex-wrap:wrap}
+.bar .grp{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bar .count{font-variant-numeric:tabular-nums;color:var(--sub);font-size:15px;min-width:4em;text-align:center}
+.viewport{flex:1;position:relative;overflow:hidden}
+.stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:0 0;background:var(--card);border-radius:18px;padding:56px 72px;display:flex;flex-direction:column;overflow:hidden}
+.stage h2{font-size:54px;line-height:1.15;margin:0 0 28px}
+.stage ul{font-size:34px;line-height:1.5;margin:0;padding-left:1.1em}
+.stage li{margin:6px 0}
+.stage.title{justify-content:center;background:var(--ink);color:var(--bg)}
+.stage.title h2{font-size:84px}
+.stage.title p{font-size:36px;margin:0;opacity:.85}
+.stage.title .k{font-size:26px;color:var(--acc);font-weight:700;margin-bottom:18px}
+.stage.title rt{color:inherit;opacity:.7}
+.twocol{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr);gap:36px;flex:1;min-height:0}
+.twocol ul{font-size:30px}
+.toolbox{overflow:auto;min-height:0}
+.toolbox .tool{margin:0;font-size:18px}
+.toolbox .tool h3{font-size:22px}
+.big{font-size:44px;font-weight:700;color:var(--acc);margin-top:18px}
+.pip{height:6px;background:var(--rule);border-radius:3px;margin:0 14px 10px;overflow:hidden}
+.pip i{display:block;height:100%;background:var(--acc);width:0}
+</style>
+</head>
+<body>
+<div class="bar">
+ <div class="grp"><a class="btn" id="home" href="index.html">← <span data-t="openRead"></span></a></div>
+ <div class="grp"><button class="btn" id="prev" aria-label="prev">←</button><span class="count" id="count"></span><button class="btn" id="next" aria-label="next">→</button></div>
+ <label class="langsel"><span data-t="lang"></span><select id="lang"></select></label>
+</div>
+<div class="pip"><i id="pip"></i></div>
+<div class="viewport" id="vp"><div class="stage" id="stage"></div></div>
+<script src="../../assets/core.js"></script>
+<script src="../../assets/schedule.js"></script>
+<script src="../../assets/tools.js"></script>
+<script>
+{
+const ID = "06";
+const { rb, fill, detect, loadAll, langSelect, apply, fillText, locale, plain, esc } = window.AI;
+let lang = detect(), U, L, i = 0;
+const stage = document.getElementById("stage"), vp = document.getElementById("vp");
+try { const h = parseInt(location.hash.slice(1), 10); if (h > 0) i = h - 1; } catch (e) {}
+function fit() {
+  const s = Math.min(vp.clientWidth / 1280, vp.clientHeight / 720) * 0.96;
+  stage.style.transform = `scale(${s}) translate(-50%,-50%)`;
+  stage.style.transformOrigin = "0 0";
+  stage.style.left = "50%"; stage.style.top = "50%";
+  stage.style.transform = `translate(-50%,-50%) scale(${s})`;
+  stage.style.transformOrigin = "50% 50%";
+}
+function show() {
+  const u = U.ui, S = L.slides, x = S[i], sch = SCHEDULE.find(z => z.id === ID);
+  const li = a => `<ul>${a.map(b => `<li>${rb(b)}</li>`).join("")}</ul>`;
+  stage.className = "stage" + (x.kind === "title" ? " title" : "");
+  if (x.kind === "title") {
+    stage.innerHTML = `<div class="k">${rb(fill(u.cls, { k: sch.n }))} · ${esc(fmtDate(sch.date, locale(lang)))}</div><h2>${rb(L.title)}</h2><p>${rb(L.sub)}</p>`;
+  } else if (x.tool) {
+    stage.innerHTML = `<h2>${rb(x.t)}</h2><div class="twocol"><div>${li(x.b || [])}</div><div class="toolbox"><div data-tool="${x.tool}"></div></div></div>`;
+    Tools.mount(stage, u);
+  } else {
+    stage.innerHTML = `<h2>${rb(x.t)}</h2>${li(x.b || [])}${x.big ? `<div class="big">${rb(x.big)}</div>` : ""}`;
+  }
+  document.getElementById("count").textContent = `${i + 1} / ${S.length}`;
+  document.getElementById("pip").style.width = ((i + 1) / S.length * 100) + "%";
+  document.getElementById("prev").disabled = i === 0;
+  document.getElementById("next").disabled = i === S.length - 1;
+  try { history.replaceState(null, "", location.pathname + location.search + "#" + (i + 1)); } catch (e) {}
+}
+const go = d => { const n = i + d; if (!L || n < 0 || n >= L.slides.length) return; i = n; show(); };
+async function render() {
+  [U, L] = await loadAll(["../../assets/i18n", "i18n"], lang);
+  apply(lang); fillText(U.ui);
+  document.title = plain(L.title);
+  document.getElementById("home").href = `index.html?lang=${lang}`;
+  i = Math.min(i, L.slides.length - 1);
+  show(); fit();
+}
+document.getElementById("prev").onclick = () => go(-1);
+document.getElementById("next").onclick = () => go(1);
+document.addEventListener("keydown", e => {
+  if (e.target.closest("input,select,textarea")) return;
+  if (e.key === "ArrowRight" || e.key === "PageDown") { e.preventDefault(); go(1); }
+  if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); go(-1); }
+});
+let sx = null;
+vp.addEventListener("touchstart", e => { if (e.target.closest(".toolbox")) return; sx = e.touches[0].clientX; }, { passive: true });
+vp.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 60) go(dx < 0 ? 1 : -1); sx = null; });
+const ro = new ResizeObserver(fit); ro.observe(vp);
+langSelect(document.getElementById("lang"), lang, v => { lang = v; render(); });
+render();
+}
+</script>
+</body>
+</html>

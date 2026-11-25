@@ -1,0 +1,278 @@
+{
+"title": "Horse Racing Basics and Meeting the Data",
+"sub": "Taking on the \"80% wall\" with data science",
+"goal": [
+"Explain how horse racing in Japan works, and race conditions and grades",
+"Read a race card and say what information it contains",
+"Explain how odds and popularity work, and the payout rate (the 80% wall)",
+"Find the horse racing data on Kaggle and explore it"
+],
+"sec": [
+{
+"h": "What we will do in this course",
+"p": [
+"Over 11 classes, we will analyze horse racing data. The goal is to think about how to grow virtual money in a reproducible way.",
+"Horse racing mixes many factors: horses, jockeys, distance, weather, popularity and more. You cannot look at everything at once. That is why a point of view — where to look — matters.",
+"With the right point of view, you can find clear, statistically meaningful differences even in complex data. Building that feeling is the aim of this course.",
+"All money is virtual. We never actually bet. In Japan, the law says you must be 20 or older to buy betting tickets."
+]
+},
+{
+"h": "How horse racing works in Japan",
+"p": [
+"Japan has central racing, run by the JRA (Japan Racing Association), and local racing, run by local governments and others. Our data is from central racing.",
+"Central racing takes place at 10 racecourses: Sapporo, Hakodate, Fukushima, Niigata, Tokyo, Nakayama, Chukyo, Kyoto, Hanshin and Kokura.",
+"Races are mainly held on Saturdays and Sundays. Up to 18 horses can run in one race."
+]
+},
+{
+"h": "Race conditions",
+"p": [
+"Courses are either turf (grass) or dirt (sand). Some horses are good on turf, others on dirt.",
+"Distances range from about 1000m to 3600m. Some horses are good at short distances, others at long ones.",
+"When rain makes the course wet, running changes. This is called track condition, in four levels: good (良), slightly heavy (稍重), heavy (重) and bad (不良).",
+"Racecourses also differ: right- or left-handed, the length of the final straight, whether there is a hill, and so on."
+]
+},
+{
+"h": "Race grades (classes)",
+"p": [
+"Each time a horse wins, it moves up a class. It starts with newcomer races (新馬戦) and maiden races (未勝利戦), then 1-win class, 2-win class, 3-win class, and open class.",
+"The highest open races are graded stakes: G3, G2 and G1, in rising order. G1 races include the Japanese Derby, the Japan Cup and the Arima Kinen.",
+"Higher grades gather stronger horses. Whether results are more upset-prone by grade is one of the viewpoints we will investigate.",
+"Class names changed in 2019. Before that, they were called 500万下, 1000万下 and 1600万下, which match today's 1-win, 2-win and 3-win classes. When using older data, you need to align the names."
+]
+},
+{
+"h": "Reading a race card",
+"p": [
+"Before a race, a race card (出馬表) is published. It lists the horses that will run.",
+"It shows the bracket number (1–8) and horse number, the horse's name, sex and age, the weight carried (斤量, in kg), the jockey, body weight and its change from last time, last race result and more.",
+"Each bracket has a color. From bracket 1: white, black, red, blue, yellow, green, orange, pink."
+],
+"tool": [
+"card"
+]
+},
+{
+"h": "How odds and popularity work",
+"p": [
+"Odds are not decided by the organizer. They are decided by the share of money everyone bets. This is called the pari-mutuel system.",
+"The less money bet on a horse to win, the higher its odds — what you get back if it wins.",
+"But not all the money is paid back. For win bets, 80% goes to payouts and the other 20% is deducted.",
+"Horses are called favorite #1, #2… from the lowest odds. Popularity is many people's prediction, not strength itself. Where people's predictions are biased, there is a chance for analysis."
+],
+"tool": [
+"odds"
+]
+},
+{
+"h": "Bet types and payout rates",
+"p": [
+"Win (単勝): pick the winner (payout rate 80%)",
+"Place (複勝): pick a horse that finishes in the top 3; top 2 if 7 or fewer horses run (80%)",
+"Bracket quinella (枠連): the brackets of 1st and 2nd (77.5%)",
+"Quinella (馬連): the horses that finish 1st and 2nd, in any order (77.5%)",
+"Wide (ワイド): two horses that both finish in the top 3 (77.5%)",
+"Exacta (馬単): 1st and 2nd in exact order (75%)",
+"Trio (3連複): the top 3 horses in any order (75%)",
+"Trifecta (3連単): the top 3 in exact order (72.5%)",
+"So if you keep betting without thinking, on average your money shrinks to 80% or less. This is the \"80% wall\" we will take on in this course."
+]
+},
+{
+"h": "Finding the horse racing data on Kaggle",
+"p": [
+"Kaggle is a website where data scientists around the world share data and compete in analysis.",
+"1. Create a Kaggle account (free)",
+"2. Open the \"JRA日本中央競馬会 Horse Racing Dataset\" page (the link is under \"Want to learn more?\" below)",
+"3. Read the data description (Data Card) and the column names. They are written in Japanese and English",
+"4. In the \"Code\" tab, look at how other people have analyzed the data",
+"The data covers race results, odds, lap times and more from 1986 to July 2021. It is very large — too large to open fully in Excel. That is exactly why you need to decide where to look.",
+"Download the data with your own account. Do not give it to others or publish it on the internet."
+]
+}
+],
+"summary": [
+"Central racing is run by the JRA at 10 racecourses, with up to 18 horses per race",
+"Race conditions: turf or dirt, distance, track condition (good, slightly heavy, heavy, bad), racecourse",
+"Grades: newcomer/maiden → 1-, 2-, 3-win class → open → G3, G2, G1",
+"Odds are decided by the share of money bet. Popularity is a prediction, not strength",
+"Win and place payout rate is 80%. Betting without thinking loses money (the 80% wall)",
+"The Kaggle data is large, so deciding where to look is key"
+],
+"quiz": [
+{
+"q": "How many central racing (JRA) racecourses are there?",
+"o": [
+"5",
+"8",
+"10",
+"18"
+],
+"a": 2,
+"e": "There are 10: Sapporo, Hakodate, Fukushima, Niigata, Tokyo, Nakayama, Chukyo, Kyoto, Hanshin and Kokura."
+},
+{
+"q": "Which track condition is the wettest?",
+"o": [
+"Good (良)",
+"Slightly heavy (稍重)",
+"Heavy (重)",
+"Bad (不良)"
+],
+"a": 3,
+"e": "From good to slightly heavy to heavy to bad, the course gets wetter."
+},
+{
+"q": "Which is the highest grade?",
+"o": [
+"G1",
+"G2",
+"G3",
+"Open"
+],
+"a": 0,
+"e": "The grade rises from G3 to G2 to G1."
+},
+{
+"q": "What decides horse racing odds?",
+"o": [
+"JRA experts",
+"The horse's past results",
+"The share of money everyone bets",
+"A jockey popularity vote"
+],
+"a": 2,
+"e": "In the pari-mutuel system, odds depend on the share of money bet."
+},
+{
+"q": "What is the payout rate for win bets?",
+"o": [
+"100%",
+"90%",
+"80%",
+"50%"
+],
+"a": 2,
+"e": "Win and place are 80%. The rest is deducted, so betting without thinking loses money on average."
+},
+{
+"q": "What does \"favorite #1\" mean?",
+"o": [
+"The strongest horse",
+"The horse with the lowest odds",
+"The horse with the fastest time",
+"The youngest horse"
+],
+"a": 1,
+"e": "Popularity depends on how much money is bet, not on strength itself."
+}
+],
+"next": "December 2 (Class 7): The baseline — what is the return if you bet on every race?",
+"more": [
+[
+"https://www.kaggle.com/datasets/takamotoki/jra-horse-racing-dataset",
+"JRA日本中央競馬会 Horse Racing Dataset(Kaggle)",
+"The horse racing data used in this course"
+],
+[
+"https://www.jra.go.jp/kouza/baken/",
+"JRA: Types of betting tickets",
+"Official explanation of bet types and how to buy"
+],
+[
+"https://www.jra.go.jp/news/other/20140303.html",
+"JRA: Payout rates by bet type",
+"Official announcement of payout rates"
+]
+],
+"slides": [
+{
+"kind": "title"
+},
+{
+"t": "Course goal",
+"b": [
+"Find ways to grow virtual money with racing data",
+"Cut complex data with a point of view",
+"* We never actually bet (betting is 20+ in Japan)"
+]
+},
+{
+"t": "Horse racing in Japan",
+"b": [
+"Central racing (JRA) and local racing",
+"Central racing: 10 racecourses",
+"Up to 18 horses per race"
+]
+},
+{
+"t": "Race conditions",
+"b": [
+"Turf and dirt",
+"Distance: about 1000m–3600m",
+"Track: good, slightly heavy, heavy, bad"
+]
+},
+{
+"t": "Race grades",
+"b": [
+"Newcomer/maiden → 1-win → 2-win → 3-win class",
+"Open → G3 → G2 → G1",
+"Names changed in 2019 (500万下 → 1-win class, etc.)"
+]
+},
+{
+"t": "Read a race card",
+"b": [
+"Bracket and number, weight carried, jockey",
+"Body weight and change, last race",
+"Which horse will be the favorite?"
+],
+"tool": "card"
+},
+{
+"t": "How odds work",
+"b": [
+"Odds = the share of money everyone bets",
+"More money → lower odds → more popular",
+"Popularity = prediction, not strength"
+],
+"tool": "odds"
+},
+{
+"t": "Bet types and payout rates",
+"b": [
+"Win, place: 80%",
+"Bracket quinella, quinella, wide: 77.5%",
+"Exacta, trio: 75%; trifecta: 72.5%"
+],
+"big": "Bet without thinking → money falls below 80%"
+},
+{
+"t": "Find it on Kaggle",
+"b": [
+"JRA日本中央競馬会 Horse Racing Dataset",
+"1986 – July 2021, very large",
+"You can't see it all → where will you look?"
+]
+},
+{
+"t": "Today's task",
+"b": [
+"Create a Kaggle account",
+"Read the data description and column names",
+"Write down 3 viewpoints you want to investigate"
+]
+},
+{
+"t": "Summary",
+"b": [
+"Conditions, grades and popularity are tangled",
+"Odds are everyone's prediction",
+"Can a point of view beat the 80% wall?"
+]
+}
+]
+}

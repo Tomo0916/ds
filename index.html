@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>データで挑む競馬分析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Bengali:wght@400;700&family=Noto+Sans+Sinhala:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.route{list-style:none;margin:0;padding:0;position:relative}
+.route::before{content:"";position:absolute;left:21px;top:22px;bottom:22px;width:6px;background:var(--line);border-radius:3px}
+.route li{position:relative;display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;padding:10px 0;align-items:start}
+.dot{width:48px;height:48px;border-radius:50%;background:var(--card);border:6px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:15px;position:relative;z-index:1}
+.route li.open .dot{background:var(--acc);border-color:var(--acc);color:#fff}
+.route li.brk{grid-template-columns:48px minmax(0,1fr)}
+.route li.brk .dot{border-style:dashed;border-color:var(--sub);background:var(--bg);width:48px;height:24px;border-width:0}
+.st{background:var(--card);border-radius:14px;padding:12px 16px}
+.st .d{font-size:14px;color:var(--sub)}
+.st .t{font-weight:700;font-size:18px;line-height:1.4}
+.st .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.brk .st{background:none;padding:4px 0;color:var(--sub);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><span class="home" data-t="dsTitle"></span><label class="langsel"><span data-t="lang"></span><select id="lang"></select></label></div>
+ <h1 data-t="dsTitle"></h1>
+ <p data-t="dsLead"></p>
+ <ol class="route" id="route"></ol>
+ <footer data-t="footer"></footer>
+</div>
+<script src="assets/core.js"></script>
+<script src="assets/schedule.js"></script>
+<script>
+const DS_READY = { "06": "01" };
+{
+const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, locale } = window.AI;
+let lang = detect();
+async function render() {
+  const [U, D] = await loadAll(["assets/i18n", "i18n"], lang);
+  apply(lang); fillText(U.ui); fillText(D.ui); document.title = AI.plain(D.ui.dsTitle);
+  const items = [];
+  SCHEDULE.forEach((s, j) => {
+    if (s.breakBefore) items.push(`<li class="brk"><span class="dot"></span><div class="st">${rb(U.ui.winterBreak)}</div></li>`);
+    const open = DS_READY[s.id];
+    const d = fmtDate(s.date, locale(lang));
+    const acts = open ? `<div class="acts"><a class="btn primary" href="lessons/${DS_READY[s.id]}/index.html?lang=${lang}">${rb(U.ui.read)}</a><a class="btn" href="lessons/${DS_READY[s.id]}/slides.html?lang=${lang}">${rb(U.ui.slides)}</a></div>` : `<div class="d">${rb(U.ui.soon)}</div>`;
+    items.push(`<li class="${open ? "open" : ""}"><span class="dot">${s.n}</span><div class="st"><div class="d">${rb(fill(U.ui.cls, { k: s.n }))} · ${esc(d)}</div><div class="t">${rb(D.sessions[j])}</div>${acts}</div></li>`);
+  });
+  document.getElementById("route").innerHTML = items.join("");
+}
+langSelect(document.getElementById("lang"), lang, v => { lang = v; render(); });
+render();
+}
+</script>
+</body>
+</html>

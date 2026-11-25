@@ -1,0 +1,19 @@
+{
+"ui": {
+"dsTitle": "Horse Racing Analytics with Data",
+"dsLead": "Materials for the Data Science Department's Wednesday classes. Using horse racing data, we build the skill of cutting complex data with a clear point of view. All money is virtual; we never actually bet."
+},
+"sessions": [
+"Horse racing basics and meeting the data",
+"The baseline: what if you bet on every race?",
+"Viewpoint 1: race grade and popularity",
+"Viewpoint 2: jockey, season, distance, track, bracket",
+"A real difference? Sample size and variation",
+"Searching too hard, and leakage",
+"Building a strategy",
+"Testing reproducibility",
+"Simulating money management",
+"Preparing presentations",
+"Presentations"
+]
+}
