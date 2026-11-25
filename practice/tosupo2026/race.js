@@ -18,3 +18,5 @@ window.RACE = {
   dist: 1800,
   rates: { win: 0.8, place: 0.8, wakuren: 0.775, umaren: 0.775, wide: 0.775, umatan: 0.75, trio: 0.75, trifecta: 0.725 }
 };
+/* Final place (複勝) odds, low–high, by horse number (確定オッズ). */
+window.RACE.place = { 1: [1.3, 1.7], 2: [4.8, 8.3], 3: [20.0, 35.6], 4: [1.9, 3.2], 5: [1.6, 2.5], 6: [8.4, 14.9], 7: [7.8, 13.8], 8: [1.6, 2.6], 9: [7.7, 13.6], 10: [1.2, 1.5], 11: [4.0, 6.9], 12: [3.5, 5.9] };

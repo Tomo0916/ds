@@ -84,7 +84,7 @@
  "errOver": "Not enough virtual money.",
  "empty": "No bets yet.",
  "pickH": "Selection",
- "estNote": "Win odds are the real final odds. Odds for other bet types are estimates calculated from the win odds and differ from the real payouts.",
+ "estNote": "Win and place odds are the real final odds. Place odds are announced as a range such as \"1.2–1.5\", because the payout depends on which other horses also finish in the top 3. Odds for other bet types are estimates calculated from the win odds and differ from the real payouts.",
  "resH": "Enter the result (after watching the race video)",
  "resLead": "Watch the race video together and listen to the teacher's announcement, then enter the 1st to 3rd horses. For winning tickets, enter the real payout announced (per ¥100) to get an exact result.",
  "check": "Check my bets",
@@ -130,5 +130,6 @@
  "payRate": "Payout rate",
  "ptsH": "Tickets",
  "totalH": "Total",
- "yenUnit": "yen"
+ "yenUnit": "yen",
+ "colPlace": "Place odds (複勝)"
 }

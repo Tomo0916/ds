@@ -125,8 +125,14 @@ function hits(t, sel, a, b, c) {
   }
 }
 function prob(t, sel) { return P3.reduce((acc, [i, j, k, q]) => acc + (hits(t, sel, i + 1, j + 1, k + 1) ? q : 0), 0); }
+const plTxt = n => R.place[n].map(x => x.toFixed(1)).join("–");
+// display odds: place = real range, win = real, others = estimate
+const oddsDisp = (t, sel) => t === "place" ? plTxt(sel[0]) : (estOdds(t, sel) ? estOdds(t, sel).toFixed(1) : "—");
+const payRange = (t, sel, a) => t === "place" ? R.place[sel[0]].map(o => a / 100 * Math.round(o * 100)) : [a / 100 * Math.round((estOdds(t, sel) || 0) * 100), a / 100 * Math.round((estOdds(t, sel) || 0) * 100)];
+const yr = r => r[0] === r[1] ? yen(r[0]) : yen(r[0]) + "〜" + yen(r[1]);
 function estOdds(t, sel) {
   if (t === "win") return H[sel[0] - 1][8];
+  if (t === "place") return R.place[sel[0]][0];
   const q = prob(t, sel);
   if (q <= 0) return null;
   return Math.max(1.0, Math.floor(R.rates[t] / q * 10) / 10);
@@ -162,14 +168,14 @@ async function render() {
     return `${r.d} ${rb(L.courses[r.c])} ${rb(L.turf)}${r.dist}m ${rb(k)} · ${rb(fill(L.fin, { n: h[6] }))} (${rb(fill(L.popn, { n: h[7] }))})`;
   };
   const dchg = h => { const d = R.dist - h[5].dist; return d === 0 ? `<span class="chip g">${rb(L.same)}</span>` : `<span class="chip">${d > 0 ? "+" : ""}${d}m</span>`; };
-  const rows = H.map((h, i) => `<tr><td><span class="waku" style="background:${["#ffffff", "#222222", "#e53935", "#1e5bd8", "#f2c200", "#2e9d3a", "#f57c00", "#ec6fa8"][h[0] - 1]};color:${["#111", "#fff", "#fff", "#fff", "#111", "#fff", "#fff", "#111"][h[0] - 1]}">${h[0]}</span></td><td class="num">${h[1]}</td><td class="hn">${esc(h[2])}</td><td style="white-space:nowrap">${esc(latin ? h[4] : h[3])}</td><td class="last">${last(h)}</td><td>${dchg(h)}</td><td class="num"><b>${h[8].toFixed(1)}</b></td><td class="num">${h[9]}</td><td class="num"><span class="pbar" style="width:${Math.round(80 / h[8] * 1.6)}px"></span>${(80 / h[8]).toFixed(1)}%</td></tr>`).join("");
+  const rows = H.map((h, i) => `<tr><td><span class="waku" style="background:${["#ffffff", "#222222", "#e53935", "#1e5bd8", "#f2c200", "#2e9d3a", "#f57c00", "#ec6fa8"][h[0] - 1]};color:${["#111", "#fff", "#fff", "#fff", "#111", "#fff", "#fff", "#111"][h[0] - 1]}">${h[0]}</span></td><td class="num">${h[1]}</td><td class="hn">${esc(h[2])}</td><td style="white-space:nowrap">${esc(latin ? h[4] : h[3])}</td><td class="last">${last(h)}</td><td>${dchg(h)}</td><td class="num"><b>${h[8].toFixed(1)}</b></td><td class="num" style="white-space:nowrap">${plTxt(h[1])}</td><td class="num">${h[9]}</td><td class="num"><span class="pbar" style="width:${Math.round(80 / h[8] * 1.6)}px"></span>${(80 / h[8]).toFixed(1)}%</td></tr>`).join("");
   const byPop = [...H].sort((a, b) => a[9] - b[9]);
   const why = byPop.map(h => `<div class="w"><span class="chip">${rb(fill(L.popn, { n: h[9] }))}</span><div><b>${h[1]} ${esc(h[2])}</b> <span class="note">${h[8].toFixed(1)}</span><p>${rb(L.reasons[h[1] - 1])}</p></div></div>`).join("");
     main.innerHTML = `<span class="tag">${rb(L.tag)}</span>
     <h1>${rb(L.title)}</h1><p class="note" style="font-size:18px;margin-top:0">${rb(L.sub)}</p>
     <div class="goalbox"><h3>${rb(L.howH)}</h3><ol class="goal">${L.how.map(x => `<li>${rb(x)}</li>`).join("")}</ol></div>
     <section class="card"><h2>${rb(L.raceH)}</h2><ul>${L.race.map(x => `<li>${rb(x)}</li>`).join("")}</ul><p>${rb(L.course)}</p></section>
-    <section class="card"><h2>${rb(L.cardH)}</h2><div class="scroll"><table class="rtab"><thead><tr><th>${rb(u.cardW)}</th><th>${rb(u.cardN)}</th><th>${rb(u.cardName)}</th><th>${rb(u.cardJockey)}</th><th>${rb(L.colLast)}</th><th>${rb(L.colDist)}</th><th>${rb(L.colOdds)}</th><th>${rb(L.colPop)}</th><th>${rb(L.colProb)}</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <section class="card"><h2>${rb(L.cardH)}</h2><div class="scroll"><table class="rtab"><thead><tr><th>${rb(u.cardW)}</th><th>${rb(u.cardN)}</th><th>${rb(u.cardName)}</th><th>${rb(u.cardJockey)}</th><th>${rb(L.colLast)}</th><th>${rb(L.colDist)}</th><th>${rb(L.colOdds)}</th><th>${rb(L.colPlace)}</th><th>${rb(L.colPop)}</th><th>${rb(L.colProb)}</th></tr></thead><tbody>${rows}</tbody></table></div>
       <p class="note">${rb(L.cardNote)}</p></section>
     <section class="card"><h2>${rb(L.whyH)}</h2><p>${rb(L.whyLead)}</p><div class="why">${why}</div></section>
     <section class="card"><h2>${rb(L.hintH)}</h2><ul>${L.hints.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section>
@@ -234,13 +240,13 @@ function setupSim() {
     document.getElementById("rateNote").textContent = plain(L.payRate) + " " + (R.rates[bt] * 100).toFixed(1).replace(".0", "") + "%";
     const nc = ncols();
     sets = Array.from({ length: nc }, (_, i) => sets[i] || []);
-    const head = `<thead><tr><th>${rb(T.frame ? u.cardW : u.cardN)}</th><th>${rb(u.cardName)}</th>${T.frame ? "" : `<th class="num">${rb(L.colOdds)}</th>`}${Array.from({ length: nc }, (_, i) => `<th class="ck">${rb(colLabel(i))}</th>`).join("")}</tr></thead>`;
+    const head = `<thead><tr><th>${rb(T.frame ? u.cardW : u.cardN)}</th><th>${rb(u.cardName)}</th>${T.frame ? "" : `<th class="num">${rb(bt === "place" ? L.colPlace : L.colOdds)}</th>`}${Array.from({ length: nc }, (_, i) => `<th class="ck">${rb(colLabel(i))}</th>`).join("")}</tr></thead>`;
     const cell = (i, v) => `<td class="ck"><button type="button" class="cb${sets[i].includes(v) ? " on" : ""}" data-i="${i}" data-v="${v}" aria-label="${v}"></button></td>`;
     let body;
     if (T.frame) {
       body = [1, 2, 3, 4, 5, 6, 7, 8].map(f => `<tr class="${sets.some(x => x.includes(f)) ? "sel" : ""}"><td><span class="waku" style="background:${WK[f - 1]};color:${WT[f - 1]}">${f}</span></td><td>${H.filter(h => h[0] === f).map(h => `<div><span class="sub">${h[1]}</span> <span class="nm">${esc(h[2])}</span></div>`).join("")}</td>${Array.from({ length: nc }, (_, i) => cell(i, f)).join("")}</tr>`).join("");
     } else {
-      body = H.map(h => `<tr class="${sets.some(x => x.includes(h[1])) ? "sel" : ""}"><td><span class="waku" title="${h[0]}" style="background:${WK[h[0] - 1]};color:${WT[h[0] - 1]}">${h[1]}</span></td><td><span class="nm">${esc(h[2])}</span><div class="sub">${esc(["ja", "easy"].includes(lang) ? h[3] : h[4])}</div></td><td class="num"><b>${h[8].toFixed(1)}</b><div class="sub pop">${rb(fill(L.popn, { n: h[9] }))}</div></td>${Array.from({ length: nc }, (_, i) => cell(i, h[1])).join("")}</tr>`).join("");
+      body = H.map(h => `<tr class="${sets.some(x => x.includes(h[1])) ? "sel" : ""}"><td><span class="waku" title="${h[0]}" style="background:${WK[h[0] - 1]};color:${WT[h[0] - 1]}">${h[1]}</span></td><td><span class="nm">${esc(h[2])}</span><div class="sub">${esc(["ja", "easy"].includes(lang) ? h[3] : h[4])}</div></td><td class="num"><b>${bt === "place" ? plTxt(h[1]) : h[8].toFixed(1)}</b><div class="sub pop">${rb(fill(L.popn, { n: h[9] }))}</div></td>${Array.from({ length: nc }, (_, i) => cell(i, h[1])).join("")}</tr>`).join("");
     }
     pick.innerHTML = head + `<tbody>${body}</tbody>`;
     pick.querySelectorAll(".cb").forEach(c => c.onclick = () => {
@@ -261,8 +267,8 @@ function setupSim() {
     document.getElementById("npts").textContent = plain(fill(L.pts, { n: C.length }));
     document.getElementById("ntot").textContent = yen(C.length * a);
     if (!C.length) { est.innerHTML = rb(L.pickHelp); return; }
-    const pays = C.map(c => a / 100 * Math.round((estOdds(bt, c) || 0) * 100)), lo = Math.min(...pays), hi = Math.max(...pays);
-    const oddsTxt = C.length === 1 ? `${rb(bt === "win" ? L.odds : L.estOdds)} <b>${(estOdds(bt, C[0]) || 0).toFixed(1)}</b> · ` : "";
+    const rs = C.map(c => payRange(bt, c, a)), lo = Math.min(...rs.map(r => r[0])), hi = Math.max(...rs.map(r => r[1]));
+    const oddsTxt = C.length === 1 ? `${rb(bt === "win" || bt === "place" ? L.odds : L.estOdds)} <b>${oddsDisp(bt, C[0])}</b> · ` : "";
     est.innerHTML = `${oddsTxt}${rb(L.ifHit)} <b>${lo === hi ? yen(lo) : yen(lo) + " 〜 " + yen(hi)}</b>`;
   }
   amt.oninput = upd;
@@ -286,10 +292,10 @@ function drawTickets() {
   document.getElementById("left").textContent = yen(BUDGET - used);
   const tb = document.getElementById("tickets");
   if (!bets.length) { tb.innerHTML = `<tr><td class="note">${rb(L.empty)}</td></tr>`; return; }
-  tb.innerHTML = `<thead><tr><th>${rb(L.type)}</th><th>${rb(L.pickH)}</th><th class="num">${rb(L.amount)}</th><th class="num">${rb(L.estOdds)}</th><th class="num">${rb(L.ifHit)}</th>${result ? `<th>${rb(L.payH)}</th>` : ""}<th></th></tr></thead><tbody>` +
+  tb.innerHTML = `<thead><tr><th>${rb(L.type)}</th><th>${rb(L.pickH)}</th><th class="num">${rb(L.amount)}</th><th class="num">${rb(L.odds)}</th><th class="num">${rb(L.ifHit)}</th>${result ? `<th>${rb(L.payH)}</th>` : ""}<th></th></tr></thead><tbody>` +
     bets.map((b, i) => {
       const o = estOdds(b.t, b.s), h = result && hits(b.t, b.s, ...result);
-      return `<tr class="${h ? "hit" : ""}"><td>${tName(b.t)}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num">${o ? o.toFixed(1) : "—"}</td><td class="num">${o ? yen(b.a / 100 * Math.round(o * 100)) : "—"}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> <input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
+      return `<tr class="${h ? "hit" : ""}"><td>${tName(b.t)}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num" style="white-space:nowrap">${oddsDisp(b.t, b.s)}</td><td class="num">${o ? yr(payRange(b.t, b.s, b.a)) : "—"}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> <input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
     }).join("") + `</tbody>`;
   tb.querySelectorAll("[data-del]").forEach(x => x.onclick = () => { bets.splice(+x.dataset.del, 1); save(); drawTickets(); if (result) summary(); });
   tb.querySelectorAll("input[data-i]").forEach(x => x.oninput = () => { bets[+x.dataset.i].act = x.value; save(); summary(); });
