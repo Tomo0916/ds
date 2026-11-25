@@ -112,3 +112,14 @@ footer{padding:24px 0 40px;font-size:14px;color:var(--sub)}
 .orow.fav{outline:2px solid var(--acc)}
 .osum{margin-top:10px;font-size:15px}
 @media(max-width:560px){.orow{grid-template-columns:minmax(0,1fr) 5.4em 4.6em;}.orow input{grid-column:1/-1;grid-row:2}.orow .ob{display:none}}
+/* lesson figures */
+.pf{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:center;margin:6px 0 14px}
+.pf>p{margin:0}
+.fig{margin:0;background:light-dark(#f6f7f8,#16181b);border:1px solid var(--rule);border-radius:12px;padding:8px}
+.fig svg{display:block;width:100%;height:auto;font-family:Geist,"Noto Sans JP","Noto Sans SC","Noto Sans Devanagari","Noto Sans Bengali","Noto Sans Sinhala","Noto Sans Myanmar",sans-serif}
+.fig.wide{grid-column:1/-1;max-width:420px;justify-self:center;width:100%}
+.fig text{fill:var(--ink)}
+.fig .fa{fill:var(--acc)}.fig .fs{fill:var(--sub)}.fig .fc{fill:var(--card)}.fig .fsoft{fill:var(--accsoft)}.fig .fat{fill:var(--acctext)}.fig .fok{fill:var(--ok)}.fig .fng{fill:var(--ng)}
+.fig .sa{stroke:var(--acc)}.fig .sr{stroke:var(--rule)}.fig .sl{stroke:var(--line)}.fig .ss{stroke:var(--sub)}.fig .sok{stroke:var(--ok)}.fig .sng{stroke:var(--ng)}
+.fig .land{fill:light-dark(#d9dde2,#33373d);stroke:var(--sub);stroke-width:.6}
+@media (max-width:640px){.pf{grid-template-columns:1fr;gap:8px}.fig{max-width:380px;width:100%;justify-self:center}}

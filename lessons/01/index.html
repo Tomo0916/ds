@@ -17,6 +17,7 @@
 <script src="../../assets/core.js"></script>
 <script src="../../assets/schedule.js"></script>
 <script src="../../assets/tools.js"></script>
+<script src="figs.js"></script>
 <script>
 {
 const ID = "06";
@@ -31,7 +32,7 @@ async function render() {
   const s = SCHEDULE.find(x => x.id === ID);
   document.title = plain(fill(u.cls, { k: s.n }) + " " + L.title);
   const li = a => a.map(x => `<li>${rb(x)}</li>`).join("");
-  const secs = L.sec.map(x => `<section class="card"><h2>${rb(x.h)}</h2>${x.p.map(p => `<p>${rb(p)}</p>`).join("")}${(x.tool || []).map(t => `<div data-tool="${t}"></div>`).join("")}</section>`).join("");
+  const secs = L.sec.map((x, si) => `<section class="card"><h2>${rb(x.h)}</h2>${x.p.map((p, j) => { const f = (Figs.MAP[si] || [])[j]; return f ? `<div class="pf"><p>${rb(p)}</p><figure class="fig">${Figs.render(f, L.fig, u, locale(lang))}</figure></div>` : `<p>${rb(p)}</p>`; }).join("")}${(x.tool || []).map(t => `<div data-tool="${t}"></div>`).join("")}</section>`).join("");
   const quiz = L.quiz.map((q, i) => `<div class="q" data-i="${i}"><p>${i + 1}. ${rb(q.q)}</p><div class="opts">${q.o.map((o, j) => `<label><input type="radio" name="q${i}" value="${j}"><span>${rb(o)}</span></label>`).join("")}</div><p class="err" hidden>${rb(u.quizNeed)}</p><div class="fb" hidden></div></div>`).join("");
   main.innerHTML = `<span class="tag">${rb(fill(u.cls, { k: s.n }))} · ${esc(fmtDate(s.date, locale(lang)))}</span>
     <h1>${rb(L.title)}</h1><p class="note" style="font-size:18px;margin-top:0">${rb(L.sub)}</p>
