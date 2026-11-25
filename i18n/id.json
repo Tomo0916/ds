@@ -1,19 +1,20 @@
 {
-"ui": {
-"dsTitle": "Analisis Pacuan Kuda dengan Data",
-"dsLead": "Materi kelas Rabu Jurusan Ilmu Data. Dengan data pacuan kuda, kita melatih kemampuan memotong data yang rumit dengan sebuah sudut pandang. Semua uang bersifat virtual; kita tidak pernah benar-benar bertaruh."
-},
-"sessions": [
-"Dasar pacuan kuda dan perkenalan dengan data",
-"Garis dasar: berapa pengembaliannya jika membeli semua?",
-"Sudut pandang ①: tingkat balapan dan popularitas",
-"Sudut pandang ②: joki, musim, jarak, lintasan, gerbang",
-"Perbedaan nyata?: jumlah data dan variasi",
-"Jebakan mencari terlalu banyak dan kebocoran data",
-"Menyusun strategi",
-"Menguji reprodusibilitas",
-"Simulasi manajemen modal",
-"Persiapan presentasi",
-"Presentasi"
-]
+ "ui": {
+  "dsTitle": "Analisis Pacuan Kuda dengan Data",
+  "dsLead": "Materi kelas Rabu Jurusan Ilmu Data. Dengan data pacuan kuda, kita melatih kemampuan memotong data yang rumit dengan sebuah sudut pandang. Semua uang bersifat virtual; kita tidak pernah benar-benar bertaruh.",
+  "practice": "Latihan prediksi"
+ },
+ "sessions": [
+  "Dasar pacuan kuda dan perkenalan dengan data",
+  "Garis dasar: berapa pengembaliannya jika membeli semua?",
+  "Sudut pandang ①: tingkat balapan dan popularitas",
+  "Sudut pandang ②: joki, musim, jarak, lintasan, gerbang",
+  "Perbedaan nyata?: jumlah data dan variasi",
+  "Jebakan mencari terlalu banyak dan kebocoran data",
+  "Menyusun strategi",
+  "Menguji reprodusibilitas",
+  "Simulasi manajemen modal",
+  "Persiapan presentasi",
+  "Presentasi"
+ ]
 }

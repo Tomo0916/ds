@@ -1,19 +1,20 @@
 {
-"ui": {
-"dsTitle": "Analyser les courses hippiques avec les données",
-"dsLead": "Supports des cours du mercredi du département Data Science. Avec des données de courses hippiques, nous apprenons à découper des données complexes avec un point de vue. Tout l'argent est virtuel : nous ne parions jamais pour de vrai."
-},
-"sessions": [
-"Bases des courses et première rencontre avec les données",
-"La ligne de base : et si on pariait sur toutes les courses ?",
-"Point de vue 1 : niveau de course et popularité",
-"Point de vue 2 : jockey, saison, distance, piste, stalle",
-"Une vraie différence ? Taille d'échantillon et variation",
-"Le piège de trop chercher, et les fuites",
-"Construire une stratégie",
-"Tester la reproductibilité",
-"Simuler la gestion du capital",
-"Préparer les présentations",
-"Présentations"
-]
+ "ui": {
+  "dsTitle": "Analyser les courses hippiques avec les données",
+  "dsLead": "Supports des cours du mercredi du département Data Science. Avec des données de courses hippiques, nous apprenons à découper des données complexes avec un point de vue. Tout l'argent est virtuel : nous ne parions jamais pour de vrai.",
+  "practice": "Pronostic d'entraînement"
+ },
+ "sessions": [
+  "Bases des courses et première rencontre avec les données",
+  "La ligne de base : et si on pariait sur toutes les courses ?",
+  "Point de vue 1 : niveau de course et popularité",
+  "Point de vue 2 : jockey, saison, distance, piste, stalle",
+  "Une vraie différence ? Taille d'échantillon et variation",
+  "Le piège de trop chercher, et les fuites",
+  "Construire une stratégie",
+  "Tester la reproductibilité",
+  "Simuler la gestion du capital",
+  "Préparer les présentations",
+  "Présentations"
+ ]
 }
