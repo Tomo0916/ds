@@ -75,7 +75,7 @@
  "horseN": "第{n}匹",
  "frameN": "第{n}个枠",
  "amount": "金额",
- "add": "添加",
+ "add": "加入投注单",
  "odds": "赔率",
  "estOdds": "参考赔率",
  "ifHit": "若中奖",
@@ -117,5 +117,18 @@
   "阪神",
   "小仓"
  ],
- "turf": "草地"
+ "turf": "草地",
+ "modeF": "组合(フォーメーション)",
+ "modeB": "BOX",
+ "boxPick": "BOX的马",
+ "pickHelp": "点击号码选择马(枠)。选多匹时,可一次买下所有组合。",
+ "pts": "{n}注",
+ "perTicket": "每注金额",
+ "errNone": "没有组合。请选择马。",
+ "needH": "(需要 {a} / 剩余 {l})",
+ "modeN": "普通",
+ "payRate": "返还率",
+ "ptsH": "注数",
+ "totalH": "合计",
+ "yenUnit": "日元"
 }

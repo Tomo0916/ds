@@ -75,7 +75,7 @@
  "horseN": "Ngựa thứ {n}",
  "frameN": "Khung thứ {n}",
  "amount": "Số tiền",
- "add": "Thêm",
+ "add": "Thêm vào danh sách",
  "odds": "Tỷ lệ cược",
  "estOdds": "Tỷ lệ ước tính",
  "ifHit": "Nếu trúng",
@@ -117,5 +117,18 @@
   "Hanshin",
   "Kokura"
  ],
- "turf": "Cỏ "
+ "turf": "Cỏ ",
+ "modeF": "Formation",
+ "modeB": "Box",
+ "boxPick": "Ngựa cho box",
+ "pickHelp": "Bấm số để chọn ngựa (khung). Nếu chọn nhiều, có thể mua tất cả các tổ hợp cùng lúc.",
+ "pts": "{n} vé",
+ "perTicket": "Số tiền mỗi vé",
+ "errNone": "Không có tổ hợp nào. Hãy chọn ngựa.",
+ "needH": "(cần {a} / còn {l})",
+ "modeN": "Thường",
+ "payRate": "Tỷ lệ trả thưởng",
+ "ptsH": "Số vé",
+ "totalH": "Tổng",
+ "yenUnit": "yên"
 }

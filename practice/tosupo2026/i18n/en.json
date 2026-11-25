@@ -28,7 +28,7 @@
  "cardNote": "Win odds are the final odds just before the start. \"Crowd's win chance\" = 80 ÷ odds: the chance of winning that the crowd believes, worked back from the odds (using the 80% payout rate). Added together, they come to about 100%.",
  "nw": "Newcomer",
  "mw": "Maiden",
- "fin": "{n}th",
+ "fin": "Pos. {n}",
  "popn": "Fav. #{n}",
  "same": "Same",
  "whyH": "Reasons for popularity",
@@ -75,7 +75,7 @@
  "horseN": "Horse {n}",
  "frameN": "Bracket {n}",
  "amount": "Amount",
- "add": "Add",
+ "add": "Add to slip",
  "odds": "Odds",
  "estOdds": "Est. odds",
  "ifHit": "If it wins",
@@ -117,5 +117,18 @@
   "Hanshin",
   "Kokura"
  ],
- "turf": "Turf "
+ "turf": "Turf ",
+ "modeF": "Formation",
+ "modeB": "Box",
+ "boxPick": "Horses for the box",
+ "pickHelp": "Tap numbers to choose horses (brackets). If you choose several, you buy every combination at once.",
+ "pts": "{n} tickets",
+ "perTicket": "Amount per ticket",
+ "errNone": "No combinations. Please choose horses.",
+ "needH": "(needed {a} / left {l})",
+ "modeN": "Normal",
+ "payRate": "Payout rate",
+ "ptsH": "Tickets",
+ "totalH": "Total",
+ "yenUnit": "yen"
 }

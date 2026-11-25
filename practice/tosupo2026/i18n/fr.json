@@ -28,7 +28,7 @@
  "cardNote": "Les cotes gagnant sont les cotes finales juste avant le départ. « Chance de victoire selon le public » = 80 ÷ cote : la probabilité de victoire que le public imagine, calculée à partir de la cote (taux de redistribution de 80 %). Additionnées, elles font environ 100 %.",
  "nw": "Débutants",
  "mw": "Maiden",
- "fin": "{n}e",
+ "fin": "Place {n}",
  "popn": "Favori n°{n}",
  "same": "Identique",
  "whyH": "Raisons de la popularité",
@@ -75,7 +75,7 @@
  "horseN": "Cheval {n}",
  "frameN": "Case {n}",
  "amount": "Montant",
- "add": "Ajouter",
+ "add": "Ajouter au bulletin",
  "odds": "Cote",
  "estOdds": "Cote estimée",
  "ifHit": "Si c'est gagné",
@@ -117,5 +117,18 @@
   "Hanshin",
   "Kokura"
  ],
- "turf": "Gazon "
+ "turf": "Gazon ",
+ "modeF": "Formation",
+ "modeB": "Box",
+ "boxPick": "Chevaux du box",
+ "pickHelp": "Touchez les numéros pour choisir les chevaux (cases). Si vous en choisissez plusieurs, toutes les combinaisons sont achetées d'un coup.",
+ "pts": "{n} tickets",
+ "perTicket": "Montant par ticket",
+ "errNone": "Aucune combinaison. Choisissez des chevaux.",
+ "needH": "(nécessaire {a} / reste {l})",
+ "modeN": "Normal",
+ "payRate": "Taux de retour",
+ "ptsH": "Tickets",
+ "totalH": "Total",
+ "yenUnit": "yens"
 }

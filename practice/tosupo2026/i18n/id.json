@@ -75,7 +75,7 @@
  "horseN": "Kuda ke-{n}",
  "frameN": "Kotak ke-{n}",
  "amount": "Jumlah",
- "add": "Tambah",
+ "add": "Tambah ke daftar",
  "odds": "Odds",
  "estOdds": "Perkiraan odds",
  "ifHit": "Jika menang",
@@ -117,5 +117,18 @@
   "Hanshin",
   "Kokura"
  ],
- "turf": "Rumput "
+ "turf": "Rumput ",
+ "modeF": "Formasi",
+ "modeB": "Box",
+ "boxPick": "Kuda untuk box",
+ "pickHelp": "Ketuk nomor untuk memilih kuda (kotak). Jika memilih beberapa, semua kombinasi dibeli sekaligus.",
+ "pts": "{n} tiket",
+ "perTicket": "Jumlah per tiket",
+ "errNone": "Tidak ada kombinasi. Pilih kuda.",
+ "needH": "(perlu {a} / sisa {l})",
+ "modeN": "Biasa",
+ "payRate": "Tingkat bayar",
+ "ptsH": "Jumlah tiket",
+ "totalH": "Total",
+ "yenUnit": "yen"
 }
