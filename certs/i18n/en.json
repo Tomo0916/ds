@@ -1,7 +1,7 @@
 {
  "tag": "Certification guide",
- "title": "Data Science Certification Guide",
- "lead": "A certification is not a goal — it is a \"business card\" that shows others what you can do. Here are certifications you can take in English, or in Japanese with a low language barrier: from free ones you can take today to international ones that help you get a job.",
+ "title": "IT Certification Guide: Networking, Databases, Data Science & AI",
+ "lead": "A certification is not a goal — it is a \"business card\" that shows others what you can do. Here are certifications in four fields — networking, databases (SQL), data science and AI — that you can take in English, or in Japanese with a low language barrier. From free ones you can take today to international ones that help you get a job.",
  "findH": "Find yours with 3 questions",
  "q1": "Which language do you want to take it in?",
  "q1en": "Available in English",
@@ -9,21 +9,19 @@
  "q2": "What is your budget?",
  "q2free": "Free only",
  "q2low": "Up to about ¥10,000",
- "q3": "What do you want to show?",
- "q3ai": "AI & cloud",
- "q3basics": "Data analysis basics",
+ "q3": "Which field do you want to show?",
  "any": "No preference",
  "count": "Matches: {n} (highlighted cards)",
  "routeH": "Recommended path",
  "stepTitle": [
   "Free, start today",
-  "Low-cost real exams",
-  "Advanced (goal after graduation)"
+  "Entry-level official exams",
+  "Advanced & professional"
  ],
  "stepText": [
-  "Use the SQL and Python you learned in class and aim to pass the same day. You can put them on your CV and LinkedIn.",
-  "Official exams with a fee. Student discounts and free-training discounts can keep the cost low.",
-  "High-level certifications where work experience helps. Aim for them after you start working."
+  "Start with a free course or test and earn your first credential. You can put it on your CV and LinkedIn.",
+  "The entrance to paid official exams. Student discounts and free-training discounts can keep the cost low.",
+  "High-level certifications that are valued in job hunting. Some expect work experience."
  ],
  "tipsH": "Check before you take an exam",
  "tips": [
@@ -119,6 +117,49 @@
    "what": "Designing, building and running AI systems on Google Cloud.",
    "who": "People with work experience (3+ years recommended).",
    "prep": "Use Google Cloud's official learning path and sample questions."
+  },
+  "nac_net": {
+   "what": "Basics of how networks work (IP addresses, Wi-Fi, home networks). Score 70% or more on the final exam to earn a digital badge.",
+   "who": "Anyone new to networking. A first step before CCST or CCNA.",
+   "prep": "Sign up for free at Cisco Networking Academy and work through the course (about 22 hours), including Packet Tracer simulator activities."
+  },
+  "nac_ai": {
+   "what": "An introduction to data science and AI. Many courses give a digital badge when you finish.",
+   "who": "Anyone who wants to see the big picture of data science and AI in English.",
+   "prep": "Sign up for free at Cisco Networking Academy and learn at your own pace."
+  },
+  "ccst_net": {
+   "what": "Entry-level networking knowledge — the entrance to networking jobs.",
+   "who": "Anyone aiming for a networking job. A first step toward CCNA.",
+   "prep": "Prepare with free Cisco Networking Academy courses. The exam is 50 minutes, available in English, Japanese, Chinese and more."
+  },
+  "lpic1": {
+   "what": "Basic Linux server operation and administration — the foundation for server, network and cloud work.",
+   "who": "Anyone who wants to work with servers or the cloud.",
+   "prep": "You must pass two exams, 101 and 102 (90 minutes, 60 questions each). Available in English, Japanese, Chinese and more."
+  },
+  "ccna": {
+   "what": "A broad range: network fundamentals, configuration, IP connectivity, security and automation. One of the best-known networking certifications in the world.",
+   "who": "Anyone aiming to be a network engineer. Highly valued by Japanese employers too.",
+   "prep": "A 120-minute exam in English or Japanese. A new version (v2.0) is planned for February 2027, so check which version your study materials cover."
+  },
+  "netplus": {
+   "what": "Vendor-neutral networking knowledge and troubleshooting skills.",
+   "who": "Anyone who wants to prove networking basics that do not depend on one vendor.",
+   "prep": "CompTIA recommends 9–12 months of hands-on experience. Up to 90 questions in 90 minutes, in English, Japanese and more."
+  },
+  "ora_sql": {
+   "what": "Writing correct SQL on Oracle Database (queries, joins, adding and changing data, creating tables).",
+   "who": "Anyone who wants to work with databases. A big next goal after our SQL practice site.",
+   "prep": "63 questions in 120 minutes; pass with 63%. In English or Japanese. The fee is high, so first check your skills with HackerRank SQL."
   }
- }
+ },
+ "fields": {
+  "net": "Networking",
+  "db": "Databases & SQL",
+  "ds": "Data science",
+  "ai": "AI"
+ },
+ "mapH": "Path by field",
+ "mapLead": "Fields across, steps down. Tap a name to jump to its details."
 }

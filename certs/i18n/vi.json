@@ -1,7 +1,7 @@
 {
  "tag": "Hướng dẫn chứng chỉ",
- "title": "Hướng dẫn chứng chỉ Khoa học dữ liệu",
- "lead": "Chứng chỉ không phải là đích đến — đó là \"danh thiếp\" cho người khác biết bạn làm được gì. Đây là các chứng chỉ thi được bằng tiếng Anh, hoặc bằng tiếng Nhật nhưng rào cản ngôn ngữ thấp: từ loại miễn phí thi ngay hôm nay đến loại quốc tế giúp xin việc.",
+ "title": "Hướng dẫn chứng chỉ IT: Mạng, Cơ sở dữ liệu, Khoa học dữ liệu & AI",
+ "lead": "Chứng chỉ không phải là đích đến — đó là \"danh thiếp\" cho người khác biết bạn làm được gì. Đây là các chứng chỉ trong bốn lĩnh vực — mạng, cơ sở dữ liệu (SQL), khoa học dữ liệu và AI — thi được bằng tiếng Anh, hoặc tiếng Nhật nhưng rào cản ngôn ngữ thấp.",
  "findH": "Tìm bằng 3 câu hỏi",
  "q1": "Bạn muốn thi bằng ngôn ngữ nào?",
  "q1en": "Thi được bằng tiếng Anh",
@@ -9,21 +9,19 @@
  "q2": "Ngân sách của bạn?",
  "q2free": "Chỉ miễn phí",
  "q2low": "Khoảng tối đa ¥10.000",
- "q3": "Bạn muốn thể hiện điều gì?",
- "q3ai": "AI & đám mây",
- "q3basics": "Cơ bản về phân tích dữ liệu",
+ "q3": "Bạn muốn thể hiện lĩnh vực nào?",
  "any": "Không quan trọng",
  "count": "Phù hợp: {n} (thẻ có màu)",
  "routeH": "Lộ trình gợi ý",
  "stepTitle": [
   "Miễn phí, bắt đầu ngay",
-  "Kỳ thi chính thức giá rẻ",
-  "Nâng cao (mục tiêu sau tốt nghiệp)"
+  "Kỳ thi chính thức nhập môn",
+  "Nâng cao & chuyên nghiệp"
  ],
  "stepText": [
-  "Dùng SQL và Python đã học trên lớp, có thể đỗ ngay trong ngày. Ghi được vào CV và LinkedIn.",
-  "Kỳ thi chính thức có phí. Giảm giá cho sinh viên hoặc từ khóa học miễn phí giúp tiết kiệm.",
-  "Chứng chỉ khó, có kinh nghiệm làm việc sẽ có lợi. Hãy đặt mục tiêu sau khi đi làm."
+  "Bắt đầu với khóa học hoặc bài thi miễn phí để có chứng nhận đầu tiên. Ghi được vào CV và LinkedIn.",
+  "Cửa vào các kỳ thi chính thức có phí. Giảm giá sinh viên giúp tiết kiệm.",
+  "Chứng chỉ cao cấp được đánh giá cao khi xin việc. Một số cần kinh nghiệm làm việc."
  ],
  "tipsH": "Kiểm tra trước khi thi",
  "tips": [
@@ -119,6 +117,49 @@
    "what": "Thiết kế, xây dựng và vận hành hệ thống AI trên Google Cloud.",
    "who": "Người đã có kinh nghiệm làm việc (khuyến nghị từ 3 năm).",
    "prep": "Lộ trình học chính thức và câu hỏi mẫu của Google Cloud."
+  },
+  "nac_net": {
+   "what": "Cơ bản về cách mạng hoạt động (địa chỉ IP, Wi-Fi, mạng gia đình). Đạt từ 70% bài thi cuối sẽ nhận huy hiệu số.",
+   "who": "Người mới học mạng. Bước đầu trước CCST hoặc CCNA.",
+   "prep": "Đăng ký miễn phí tại Cisco Networking Academy, học khoảng 22 giờ, có thực hành trên Packet Tracer."
+  },
+  "nac_ai": {
+   "what": "Nhập môn khoa học dữ liệu và AI. Nhiều khóa có huy hiệu số khi hoàn thành.",
+   "who": "Người muốn nắm bức tranh tổng thể về khoa học dữ liệu và AI bằng tiếng Anh.",
+   "prep": "Đăng ký miễn phí tại Cisco Networking Academy và học theo tốc độ của mình."
+  },
+  "ccst_net": {
+   "what": "Kiến thức mạng cấp nhập môn — cửa vào nghề mạng.",
+   "who": "Người muốn làm nghề mạng. Bước đầu tiến tới CCNA.",
+   "prep": "Chuẩn bị bằng khóa học miễn phí của Cisco Networking Academy. Thi 50 phút, có tiếng Anh, Nhật, Trung..."
+  },
+  "lpic1": {
+   "what": "Thao tác và quản trị cơ bản máy chủ Linux — nền tảng cho nghề máy chủ, mạng và đám mây.",
+   "who": "Người muốn làm việc với máy chủ hoặc đám mây.",
+   "prep": "Cần đỗ hai bài thi 101 và 102 (mỗi bài 90 phút, 60 câu). Có tiếng Anh, Nhật, Trung..."
+  },
+  "ccna": {
+   "what": "Phạm vi rộng: nền tảng mạng, cấu hình, kết nối IP, bảo mật và tự động hóa. Một trong những chứng chỉ mạng nổi tiếng nhất thế giới.",
+   "who": "Người muốn trở thành kỹ sư mạng. Được công ty Nhật đánh giá cao.",
+   "prep": "Bài thi 120 phút bằng tiếng Anh hoặc tiếng Nhật. Phiên bản mới (v2.0) dự kiến từ tháng 2/2027, hãy chú ý phiên bản tài liệu."
+  },
+  "netplus": {
+   "what": "Kiến thức mạng không phụ thuộc hãng và kỹ năng xử lý sự cố.",
+   "who": "Người muốn chứng minh nền tảng mạng không gắn với một hãng.",
+   "prep": "CompTIA khuyến nghị 9–12 tháng kinh nghiệm. Tối đa 90 câu trong 90 phút, có tiếng Anh, Nhật..."
+  },
+  "ora_sql": {
+   "what": "Viết SQL đúng trên Oracle Database (truy vấn, join, thêm và sửa dữ liệu, tạo bảng).",
+   "who": "Người muốn làm việc với CSDL. Mục tiêu lớn sau trang luyện SQL của lớp.",
+   "prep": "63 câu trong 120 phút; đỗ khi đạt 63%. Có tiếng Anh hoặc tiếng Nhật. Lệ phí cao nên hãy kiểm tra trình độ bằng HackerRank SQL trước."
   }
- }
+ },
+ "fields": {
+  "net": "Mạng",
+  "db": "CSDL & SQL",
+  "ds": "Khoa học dữ liệu",
+  "ai": "AI"
+ },
+ "mapH": "Lộ trình theo lĩnh vực",
+ "mapLead": "Lĩnh vực theo hàng ngang, bước theo hàng dọc. Bấm vào tên để xem chi tiết."
 }

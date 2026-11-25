@@ -1,7 +1,7 @@
 {
  "tag": "Panduan sertifikasi",
- "title": "Panduan Sertifikasi Sains Data",
- "lead": "Sertifikasi bukan tujuan akhir — ia adalah \"kartu nama\" yang menunjukkan kemampuanmu. Berikut sertifikasi yang bisa diambil dalam bahasa Inggris, atau dalam bahasa Jepang dengan hambatan bahasa yang rendah: dari yang gratis dan bisa diambil hari ini sampai yang internasional dan berguna untuk mencari kerja.",
+ "title": "Panduan Sertifikasi IT: Jaringan, Basis Data, Sains Data & AI",
+ "lead": "Sertifikasi bukan tujuan akhir — ia adalah \"kartu nama\" yang menunjukkan kemampuanmu. Berikut sertifikasi di empat bidang — jaringan, basis data (SQL), sains data, dan AI — yang bisa diambil dalam bahasa Inggris, atau bahasa Jepang dengan hambatan bahasa rendah.",
  "findH": "Temukan dengan 3 pertanyaan",
  "q1": "Ingin ujian dalam bahasa apa?",
  "q1en": "Tersedia dalam bahasa Inggris",
@@ -9,21 +9,19 @@
  "q2": "Berapa anggaranmu?",
  "q2free": "Gratis saja",
  "q2low": "Sampai sekitar ¥10.000",
- "q3": "Apa yang ingin kamu tunjukkan?",
- "q3ai": "AI & cloud",
- "q3basics": "Dasar analisis data",
+ "q3": "Bidang apa yang ingin kamu tunjukkan?",
  "any": "Bebas",
  "count": "Cocok: {n} (kartu berwarna)",
  "routeH": "Urutan yang disarankan",
  "stepTitle": [
   "Gratis, mulai hari ini",
-  "Ujian resmi berbiaya rendah",
-  "Lanjutan (target setelah lulus)"
+  "Ujian resmi tingkat awal",
+  "Lanjutan & profesional"
  ],
  "stepText": [
-  "Gunakan SQL dan Python dari kelas dan targetkan lulus di hari yang sama. Bisa ditulis di CV dan LinkedIn.",
-  "Ujian resmi berbayar. Diskon pelajar atau diskon dari pelatihan gratis bisa memperkecil biaya.",
-  "Sertifikasi tingkat tinggi yang terbantu oleh pengalaman kerja. Targetkan setelah mulai bekerja."
+  "Mulai dengan kursus atau tes gratis untuk mendapat kredensial pertama. Bisa ditulis di CV dan LinkedIn.",
+  "Pintu masuk ke ujian resmi berbayar. Diskon pelajar bisa memperkecil biaya.",
+  "Sertifikasi tingkat tinggi yang dihargai saat mencari kerja. Beberapa mengharapkan pengalaman kerja."
  ],
  "tipsH": "Cek sebelum ujian",
  "tips": [
@@ -119,6 +117,49 @@
    "what": "Merancang, membangun, dan menjalankan sistem AI di Google Cloud.",
    "who": "Yang sudah berpengalaman kerja (disarankan 3 tahun atau lebih).",
    "prep": "Jalur belajar resmi dan contoh soal dari Google Cloud."
+  },
+  "nac_net": {
+   "what": "Dasar cara kerja jaringan (alamat IP, Wi-Fi, jaringan rumah). Nilai 70% atau lebih di ujian akhir memberi lencana digital.",
+   "who": "Pemula jaringan. Langkah pertama sebelum CCST atau CCNA.",
+   "prep": "Daftar gratis di Cisco Networking Academy, kursus sekitar 22 jam dengan latihan Packet Tracer."
+  },
+  "nac_ai": {
+   "what": "Pengantar sains data dan AI. Banyak kursus memberi lencana digital setelah selesai.",
+   "who": "Yang ingin memahami gambaran besar sains data dan AI dalam bahasa Inggris.",
+   "prep": "Daftar gratis di Cisco Networking Academy dan belajar sesuai kecepatanmu."
+  },
+  "ccst_net": {
+   "what": "Pengetahuan jaringan tingkat pemula — pintu masuk pekerjaan jaringan.",
+   "who": "Yang ingin bekerja di bidang jaringan. Langkah pertama menuju CCNA.",
+   "prep": "Persiapan dengan kursus gratis Cisco Networking Academy. Ujian 50 menit, tersedia dalam bahasa Inggris, Jepang, Mandarin, dll."
+  },
+  "lpic1": {
+   "what": "Operasi dan administrasi dasar server Linux — fondasi pekerjaan server, jaringan, dan cloud.",
+   "who": "Yang ingin bekerja dengan server atau cloud.",
+   "prep": "Harus lulus dua ujian, 101 dan 102 (masing-masing 90 menit, 60 soal). Tersedia dalam bahasa Inggris, Jepang, Mandarin, dll."
+  },
+  "ccna": {
+   "what": "Cakupan luas: dasar jaringan, konfigurasi, konektivitas IP, keamanan, dan otomasi. Salah satu sertifikasi jaringan paling terkenal di dunia.",
+   "who": "Yang ingin menjadi network engineer. Sangat dihargai perusahaan Jepang.",
+   "prep": "Ujian 120 menit dalam bahasa Inggris atau Jepang. Versi baru (v2.0) direncanakan Februari 2027, jadi cek versi materi belajarmu."
+  },
+  "netplus": {
+   "what": "Pengetahuan jaringan yang tidak terikat merek dan kemampuan mengatasi masalah.",
+   "who": "Yang ingin membuktikan dasar jaringan tanpa bergantung pada satu merek.",
+   "prep": "CompTIA menyarankan 9–12 bulan pengalaman. Maksimal 90 soal dalam 90 menit, dalam bahasa Inggris, Jepang, dll."
+  },
+  "ora_sql": {
+   "what": "Menulis SQL yang benar di Oracle Database (query, join, menambah dan mengubah data, membuat tabel).",
+   "who": "Yang ingin bekerja dengan basis data. Target besar setelah situs latihan SQL kita.",
+   "prep": "63 soal dalam 120 menit; lulus dengan 63%. Dalam bahasa Inggris atau Jepang. Biayanya mahal, jadi cek dulu kemampuanmu dengan HackerRank SQL."
   }
- }
+ },
+ "fields": {
+  "net": "Jaringan",
+  "db": "Basis data & SQL",
+  "ds": "Sains data",
+  "ai": "AI"
+ },
+ "mapH": "Jalur per bidang",
+ "mapLead": "Bidang ke samping, langkah ke bawah. Ketuk nama untuk melihat detailnya."
 }

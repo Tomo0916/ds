@@ -6,7 +6,7 @@
 <title>資格ガイド</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+Bengali:wght@400;700&family=Noto+Sans+Sinhala:wght@400;700&family=Noto+Sans+Myanmar:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=20261126a">
+<link rel="stylesheet" href="../assets/style.css?v=20261126b">
 <style>
 .finder{display:grid;gap:14px}
 .fq{display:grid;gap:8px}
@@ -38,6 +38,16 @@
 .stepH{margin:26px 0 10px;display:flex;align-items:center;gap:10px}
 .stepH .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700}
 .retired li{margin:4px 0}
+.cc .k.f{background:var(--ink);color:var(--card)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mtx{width:100%;border-collapse:collapse;font-size:13px;min-width:620px}
+.mtx th,.mtx td{border:1px solid var(--rule);padding:8px;vertical-align:top;text-align:left}
+.mtx thead th{background:var(--accsoft);color:var(--acctext);font-size:13px}
+.mtx tbody th{width:40px;text-align:center}
+.mtx .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#fff;font-weight:700}
+.mtx a{display:block;margin:0 0 6px;color:var(--ink);text-decoration:none;border-left:3px solid var(--acc);padding-left:6px;line-height:1.35}
+.mtx a.off{opacity:.35}
+.cc{scroll-margin-top:16px}
 </style>
 </head>
 <body>
@@ -46,14 +56,16 @@
  <main id="main"></main>
  <footer data-t="footer"></footer>
 </div>
-<script src="../assets/core.js?v=20261126a"></script>
-<script src="data.js?v=20261126a"></script>
+<script src="../assets/core.js?v=20261126b"></script>
+<script src="data.js?v=20261126b"></script>
 <script>
 {
 const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, plain } = window.AI;
 const C = window.CERTS;
 let lang = detect(), L, u;
-const sel = { lang: "any", cost: "any", skill: "any" };
+const sel = { lang: "any", cost: "any", field: "any" };
+const FIELDS = ["net", "db", "ds", "ai"];
+const FICON = { net: "🌐", db: "🗄️", ds: "📊", ai: "🤖" };
 const main = document.getElementById("main");
 
 function match(c) {
@@ -61,15 +73,15 @@ function match(c) {
   if (sel.lang === "ja" && !c.langs.includes("ja")) return false;
   if (sel.cost === "free" && c.cost !== "free") return false;
   if (sel.cost === "low" && c.cost === "mid") return false;
-  if (sel.skill !== "any" && !c.skills.includes(sel.skill)) return false;
+  if (sel.field !== "any" && c.field !== sel.field) return false;
   return true;
 }
 const langChip = c => c.langs.map(l => `<span class="k g">${rb(L.langName[l])}</span>`).join("");
 function card(c) {
-  const T = L.c[c.id], on = match(c), any = sel.lang !== "any" || sel.cost !== "any" || sel.skill !== "any";
-  return `<article class="cc ${on ? (any ? "hit" : "") : "dim"}">
+  const T = L.c[c.id], on = match(c), any = sel.lang !== "any" || sel.cost !== "any" || sel.field !== "any";
+  return `<article class="cc ${on ? (any ? "hit" : "") : "dim"}" id="c-${c.id}">
     <h3>${esc(c.name)}</h3><div class="org">${esc(c.org)}</div>
-    <div class="chips"><span class="k ${c.cost === "free" ? "free" : ""}">${rb(L.costName[c.cost])}</span>${langChip(c)}<span class="k g">${rb(c.course ? L.typeCourse : L.typeExam)}</span>${c.isNew ? `<span class="k">${rb(L.newTag)}</span>` : ""}</div>
+    <div class="chips"><span class="k f">${FICON[c.field]} ${rb(L.fields[c.field])}</span><span class="k ${c.cost === "free" ? "free" : ""}">${rb(L.costName[c.cost])}</span>${langChip(c)}<span class="k g">${rb(c.course ? L.typeCourse : L.typeExam)}</span>${c.isNew ? `<span class="k">${rb(L.newTag)}</span>` : ""}</div>
     <div class="meta"><span>💴 ${esc(c.price === "—" ? plain(L.seeOfficial) : c.price)}</span><span>⏱ ${esc(c.fmt)}</span></div>
     <dl><dt>${rb(L.dtWhat)}</dt><dd>${rb(T.what)}</dd><dt>${rb(L.dtWho)}</dt><dd>${rb(T.who)}</dd><dt>${rb(L.dtPrep)}</dt><dd>${rb(T.prep)}</dd></dl>
     <a class="btn go" href="${c.url}" target="_blank" rel="noopener">${rb(L.official)} ↗</a>
@@ -85,9 +97,10 @@ function draw() {
   <section class="card"><h2>${rb(L.findH)}</h2><div class="finder">
     <div class="fq"><b>Q1. ${rb(L.q1)}</b>${seg("lang", [["any", L.any], ["en", L.q1en], ["ja", L.q1ja]])}</div>
     <div class="fq"><b>Q2. ${rb(L.q2)}</b>${seg("cost", [["any", L.any], ["free", L.q2free], ["low", L.q2low]])}</div>
-    <div class="fq"><b>Q3. ${rb(L.q3)}</b>${seg("skill", [["any", L.any], ["sql", "SQL"], ["python", "Python"], ["ai", L.q3ai], ["basics", L.q3basics]])}</div>
+    <div class="fq"><b>Q3. ${rb(L.q3)}</b>${seg("field", [["any", L.any], ...FIELDS.map(f => [f, FICON[f] + " " + L.fields[f]])])}</div>
     <div class="count">${rb(fill(L.count, { n }))}</div></div></section>
   <section class="card"><h2>${rb(L.routeH)}</h2><div class="steps">${[0, 1, 2].map(i => `<div class="stp"><h3><span class="n">${i + 1}</span>${rb(L.stepTitle[i])}</h3><p>${rb(L.stepText[i])}</p></div>`).join("")}</div></section>
+  <section class="card"><h2>${rb(L.mapH)}</h2><p class="note" style="margin-top:0">${rb(L.mapLead)}</p><div class="scroll"><table class="mtx"><thead><tr><th></th>${FIELDS.map(f => `<th>${FICON[f]} ${rb(L.fields[f])}</th>`).join("")}</tr></thead><tbody>${[1, 2, 3].map(st => `<tr><th><span class="n">${st}</span></th>${FIELDS.map(f => `<td>${C.filter(c => c.step === st && c.field === f).map(c => `<a href="#c-${c.id}" class="${match(c) ? "" : "off"}">${esc(c.name.replace(/ \(.*\)$/, ""))}</a>`).join("") || "—"}</td>`).join("")}</tr>`).join("")}</tbody></table></div></section>
   ${list}
   <section class="card" style="margin-top:26px"><h2>${rb(L.tipsH)}</h2><ul>${L.tips.map(t => `<li>${rb(t)}</li>`).join("")}</ul></section>
   <section class="card"><h2>${rb(L.retiredH)}</h2><p>${rb(L.retiredLead)}</p><ul class="retired">${L.retired.map(t => `<li>${rb(t)}</li>`).join("")}</ul></section>

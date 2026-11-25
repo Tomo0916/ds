@@ -1,7 +1,7 @@
 {
  "tag": "Guide des certifications",
- "title": "Guide des certifications en science des données",
- "lead": "Une certification n'est pas un but : c'est une « carte de visite » qui montre ce que vous savez faire. Voici des certifications passables en anglais, ou en japonais avec une barrière linguistique faible : des gratuites à passer dès aujourd'hui jusqu'aux internationales utiles pour trouver un emploi.",
+ "title": "Guide des certifications IT : réseaux, bases de données, science des données et IA",
+ "lead": "Une certification n'est pas un but : c'est une « carte de visite » qui montre ce que vous savez faire. Voici des certifications dans quatre domaines — réseaux, bases de données (SQL), science des données et IA — passables en anglais, ou en japonais avec une faible barrière linguistique.",
  "findH": "Trouvez la vôtre en 3 questions",
  "q1": "Dans quelle langue voulez-vous passer l'examen ?",
  "q1en": "Disponible en anglais",
@@ -9,21 +9,19 @@
  "q2": "Quel est votre budget ?",
  "q2free": "Gratuit uniquement",
  "q2low": "Jusqu'à environ 10 000 ¥",
- "q3": "Que voulez-vous montrer ?",
- "q3ai": "IA et cloud",
- "q3basics": "Bases de l'analyse de données",
+ "q3": "Quel domaine voulez-vous mettre en avant ?",
  "any": "Peu importe",
  "count": "Résultats : {n} (cartes en couleur)",
  "routeH": "Parcours conseillé",
  "stepTitle": [
   "Gratuit, dès aujourd'hui",
-  "Vrais examens à petit prix",
-  "Avancé (objectif après le diplôme)"
+  "Examens officiels d'entrée",
+  "Avancé et professionnel"
  ],
  "stepText": [
-  "Utilisez le SQL et le Python appris en cours et visez la réussite le jour même. À mettre sur votre CV et LinkedIn.",
-  "Examens officiels payants. Les réductions étudiantes ou liées aux formations gratuites réduisent le coût.",
-  "Certifications de haut niveau où l'expérience professionnelle aide. Visez-les après avoir commencé à travailler."
+  "Commencez par un cours ou un test gratuit pour obtenir un premier certificat. À mettre sur votre CV et LinkedIn.",
+  "L'entrée vers les examens officiels payants. Les réductions étudiantes réduisent le coût.",
+  "Certifications de haut niveau appréciées par les employeurs. Certaines supposent de l'expérience."
  ],
  "tipsH": "À vérifier avant l'examen",
  "tips": [
@@ -119,6 +117,49 @@
    "what": "Concevoir, construire et exploiter des systèmes d'IA sur Google Cloud.",
    "who": "Personnes ayant de l'expérience (3 ans ou plus recommandés).",
    "prep": "Parcours officiel et questions d'exemple de Google Cloud."
+  },
+  "nac_net": {
+   "what": "Bases du fonctionnement des réseaux (adresses IP, Wi-Fi, réseau domestique). 70 % à l'examen final donne un badge numérique.",
+   "who": "Débutants en réseaux. Un premier pas avant CCST ou CCNA.",
+   "prep": "Inscription gratuite à Cisco Networking Academy, cours d'environ 22 h avec exercices sur Packet Tracer."
+  },
+  "nac_ai": {
+   "what": "Introduction à la science des données et à l'IA. Beaucoup de cours donnent un badge numérique.",
+   "who": "Ceux qui veulent une vue d'ensemble de la science des données et de l'IA en anglais.",
+   "prep": "Inscription gratuite à Cisco Networking Academy, à votre rythme."
+  },
+  "ccst_net": {
+   "what": "Connaissances réseau de niveau débutant : la porte d'entrée des métiers du réseau.",
+   "who": "Ceux qui visent un emploi dans les réseaux. Premier pas vers le CCNA.",
+   "prep": "Préparation avec les cours gratuits de Cisco Networking Academy. Examen de 50 min, en anglais, japonais, chinois, etc."
+  },
+  "lpic1": {
+   "what": "Utilisation et administration de base d'un serveur Linux : la base des métiers serveur, réseau et cloud.",
+   "who": "Ceux qui veulent travailler avec des serveurs ou le cloud.",
+   "prep": "Il faut réussir deux examens, 101 et 102 (90 min, 60 questions chacun). En anglais, japonais, chinois, etc."
+  },
+  "ccna": {
+   "what": "Large champ : bases des réseaux, configuration, connectivité IP, sécurité et automatisation. Une des certifications réseau les plus connues au monde.",
+   "who": "Futurs ingénieurs réseau. Très apprécié aussi des employeurs japonais.",
+   "prep": "Examen de 120 min en anglais ou japonais. Une nouvelle version (v2.0) est prévue en février 2027 : vérifiez la version de vos supports."
+  },
+  "netplus": {
+   "what": "Connaissances réseau indépendantes des fabricants et dépannage.",
+   "who": "Ceux qui veulent prouver des bases réseau indépendantes d'une marque.",
+   "prep": "CompTIA recommande 9 à 12 mois d'expérience. Jusqu'à 90 questions en 90 min, en anglais, japonais, etc."
+  },
+  "ora_sql": {
+   "what": "Écrire du SQL correct sur Oracle Database (requêtes, jointures, ajout et modification de données, création de tables).",
+   "who": "Ceux qui veulent travailler avec les bases de données. Un grand objectif après notre site SQL.",
+   "prep": "63 questions en 120 min ; réussite à 63 %. En anglais ou japonais. Le prix est élevé : testez d'abord votre niveau avec HackerRank SQL."
   }
- }
+ },
+ "fields": {
+  "net": "Réseaux",
+  "db": "Bases de données & SQL",
+  "ds": "Science des données",
+  "ai": "IA"
+ },
+ "mapH": "Parcours par domaine",
+ "mapLead": "Domaines en colonnes, étapes en lignes. Touchez un nom pour voir le détail."
 }
