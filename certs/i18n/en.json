@@ -61,7 +61,7 @@
   "hr_sql": {
    "what": "Your ability to actually write SQL queries. Three levels: Basic, Intermediate and Advanced.",
    "who": "Anyone who can solve the problems on our SQL practice site. The best first certification.",
-   "prep": "Solve HackerRank's SQL practice problems first. The test is timed, so practise with a timer."
+   "prep": "Solve HackerRank's SQL practice problems first. The test is timed, so practise with a timer. Practise in the same format, with a 30-minute mock test, in \"HackerRank practice\" on our SQL practice site."
   },
   "hr_py": {
    "what": "Your ability to write basic Python programs.",
@@ -152,6 +152,11 @@
    "what": "Writing correct SQL on Oracle Database (queries, joins, adding and changing data, creating tables).",
    "who": "Anyone who wants to work with databases. A big next goal after our SQL practice site.",
    "prep": "63 questions in 120 minutes; pass with 63%. In English or Japanese. The fee is high, so first check your skills with HackerRank SQL."
+  },
+  "paiza_sql": {
+   "what": "A test on paiza, a Japanese service for IT engineers, that rates your SQL on 5 levels (beta since 2025). Level 2 covers conditions and basic aggregation — close to HackerRank SQL (Basic).",
+   "who": "Anyone who wants to work for a Japanese company. Japanese employers know paiza well, so the result is easy to explain in interviews.",
+   "prep": "Take it after signing up. The problems are in Japanese, so it is also Japanese reading practice. Build your basics with HackerRank first."
   }
  },
  "fields": {

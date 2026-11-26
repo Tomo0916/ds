@@ -61,7 +61,7 @@
   "hr_sql": {
    "what": "Votre capacité à écrire de vraies requêtes SQL. Trois niveaux : Basic, Intermediate, Advanced.",
    "who": "Ceux qui résolvent les exercices de notre site SQL. La meilleure première certification.",
-   "prep": "Résolvez d'abord les exercices SQL de HackerRank. L'examen est chronométré : entraînez-vous avec un minuteur."
+   "prep": "Résolvez d'abord les exercices SQL de HackerRank. L'examen est chronométré : entraînez-vous avec un minuteur. Entraînez-vous au même format, avec un examen blanc de 30 minutes, dans « Préparation HackerRank » de notre site SQL."
   },
   "hr_py": {
    "what": "Votre capacité à écrire des programmes Python de base.",
@@ -152,6 +152,11 @@
    "what": "Écrire du SQL correct sur Oracle Database (requêtes, jointures, ajout et modification de données, création de tables).",
    "who": "Ceux qui veulent travailler avec les bases de données. Un grand objectif après notre site SQL.",
    "prep": "63 questions en 120 min ; réussite à 63 %. En anglais ou japonais. Le prix est élevé : testez d'abord votre niveau avec HackerRank SQL."
+  },
+  "paiza_sql": {
+   "what": "Un test de paiza, service japonais pour ingénieurs IT, qui évalue votre SQL sur 5 niveaux (bêta depuis 2025). Le niveau 2 couvre les conditions et l'agrégation de base, proche de HackerRank SQL (Basic).",
+   "who": "Ceux qui veulent travailler dans une entreprise japonaise. Les employeurs japonais connaissent bien paiza.",
+   "prep": "Après inscription. Les problèmes sont en japonais : c'est aussi un entraînement à la lecture. Consolidez d'abord les bases avec HackerRank."
   }
  },
  "fields": {

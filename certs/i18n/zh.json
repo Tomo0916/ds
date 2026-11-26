@@ -61,7 +61,7 @@
   "hr_sql": {
    "what": "实际编写SQL查询的能力。分Basic、Intermediate、Advanced三个级别。",
    "who": "能做出SQL练习网站题目的人。最推荐作为第一个资格。",
-   "prep": "先做HackerRank的SQL练习题。考试有时间限制,练习时要计时。"
+   "prep": "先做HackerRank的SQL练习题。考试有时间限制,练习时要计时。 在SQL练习网站的「HackerRank备考」中,可以用相同形式练习并参加30分钟模拟考试。"
   },
   "hr_py": {
    "what": "编写Python基本程序的能力。",
@@ -152,6 +152,11 @@
    "what": "在Oracle Database上正确编写SQL的能力(查询、连接、数据增改、建表等)。",
    "who": "想从事数据库工作的人。SQL练习网站之后的大目标。",
    "prep": "120分钟63题,63%以上合格。可用英语或日语参加。考试费较高,建议先用HackerRank的SQL确认实力。"
+  },
+  "paiza_sql": {
+   "what": "日本IT工程师服务「paiza」的测试,用5个等级评定SQL能力(2025年开始的测试版)。等级2考查条件和基本汇总,接近HackerRank SQL (Basic)。",
+   "who": "想在日本公司就职的人。日本企业很熟悉paiza,面试时容易说明。",
+   "prep": "注册会员后即可参加。题目是日语,也能练习日语阅读。建议先用HackerRank打好基础。"
   }
  },
  "fields": {

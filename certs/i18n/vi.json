@@ -61,7 +61,7 @@
   "hr_sql": {
    "what": "Khả năng viết câu truy vấn SQL thực tế. Ba cấp: Basic, Intermediate, Advanced.",
    "who": "Người giải được bài trên trang luyện SQL của lớp. Phù hợp nhất để bắt đầu.",
-   "prep": "Giải bài luyện SQL trên HackerRank trước. Bài thi có giới hạn giờ nên hãy luyện có bấm giờ."
+   "prep": "Giải bài luyện SQL trên HackerRank trước. Bài thi có giới hạn giờ nên hãy luyện có bấm giờ. Luyện đúng hình thức và thi thử 30 phút ở mục \"Luyện thi HackerRank\" trên trang luyện SQL của lớp."
   },
   "hr_py": {
    "what": "Khả năng viết chương trình Python cơ bản.",
@@ -152,6 +152,11 @@
    "what": "Viết SQL đúng trên Oracle Database (truy vấn, join, thêm và sửa dữ liệu, tạo bảng).",
    "who": "Người muốn làm việc với CSDL. Mục tiêu lớn sau trang luyện SQL của lớp.",
    "prep": "63 câu trong 120 phút; đỗ khi đạt 63%. Có tiếng Anh hoặc tiếng Nhật. Lệ phí cao nên hãy kiểm tra trình độ bằng HackerRank SQL trước."
+  },
+  "paiza_sql": {
+   "what": "Bài kiểm tra trên paiza, dịch vụ Nhật dành cho kỹ sư IT, đánh giá SQL theo 5 cấp (bản beta từ 2025). Cấp 2 gồm điều kiện và tổng hợp cơ bản, gần với HackerRank SQL (Basic).",
+   "who": "Người muốn làm việc ở công ty Nhật. Doanh nghiệp Nhật biết rõ paiza.",
+   "prep": "Làm sau khi đăng ký. Đề bài bằng tiếng Nhật nên cũng là luyện đọc. Hãy vững nền tảng với HackerRank trước."
   }
  },
  "fields": {

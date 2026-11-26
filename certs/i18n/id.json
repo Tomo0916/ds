@@ -61,7 +61,7 @@
   "hr_sql": {
    "what": "Kemampuan menulis query SQL sungguhan. Tiga level: Basic, Intermediate, Advanced.",
    "who": "Yang bisa menyelesaikan soal di situs latihan SQL kita. Paling disarankan sebagai yang pertama.",
-   "prep": "Kerjakan soal latihan SQL di HackerRank dulu. Ujiannya berwaktu, jadi latihan dengan timer."
+   "prep": "Kerjakan soal latihan SQL di HackerRank dulu. Ujiannya berwaktu, jadi latihan dengan timer. Berlatih dengan format yang sama dan tes simulasi 30 menit di \"Persiapan HackerRank\" pada situs latihan SQL kita."
   },
   "hr_py": {
    "what": "Kemampuan menulis program Python dasar.",
@@ -152,6 +152,11 @@
    "what": "Menulis SQL yang benar di Oracle Database (query, join, menambah dan mengubah data, membuat tabel).",
    "who": "Yang ingin bekerja dengan basis data. Target besar setelah situs latihan SQL kita.",
    "prep": "63 soal dalam 120 menit; lulus dengan 63%. Dalam bahasa Inggris atau Jepang. Biayanya mahal, jadi cek dulu kemampuanmu dengan HackerRank SQL."
+  },
+  "paiza_sql": {
+   "what": "Tes di paiza, layanan Jepang untuk engineer IT, yang menilai SQL-mu dalam 5 level (beta sejak 2025). Level 2 mencakup kondisi dan agregasi dasar, mirip HackerRank SQL (Basic).",
+   "who": "Yang ingin bekerja di perusahaan Jepang. Perusahaan Jepang mengenal paiza dengan baik.",
+   "prep": "Ikuti setelah mendaftar. Soal dalam bahasa Jepang, jadi sekaligus latihan membaca. Kuatkan dasar dengan HackerRank dulu."
   }
  },
  "fields": {

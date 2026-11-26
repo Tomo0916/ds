@@ -6,6 +6,7 @@
 window.CERTS = [
   { id: "hr_sql", field: "db", name: "HackerRank SQL Certification", org: "HackerRank", step: 1, langs: ["en"], cost: "free", price: "$0", fmt: "Basic 30 min · Intermediate 35 min · Advanced", skills: ["sql"], url: "https://www.hackerrank.com/skills-verification" },
   { id: "hr_py", field: "ds", name: "HackerRank Python Certification", org: "HackerRank", step: 1, langs: ["en"], cost: "free", price: "$0", fmt: "online · timed", skills: ["python"], url: "https://www.hackerrank.com/skills-verification" },
+  { id: "paiza_sql", field: "db", name: "paiza SQL Skill Check (β)", org: "paiza", step: 1, langs: ["ja"], cost: "free", price: "¥0 (sign-up)", fmt: "Level 1–5", skills: ["sql"], url: "https://paiza.jp/" },
   { id: "fcc_db", field: "db", name: "freeCodeCamp Relational Databases", org: "freeCodeCamp", step: 1, langs: ["en"], cost: "free", price: "$0", fmt: "5 projects + 50-question exam", skills: ["sql"], url: "https://www.freecodecamp.org/learn" },
   { id: "fcc_py", field: "ds", name: "freeCodeCamp Python", org: "freeCodeCamp", step: 1, langs: ["en"], cost: "free", price: "$0", fmt: "projects + final exam", skills: ["python"], url: "https://www.freecodecamp.org/learn" },
   { id: "g_da", field: "ds", name: "Google Data Analytics Professional Certificate", org: "Google / Coursera", step: 2, langs: ["en"], cost: "low", price: "$49 / month (US & Canada)", fmt: "9 courses · ≈150 h", skills: ["basics", "sql", "python"], url: "https://www.coursera.org/professional-certificates/google-data-analytics", course: true },
