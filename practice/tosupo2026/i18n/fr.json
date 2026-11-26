@@ -131,5 +131,54 @@
  "ptsH": "Tickets",
  "totalH": "Total",
  "yenUnit": "yens",
- "colPlace": "Cote placé (複勝)"
+ "colPlace": "Cote placé (複勝)",
+ "evH": "Raisonner avec la probabilité et l'espérance",
+ "evLead": "Calculez d'abord la chance de gagner si tous les chevaux sont aussi forts. C'est votre référence quand on ne sait rien. Comparez-la ensuite à la probabilité donnée par la cote (la prévision de tous) et à votre propre prévision, pour voir si un pari est une bonne cible ou peu intéressant.",
+ "eqH": "① Si tous les chevaux sont aussi forts (modèle uniforme)",
+ "eqLead": "Cette course compte {n} partants. L'ordre des 3 premiers peut se faire de {n}×{n1}×{n2} = {all} façons. Si tous les ordres sont aussi probables, la chance de gagner de chaque type de pari est :",
+ "cAll": "Toutes les combinaisons",
+ "cHit": "Gagnantes",
+ "cP0": "Chance de gagner",
+ "cBe": "Cote d'équilibre",
+ "cCnt": "Paris rentables si uniforme (cotes actuelles)",
+ "eqNote": "Cote d'équilibre = 1 ÷ chance de gagner. Si le modèle uniforme était vrai, un pari à cote plus haute serait rentable à long terme (espérance > 1). La colonne de droite compte ces paris aux cotes actuelles. Les cotes des paris combinés sont des estimations.",
+ "frVar": "dépend du nombre de chevaux par casaque",
+ "qH": "Réfléchissez (touchez pour la réponse)",
+ "qs": [
+  [
+   "Vous jouez un seul trio ordre dans une course de {n} chevaux. Si tous sont égaux, quelle est la chance de gagner ?",
+   "Une façon sur {all} : 1/{all} ≈ {p3t} %. Un trio sans ordre gagne avec 6 ordres : 1/{tri} ≈ {p3c} %, six fois plus facile."
+  ],
+  [
+   "Combien de fois le placé est-il plus facile que le gagnant ?",
+   "Le gagnant exige la 1re place ({pw} %), le placé le top 3 ({pp} %) : trois fois plus facile. D'où des cotes plus basses."
+  ],
+  [
+   "Dans le modèle uniforme, les paris peu joués semblent « rentables ». Le sont-ils vraiment ?",
+   "Non. Les chevaux peu joués sont souvent vraiment plus faibles. Le modèle uniforme n'est qu'une règle. Cote = prévision de tous ; votre note = votre prévision. Seulement quand votre probabilité dépasse celle de la cote (espérance > 1) le pari est sous-évalué."
+  ],
+  [
+   "Laissez toutes les notes à 3. Quel pari gagnant a la meilleure espérance ? Pourquoi ?",
+   "Le cheval à la plus forte cote : à chances égales, espérance = probabilité × cote augmente avec la cote."
+  ],
+  [
+   "Quand le gagnant du favori devient-il une « cible » ?",
+   "Quand votre probabilité de victoire dépasse 1 ÷ cote. Pour une cote de 2,0, il faut penser qu'il gagne plus de 50 % du temps."
+  ]
+ ],
+ "mineH": "② Construire des probabilités avec vos notes",
+ "mineLead": "Donnez à chaque cheval une note de 0 à 5. La chance de gagner est proportionnelle à la note (tous à 3 au départ = modèle uniforme). Les chances d'être 2e et 3e sont aussi calculées à partir des notes.",
+ "cMkt": "% selon la cote",
+ "cMine": "Votre %",
+ "cEv": "Espérance",
+ "cRate": "Note",
+ "reset": "Remettre à égalité",
+ "evNote": "Espérance = votre probabilité × cote. Au-dessus de 1,0 : si votre prévision est juste, le pari est rentable à long terme (cible). Sous 0,75 : peu intéressant. « % selon la cote » est la prévision de tous, calculée à partir de la cote gagnant et du taux de retour de 80 %.",
+ "vGood": "Cible",
+ "vFair": "Correct",
+ "vBad": "Peu intéressant",
+ "pU": "Uniforme",
+ "pM": "Cote",
+ "pS": "Vous",
+ "evSimNote": "L'espérance utilise vos notes du ② (le placé utilise le milieu de sa fourchette)."
 }

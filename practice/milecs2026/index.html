@@ -76,6 +76,20 @@
 .msg{color:var(--ng);font-size:14px;min-height:1em}
 .big{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums}
 .sum2{display:flex;gap:24px;flex-wrap:wrap;align-items:end}
+.evt{width:100%;border-collapse:collapse;font-size:14px}
+.evt th,.evt td{padding:7px 6px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:middle}
+.evt th{font-size:12px;color:var(--sub);font-weight:600}
+.evt td.num,.evt th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.evt .f{font-size:12px;color:var(--sub);white-space:nowrap}
+.vc{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;font-weight:700;white-space:nowrap}
+.vc.good{background:light-dark(#dff3e6,#123322);color:light-dark(#11633a,#7fe0a8)}
+.vc.fair{background:light-dark(#eceef1,#2a2d31);color:var(--sub)}
+.vc.bad{background:light-dark(#fde6e4,#3a1714);color:light-dark(#a3271c,#ff9d93)}
+.stp{display:inline-flex;align-items:center;gap:4px}
+.stp button{font:inherit;font-weight:700;width:30px;height:30px;border-radius:8px;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer}
+.stp b{min-width:18px;text-align:center;font-variant-numeric:tabular-nums}
+.qa details{border-bottom:1px solid var(--rule);padding:8px 0}.qa summary{cursor:pointer;font-weight:600}.qa p{margin:6px 0 0}
+.evh3{margin:18px 0 6px;font-size:17px}
 </style>
 </head>
 <body>
@@ -85,7 +99,7 @@
  <footer data-t="footer"></footer>
 </div>
 <script src="../../assets/core.js?v=20261125c"></script>
-<script src="race.js?v=20261125c"></script>
+<script src="race.js?v=20261126d"></script>
 <script>
 {
 const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, plain } = window.AI;
@@ -139,6 +153,48 @@ function estOdds(t, sel) {
   return Math.max(1.0, Math.floor(R.rates[t] / q * 10) / 10);
 }
 
+/* ---- uniform model, market map, own ratings ---- */
+const ALL3 = NH * (NH - 1) * (NH - 2);
+const p0 = (t, sel) => { let c = 0; for (let a = 1; a <= NH; a++) for (let b = 1; b <= NH; b++) if (b !== a) for (let d = 1; d <= NH; d++) if (d !== a && d !== b && hits(t, sel, a, b, d)) c++; return c / ALL3; };
+const RKEY = KEY + "-rt";
+let rt = null;
+try { rt = JSON.parse(localStorage.getItem(RKEY) || "null"); } catch (e) { rt = null; }
+if (!Array.isArray(rt) || rt.length !== NH) rt = H.map(() => 3);
+const saveRt = () => { try { localStorage.setItem(RKEY, JSON.stringify(rt)); } catch (e) {} };
+let PS = [], P3S = [];
+function buildMine() {
+  const sw = rt.reduce((a, b) => a + b, 0);
+  PS = rt.map(w => sw > 0 ? 0.999 * w / sw + 0.001 / NH : 1 / NH);
+  P3S = [];
+  for (let i = 0; i < NH; i++) for (let j = 0; j < NH; j++) if (j !== i) for (let k = 0; k < NH; k++) if (k !== i && k !== j)
+    P3S.push([i, j, k, PS[i] * PS[j] / (1 - PS[i]) * PS[k] / (1 - PS[i] - PS[j])]);
+}
+buildMine();
+const probS = (t, sel) => P3S.reduce((acc, [i, j, k, q]) => acc + (hits(t, sel, i + 1, j + 1, k + 1) ? q : 0), 0);
+// odds used for expected value: win real, place = middle of range, others = estimate
+const evOdds = (t, sel) => t === "place" ? (R.place[sel[0]][0] + R.place[sel[0]][1]) / 2 : estOdds(t, sel);
+const evOf = (t, sel) => { const o = evOdds(t, sel); return o ? probS(t, sel) * o : null; };
+const fp = x => x >= 0.1 ? (x * 100).toFixed(1) + "%" : x >= 0.01 ? (x * 100).toFixed(1) + "%" : x >= 0.001 ? (x * 100).toFixed(2) + "%" : (x * 100).toFixed(3) + "%";
+const vchip = e => e === null ? "" : `<span class="vc ${e >= 1 ? "good" : e >= 0.75 ? "fair" : "bad"}">${rb(e >= 1 ? L.vGood : e >= 0.75 ? L.vFair : L.vBad)}</span>`;
+// market probability of every ticket of a type (one pass over P3)
+function mktMap(t) {
+  const m = new Map(), add = (k, q) => m.set(k, (m.get(k) || 0) + q);
+  P3.forEach(([i, j, k, q]) => {
+    const a = i + 1, b = j + 1, c = k + 1, so = (...x) => x.sort((x1, y1) => x1 - y1).join("-");
+    switch (t) {
+      case "win": add("" + a, q); break;
+      case "place": add("" + a, q); add("" + b, q); add("" + c, q); break;
+      case "wakuren": add(so(frameOf(a), frameOf(b)), q); break;
+      case "umaren": add(so(a, b), q); break;
+      case "wide": add(so(a, b), q); add(so(a, c), q); add(so(b, c), q); break;
+      case "umatan": add(a + "-" + b, q); break;
+      case "trio": add(so(a, b, c), q); break;
+      case "trifecta": add(a + "-" + b + "-" + c, q); break;
+    }
+  });
+  return m;
+}
+
 let L, u, result = null;
 const JPT = { win: "単勝", place: "複勝", wakuren: "枠連", umaren: "馬連", wide: "ワイド", umatan: "馬単", trio: "3連複", trifecta: "3連単" };
 const JPM = { n: "通常", f: "フォーメーション", b: "ボックス" };
@@ -182,6 +238,13 @@ async function render() {
       <p class="note">${rb(L.cardNote)}</p></section>
     <section class="card"><h2>${rb(L.whyH)}</h2><p>${rb(L.whyLead)}</p><div class="why">${why}</div></section>
     <section class="card"><h2>${rb(L.hintH)}</h2><ul>${L.hints.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section>
+    <section class="card" id="evc"><h2>${rb(L.evH)}</h2><p>${rb(L.evLead)}</p>
+      <h3 class="evh3">${rb(L.eqH)}</h3><p>${rb(fill(L.eqLead, { n: NH, n1: NH - 1, n2: NH - 2, all: NH * (NH - 1) * (NH - 2) }))}</p>
+      <div class="scroll"><table class="evt" id="eqt"></table></div><p class="note">${rb(L.eqNote)}</p>
+      <h3 class="evh3">${rb(L.qH)}</h3><div class="qa" id="qa"></div>
+      <h3 class="evh3">${rb(L.mineH)}</h3><p>${rb(L.mineLead)}</p>
+      <p><button class="btn" id="rtreset">${rb(L.reset)}</button></p>
+      <div class="scroll"><table class="evt" id="mine"></table></div><p class="note">${rb(L.evNote)}</p></section>
     <section class="card" id="simc"><h2>${rb(L.simH)}</h2><p>${rb(L.simLead)}</p>
       <div class="sim">
         <div class="wallet"><span>${rb(L.budget)} <b>${yen(BUDGET)}</b></span><span>${rb(L.used)} <b id="used"></b></span><span>${rb(L.left)} <b id="left"></b></span></div>
@@ -195,7 +258,7 @@ async function render() {
         <p class="note" id="est" style="margin:0"></p>
         <p class="msg" id="msg"></p>
         <div class="scroll"><table class="tk" id="tickets"></table></div>
-        <p class="note">${rb(L.estNote)}</p>
+        <p class="note">${rb(L.estNote)} ${rb(L.evSimNote)}</p>
       </div></section>
     <section class="card" id="resc"><h2>${rb(L.resH)}</h2><p>${rb(L.resLead)}</p>
       <div class="sim"><div class="row">${[1, 2, 3].map(n => `<label>${rb(fill(L.fin, { n }))}<select id="r${n}"><option value="">—</option>${horseOpts()}</select></label>`).join("")}
@@ -203,7 +266,59 @@ async function render() {
         <p class="msg" id="rmsg"></p><div id="out"></div></div></section>
     <section class="card"><h2>${rb(L.refH)}</h2><ul>${L.reflect.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section>
     <p class="note">${rb(L.src)}</p>`;
+  setupEv();
   setupSim();
+}
+
+function setupEv() {
+  // ① uniform table
+  const C2 = NH * (NH - 1) / 2, C3 = NH * (NH - 1) * (NH - 2) / 6;
+  const frames = [...new Set(H.map(h => h[0]))], fp2 = [];
+  frames.forEach(f => frames.forEach(g => { if (g < f) return; if (f === g && H.filter(h => h[0] === f).length < 2) return; fp2.push([f, g]); }));
+  const wk = fp2.map(s2 => p0("wakuren", s2));
+  const rows = [
+    ["win", "", NH, "1", 1 / NH],
+    ["place", "", NH, "3", 3 / NH],
+    ["wakuren", "", fp2.length, "—", null],
+    ["umaren", `${NH}×${NH - 1}÷2`, C2, "1", 1 / C2],
+    ["wide", `${NH}×${NH - 1}÷2`, C2, "3", 3 / C2],
+    ["umatan", `${NH}×${NH - 1}`, NH * (NH - 1), "1", 1 / (NH * (NH - 1))],
+    ["trio", `${NH}×${NH - 1}×${NH - 2}÷6`, C3, "1", 1 / C3],
+    ["trifecta", `${NH}×${NH - 1}×${NH - 2}`, ALL3, "1", 1 / ALL3]];
+  const keyOf = (t, s2) => TYPES[t].ord ? s2.join("-") : [...s2].sort((a, b) => a - b).join("-");
+  const allTickets = t => {
+    if (t === "wakuren") return fp2;
+    const n = TYPES[t].n, out = [];
+    const rec = (cur) => { if (cur.length === n) { out.push(cur); return; } for (let v = 1; v <= NH; v++) if (!cur.includes(v)) { if (!TYPES[t].ord && cur.length && v < cur[cur.length - 1]) continue; rec([...cur, v]); } };
+    rec([]); return out;
+  };
+  const good = t => { // tickets whose (estimated) odds beat the uniform break-even
+    const m = mktMap(t), T = allTickets(t);
+    let g = 0;
+    T.forEach(s2 => { const q = m.get(keyOf(t, s2)) || 0; const pu = t === "wakuren" ? p0(t, s2) : rows.find(r => r[0] === t)[4];
+      const o = t === "win" ? H[s2[0] - 1][8] : t === "place" ? (R.place[s2[0]][0] + R.place[s2[0]][1]) / 2 : (q > 0 ? R.rates[t] / q : Infinity);
+      if (o * pu > 1) g++; });
+    return `${g} / ${T.length}`;
+  };
+  document.getElementById("eqt").innerHTML = `<thead><tr><th>${rb(L.type)}</th><th class="num">${rb(L.cAll)}</th><th class="num">${rb(L.cHit)}</th><th class="num">${rb(L.cP0)}</th><th class="num">${rb(L.cBe)}</th><th class="num">${rb(L.cCnt)}</th></tr></thead><tbody>` +
+    rows.map(([t, f, n, h, pr]) => {
+      const pTxt = pr === null ? `${fp(Math.min(...wk))}〜${fp(Math.max(...wk))}<div class="f">${rb(L.frVar)}</div>` : `${fp(pr)}<div class="f">${h}/${n.toLocaleString("en-US")}</div>`;
+      const be = pr === null ? `${(1 / Math.max(...wk)).toFixed(1)}〜${(1 / Math.min(...wk)).toFixed(1)}` : (1 / pr).toFixed(1);
+      return `<tr><td>${tName(t)}</td><td class="num">${n.toLocaleString("en-US")}${f ? `<div class="f">${f}</div>` : ""}</td><td class="num">${h}</td><td class="num">${pTxt}</td><td class="num">${be}</td><td class="num">${good(t)}</td></tr>`;
+    }).join("") + `</tbody>`;
+  // questions
+  const V = { n: NH, all: ALL3.toLocaleString("en-US"), tri: C3.toLocaleString("en-US"), p3t: (100 / ALL3).toFixed(3), p3c: (100 / C3).toFixed(2), pw: (100 / NH).toFixed(1), pp: (300 / NH).toFixed(1) };
+  document.getElementById("qa").innerHTML = L.qs.map(([q, a]) => `<details><summary>${rb(fill(q, V))}</summary><p>${rb(fill(a, V))}</p></details>`).join("");
+  // ② own ratings
+  const mine = document.getElementById("mine");
+  const draw = () => {
+    buildMine();
+    mine.innerHTML = `<thead><tr><th>${rb(u.cardN)}</th><th>${rb(u.cardName)}</th><th class="num">${rb(L.colOdds)}</th><th>${rb(L.cRate)}</th><th class="num">${rb(L.cMkt)}</th><th class="num">${rb(L.cMine)}</th><th class="num">${rb(L.cEv)}</th></tr></thead><tbody>` +
+      H.map((h, i) => { const e = PS[i] * h[8]; return `<tr><td class="num">${h[1]}</td><td class="hn">${esc(h[2])}</td><td class="num"><b>${h[8].toFixed(1)}</b></td><td><span class="stp"><button type="button" data-d="-1" data-i="${i}" aria-label="-">−</button><b>${rt[i]}</b><button type="button" data-d="1" data-i="${i}" aria-label="+">＋</button></span></td><td class="num">${fp(p[i])}</td><td class="num">${fp(PS[i])}</td><td class="num">${e.toFixed(2)} ${vchip(e)}</td></tr>`; }).join("") + `</tbody>`;
+    mine.querySelectorAll("button[data-d]").forEach(b => b.onclick = () => { const i = +b.dataset.i; rt[i] = Math.max(0, Math.min(5, rt[i] + +b.dataset.d)); saveRt(); draw(); if (document.getElementById("tickets")) { drawTickets(); document.getElementById("amt").dispatchEvent(new Event("input")); } });
+  };
+  draw();
+  document.getElementById("rtreset").onclick = () => { rt = H.map(() => 3); saveRt(); draw(); drawTickets(); document.getElementById("amt").dispatchEvent(new Event("input")); };
 }
 
 function setupSim() {
@@ -272,7 +387,9 @@ function setupSim() {
     if (!C.length) { est.innerHTML = rb(L.pickHelp); return; }
     const rs = C.map(c => payRange(bt, c, a)), lo = Math.min(...rs.map(r => r[0])), hi = Math.max(...rs.map(r => r[1]));
     const oddsTxt = C.length === 1 ? `${rb(bt === "win" || bt === "place" ? L.odds : L.estOdds)} <b>${oddsDisp(bt, C[0])}</b> · ` : "";
-    est.innerHTML = `${oddsTxt}${rb(L.ifHit)} <b>${lo === hi ? yen(lo) : yen(lo) + " 〜 " + yen(hi)}</b>`;
+    const ev1 = C.length === 1 ? evOf(bt, C[0]) : null;
+    const evTxt = C.length === 1 ? `<br>${rb(L.pU)} ${fp(p0(bt, C[0]))} · ${rb(L.pM)} ${fp(prob(bt, C[0]))} · ${rb(L.pS)} ${fp(probS(bt, C[0]))} → ${rb(L.cEv)} <b>${ev1 === null ? "—" : ev1.toFixed(2)}</b> ${vchip(ev1)}` : "";
+    est.innerHTML = `${oddsTxt}${rb(L.ifHit)} <b>${lo === hi ? yen(lo) : yen(lo) + " 〜 " + yen(hi)}</b>${evTxt}`;
   }
   amt.oninput = upd;
   document.getElementById("add").onclick = () => {
@@ -295,10 +412,10 @@ function drawTickets() {
   document.getElementById("left").textContent = yen(BUDGET - used);
   const tb = document.getElementById("tickets");
   if (!bets.length) { tb.innerHTML = `<tr><td class="note">${rb(L.empty)}</td></tr>`; return; }
-  tb.innerHTML = `<thead><tr><th>${rb(L.type)}</th><th>${rb(L.pickH)}</th><th class="num">${rb(L.amount)}</th><th class="num">${rb(L.odds)}</th><th class="num">${rb(L.ifHit)}</th>${result ? `<th>${rb(L.payH)}</th>` : ""}<th></th></tr></thead><tbody>` +
+  tb.innerHTML = `<thead><tr><th>${rb(L.type)}</th><th>${rb(L.pickH)}</th><th class="num">${rb(L.amount)}</th><th class="num">${rb(L.odds)}</th><th class="num">${rb(L.ifHit)}</th><th class="num">${rb(L.cEv)}</th>${result ? `<th>${rb(L.payH)}</th>` : ""}<th></th></tr></thead><tbody>` +
     bets.map((b, i) => {
       const o = estOdds(b.t, b.s), h = result && hits(b.t, b.s, ...result);
-      return `<tr class="${h ? "hit" : ""}"><td>${tName(b.t)}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num" style="white-space:nowrap">${oddsDisp(b.t, b.s)}</td><td class="num">${o ? yr(payRange(b.t, b.s, b.a)) : "—"}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> <input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
+      return `<tr class="${h ? "hit" : ""}"><td>${tName(b.t)}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num" style="white-space:nowrap">${oddsDisp(b.t, b.s)}</td><td class="num">${o ? yr(payRange(b.t, b.s, b.a)) : "—"}</td><td class="num">${(e => e === null ? "—" : e.toFixed(2) + " " + vchip(e))(evOf(b.t, b.s))}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> <input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
     }).join("") + `</tbody>`;
   tb.querySelectorAll("[data-del]").forEach(x => x.onclick = () => { bets.splice(+x.dataset.del, 1); save(); drawTickets(); if (result) summary(); });
   tb.querySelectorAll("input[data-i]").forEach(x => x.oninput = () => { bets[+x.dataset.i].act = x.value; save(); summary(); });

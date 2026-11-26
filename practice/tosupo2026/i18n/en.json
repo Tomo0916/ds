@@ -131,5 +131,54 @@
  "ptsH": "Tickets",
  "totalH": "Total",
  "yenUnit": "yen",
- "colPlace": "Place odds (複勝)"
+ "colPlace": "Place odds (複勝)",
+ "evH": "Think with probability and expected value",
+ "evLead": "First, calculate the chance of winning if every horse is equally strong. This is your baseline — what you'd assume knowing nothing. Then compare it with the probability the odds show (everyone's prediction) and with your own prediction, to see whether a ticket is a good target or offers little value.",
+ "eqH": "① If all horses are equally strong (uniform model)",
+ "eqLead": "This race has {n} runners. The finishing order of 1st, 2nd and 3rd can be {n}×{n1}×{n2} = {all} ways. If every order is equally likely, the chance of each bet type winning is:",
+ "cAll": "All combinations",
+ "cHit": "Winning ones",
+ "cP0": "Chance to win",
+ "cBe": "Break-even odds",
+ "cCnt": "Tickets that pay off if uniform (current odds)",
+ "eqNote": "Break-even odds = 1 ÷ chance to win. If the uniform model were true, a ticket with odds above this would make money in the long run (expected value above 1). The right column counts such tickets at current odds. Odds for quinella, trifecta etc. are estimates from win odds.",
+ "frVar": "depends on horses per bracket",
+ "qH": "Think about it (tap for the answer)",
+ "qs": [
+  [
+   "You buy one trifecta ticket in a {n}-horse race. If all horses are equal, what is the chance of winning?",
+   "One way out of {all}, so 1/{all} ≈ {p3t}%. A trio ignores the order, so 6 orders win: 1/{tri} ≈ {p3c}% — six times easier."
+  ],
+  [
+   "How many times easier is a place bet than a win bet?",
+   "Win needs 1st only ({pw}%); place needs top 3 ({pp}%) — three times easier. That is why place odds are lower."
+  ],
+  [
+   "In the uniform model, unpopular tickets look like a \"good deal\". Are they really?",
+   "No. Unpopular horses are usually really weaker, so the uniform assumption is wrong for them. The uniform model is only a ruler. Odds probability = everyone's prediction; your rating = your prediction. Only when your probability is higher than the odds probability (expected value above 1) is a ticket undervalued — a real target."
+  ],
+  [
+   "Leave every rating at 3. Which win ticket has the highest expected value? Why?",
+   "The horse with the highest odds. If all chances are equal, expected value = probability × odds grows with the odds."
+  ],
+  [
+   "When does the favourite's win ticket become a \"target\"?",
+   "When your win probability is higher than 1 ÷ odds. For odds of 2.0, only when you think it wins more than 50% of the time."
+  ]
+ ],
+ "mineH": "② Build probabilities from your own ratings",
+ "mineLead": "Give each horse a rating from 0 to 5. The chance to win is proportional to the rating (all start at 3 = uniform model). The chances of finishing 2nd and 3rd are also calculated from these ratings.",
+ "cMkt": "Odds win %",
+ "cMine": "Your win %",
+ "cEv": "Exp. value",
+ "cRate": "Rating",
+ "reset": "Reset to equal",
+ "evNote": "Expected value = your probability × odds. Above 1.0: if your prediction is right, the ticket pays off in the long run (target). Below 0.75: little value. \"Odds win %\" is everyone's prediction, calculated back from win odds and the 80% payout rate.",
+ "vGood": "Target",
+ "vFair": "Fair",
+ "vBad": "Low value",
+ "pU": "Uniform",
+ "pM": "Odds",
+ "pS": "You",
+ "evSimNote": "Expected values use your ratings from ② (place uses the middle of its odds range)."
 }

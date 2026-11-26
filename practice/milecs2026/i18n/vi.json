@@ -141,5 +141,54 @@
  "colPlace": "Tỷ lệ về top (複勝)",
  "abroad": {
   "FR": "Pháp"
- }
+ },
+ "evH": "Suy nghĩ bằng xác suất và giá trị kỳ vọng",
+ "evLead": "Trước hết, hãy tính xác suất trúng nếu mọi con ngựa mạnh như nhau. Đây là thước đo khi chưa biết gì. Sau đó so sánh với xác suất mà tỷ lệ cược cho thấy (dự đoán của mọi người) và với dự đoán của bạn, để biết vé đó đáng nhắm hay ít lợi.",
+ "eqH": "① Nếu mọi con ngựa mạnh như nhau (mô hình đều)",
+ "eqLead": "Cuộc đua có {n} con. Thứ tự hạng 1, 2, 3 có {n}×{n1}×{n2} = {all} cách. Nếu mọi thứ tự có khả năng như nhau, xác suất trúng của từng loại vé là:",
+ "cAll": "Tất cả tổ hợp",
+ "cHit": "Số trúng",
+ "cP0": "Xác suất trúng",
+ "cBe": "Tỷ lệ hòa vốn",
+ "cCnt": "Vé có lời nếu đều (tỷ lệ hiện tại)",
+ "eqNote": "Tỷ lệ hòa vốn = 1 ÷ xác suất trúng. Nếu mô hình đều là đúng, vé có tỷ lệ cao hơn mức này sẽ có lời về lâu dài (kỳ vọng > 1). Cột phải đếm số vé như vậy theo tỷ lệ hiện tại. Tỷ lệ của vé tổ hợp là ước tính.",
+ "frVar": "tùy số ngựa mỗi khung",
+ "qH": "Hãy suy nghĩ (chạm để xem đáp án)",
+ "qs": [
+  [
+   "Bạn mua 1 vé 3 con đúng thứ tự trong cuộc đua {n} con. Nếu mọi con như nhau, xác suất trúng là?",
+   "1 trong {all} cách: 1/{all} ≈ {p3t}%. Vé 3 con không thứ tự có 6 thứ tự trúng: 1/{tri} ≈ {p3c}%, dễ hơn 6 lần."
+  ],
+  [
+   "Vé place dễ trúng hơn vé win bao nhiêu lần?",
+   "Win phải về nhất ({pw}%), place chỉ cần top 3 ({pp}%) — dễ hơn 3 lần. Vì vậy tỷ lệ place thấp hơn."
+  ],
+  [
+   "Trong mô hình đều, vé ít người mua trông có vẻ \"lời\". Thật vậy không?",
+   "Không. Ngựa ít người chọn thường thật sự yếu hơn. Mô hình đều chỉ là thước đo. Tỷ lệ = dự đoán của mọi người; điểm của bạn = dự đoán của bạn. Chỉ khi xác suất của bạn cao hơn xác suất theo tỷ lệ (kỳ vọng > 1) thì vé mới bị đánh giá thấp — đáng nhắm."
+  ],
+  [
+   "Để tất cả điểm là 3. Vé win nào có kỳ vọng cao nhất? Vì sao?",
+   "Con có tỷ lệ cao nhất. Khi xác suất như nhau, kỳ vọng = xác suất × tỷ lệ càng lớn khi tỷ lệ càng cao."
+  ],
+  [
+   "Khi nào vé win của con được ưa thích nhất trở thành \"đáng nhắm\"?",
+   "Khi xác suất thắng của bạn cao hơn 1 ÷ tỷ lệ. Với tỷ lệ 2,0, chỉ khi bạn nghĩ nó thắng hơn 50%."
+  ]
+ ],
+ "mineH": "② Tạo xác suất từ đánh giá của bạn",
+ "mineLead": "Cho mỗi con ngựa điểm từ 0 đến 5. Xác suất thắng tỷ lệ với điểm (ban đầu tất cả là 3 = mô hình đều). Xác suất về nhì và ba cũng được tính từ các điểm này.",
+ "cMkt": "% theo tỷ lệ",
+ "cMine": "% của bạn",
+ "cEv": "Kỳ vọng",
+ "cRate": "Điểm",
+ "reset": "Đặt lại bằng nhau",
+ "evNote": "Kỳ vọng = xác suất của bạn × tỷ lệ. Trên 1,0: nếu dự đoán đúng, vé có lời về lâu dài (đáng nhắm). Dưới 0,75: ít lợi. \"% theo tỷ lệ\" là dự đoán của mọi người, tính ngược từ tỷ lệ win và mức hoàn trả 80%.",
+ "vGood": "Đáng nhắm",
+ "vFair": "Hợp lý",
+ "vBad": "Ít lợi",
+ "pU": "Đều",
+ "pM": "Tỷ lệ",
+ "pS": "Bạn",
+ "evSimNote": "Kỳ vọng dùng đánh giá của bạn ở ② (place dùng điểm giữa khoảng tỷ lệ)."
 }

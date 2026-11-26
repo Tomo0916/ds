@@ -131,5 +131,54 @@
  "ptsH": "Jumlah tiket",
  "totalH": "Total",
  "yenUnit": "yen",
- "colPlace": "Odds tempat (複勝)"
+ "colPlace": "Odds tempat (複勝)",
+ "evH": "Berpikir dengan peluang dan nilai harapan",
+ "evLead": "Pertama, hitung peluang menang jika semua kuda sama kuat. Ini patokan saat kita tidak tahu apa-apa. Lalu bandingkan dengan peluang yang ditunjukkan odds (prediksi semua orang) dan prediksimu sendiri, untuk melihat apakah taruhan itu layak diincar atau kurang menguntungkan.",
+ "eqH": "① Jika semua kuda sama kuat (model seragam)",
+ "eqLead": "Balapan ini diikuti {n} kuda. Urutan juara 1, 2, 3 ada {n}×{n1}×{n2} = {all} cara. Jika semua urutan sama mungkin, peluang menang tiap jenis taruhan adalah:",
+ "cAll": "Semua kombinasi",
+ "cHit": "Yang menang",
+ "cP0": "Peluang menang",
+ "cBe": "Odds impas",
+ "cCnt": "Tiket untung jika seragam (odds sekarang)",
+ "eqNote": "Odds impas = 1 ÷ peluang menang. Jika model seragam benar, tiket dengan odds di atas ini untung dalam jangka panjang (nilai harapan > 1). Kolom kanan menghitung tiket seperti itu pada odds sekarang. Odds taruhan kombinasi adalah perkiraan.",
+ "frVar": "tergantung jumlah kuda per gerbang",
+ "qH": "Coba pikirkan (ketuk untuk jawaban)",
+ "qs": [
+  [
+   "Kamu membeli satu tiket trifecta di balapan {n} kuda. Jika semua sama kuat, berapa peluang menang?",
+   "Satu dari {all} cara: 1/{all} ≈ {p3t}%. Trio tidak memedulikan urutan, jadi 6 urutan menang: 1/{tri} ≈ {p3c}%, enam kali lebih mudah."
+  ],
+  [
+   "Berapa kali lebih mudah taruhan place dibanding win?",
+   "Win harus juara 1 ({pw}%), place cukup 3 besar ({pp}%) — tiga kali lebih mudah. Karena itu odds place lebih rendah."
+  ],
+  [
+   "Dalam model seragam, tiket yang tidak populer terlihat \"untung\". Benarkah?",
+   "Tidak. Kuda yang tidak populer biasanya memang lebih lemah. Model seragam hanyalah penggaris. Odds = prediksi semua orang; nilaimu = prediksimu. Hanya jika peluangmu lebih tinggi dari peluang odds (nilai harapan > 1) tiket itu diremehkan — layak diincar."
+  ],
+  [
+   "Biarkan semua nilai 3. Tiket win mana yang nilai harapannya tertinggi? Mengapa?",
+   "Kuda dengan odds tertinggi. Jika peluang semua sama, nilai harapan = peluang × odds makin besar saat odds makin tinggi."
+  ],
+  [
+   "Kapan tiket win kuda favorit menjadi \"incaran\"?",
+   "Saat peluang menangmu lebih tinggi dari 1 ÷ odds. Untuk odds 2,0, hanya jika kamu yakin ia menang lebih dari 50%."
+  ]
+ ],
+ "mineH": "② Buat peluang dari penilaianmu",
+ "mineLead": "Beri setiap kuda nilai 0 sampai 5. Peluang menang sebanding dengan nilai (awalnya semua 3 = model seragam). Peluang juara 2 dan 3 juga dihitung dari nilai ini.",
+ "cMkt": "% menurut odds",
+ "cMine": "% kamu",
+ "cEv": "Nilai harapan",
+ "cRate": "Nilai",
+ "reset": "Kembalikan ke sama",
+ "evNote": "Nilai harapan = peluangmu × odds. Di atas 1,0: jika prediksimu benar, tiket itu untung dalam jangka panjang (incaran). Di bawah 0,75: kurang menguntungkan. \"% menurut odds\" adalah prediksi semua orang, dihitung dari odds win dan tingkat pembayaran 80%.",
+ "vGood": "Incaran",
+ "vFair": "Wajar",
+ "vBad": "Kurang untung",
+ "pU": "Seragam",
+ "pM": "Odds",
+ "pS": "Kamu",
+ "evSimNote": "Nilai harapan memakai penilaianmu di ② (place memakai titik tengah rentang odds)."
 }
