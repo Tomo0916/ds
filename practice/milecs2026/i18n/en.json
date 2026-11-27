@@ -92,8 +92,8 @@
  "empty": "No bets yet.",
  "pickH": "Selection",
  "estNote": "Win and place odds are the real final odds. Place odds are announced as a range such as \"1.2–1.5\", because the payout depends on which other horses also finish in the top 3. Odds for other bet types are estimates calculated from the win odds and differ from the real payouts.",
- "resH": "Enter the result (after watching the race video)",
- "resLead": "Watch the race video together and listen to the teacher's announcement, then enter the 1st to 3rd horses. For winning tickets, enter the real payout announced (per ¥100) to get an exact result.",
+ "resH": "See the result (after watching the race video)",
+ "resLead": "After watching the race video together, the teacher will announce a 4-character password. Enter it to see the 1st to 3rd horses and the official payouts; your tickets are then worked out.",
  "check": "Check my bets",
  "errRes": "Please choose three different horses for 1st to 3rd.",
  "hit": "Win",
@@ -190,5 +190,12 @@
  "pU": "Uniform",
  "pM": "Odds",
  "pS": "You",
- "evSimNote": "Expected values use your ratings from ② (place uses the middle of its odds range)."
+ "evSimNote": "Expected values use your ratings from ② (place uses the middle of its odds range).",
+ "pwLabel": "Password (4 characters)",
+ "pwBtn": "Show the result",
+ "pwNotYet": "The result is not in yet.",
+ "pw4": "Please type 4 characters.",
+ "pwWait": "Checking…",
+ "pwBad": "Wrong password.",
+ "pwOpen": "The result is open"
 }

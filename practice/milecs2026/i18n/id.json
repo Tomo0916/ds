@@ -92,8 +92,8 @@
  "empty": "Belum ada taruhan.",
  "pickH": "Pilihan",
  "estNote": "Odds menang dan tempat (複勝) adalah odds akhir yang sebenarnya. Odds tempat diumumkan dalam rentang seperti \"1.2–1.5\", karena pembayarannya bergantung pada kuda lain yang juga masuk 3 besar. Odds jenis taruhan lain adalah perkiraan yang dihitung dari odds menang.",
- "resH": "Masukkan hasil (setelah menonton video lomba)",
- "resLead": "Tonton video lomba bersama, dengarkan pengumuman guru, lalu masukkan kuda posisi 1–3. Untuk taruhan yang menang, masukkan pembayaran sebenarnya yang diumumkan (per ¥100) agar perhitungannya tepat.",
+ "resH": "Lihat hasil (setelah menonton video balapan)",
+ "resLead": "Setelah menonton video balapan bersama, guru akan mengumumkan kata sandi 4 karakter. Masukkan untuk melihat juara 1–3 dan pembayaran resmi; tiketmu lalu dihitung.",
  "check": "Cocokkan",
  "errRes": "Pilih tiga kuda yang berbeda untuk posisi 1–3.",
  "hit": "Menang",
@@ -190,5 +190,12 @@
  "pU": "Seragam",
  "pM": "Odds",
  "pS": "Kamu",
- "evSimNote": "Nilai harapan memakai penilaianmu di ② (place memakai titik tengah rentang odds)."
+ "evSimNote": "Nilai harapan memakai penilaianmu di ② (place memakai titik tengah rentang odds).",
+ "pwLabel": "Kata sandi (4 karakter)",
+ "pwBtn": "Lihat hasil",
+ "pwNotYet": "Hasil belum dimasukkan.",
+ "pw4": "Ketik 4 karakter.",
+ "pwWait": "Memeriksa…",
+ "pwBad": "Kata sandi salah.",
+ "pwOpen": "Hasil sudah terbuka"
 }

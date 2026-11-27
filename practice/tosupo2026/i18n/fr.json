@@ -85,8 +85,8 @@
  "empty": "Pas encore de pari.",
  "pickH": "Sélection",
  "estNote": "Les cotes gagnant et placé sont les vraies cotes finales. La cote placé est annoncée sous forme de fourchette, par ex. « 1.2–1.5 », car le rapport dépend des autres chevaux classés dans les 3 premiers. Les cotes des autres paris sont des estimations calculées à partir des cotes gagnant.",
- "resH": "Saisir le résultat (après la vidéo de la course)",
- "resLead": "Regardez la vidéo ensemble, écoutez l'annonce du professeur, puis saisissez les chevaux 1er à 3e. Pour les paris gagnants, saisissez le vrai rapport annoncé (pour 100 ¥) pour un calcul exact.",
+ "resH": "Voir le résultat (après la vidéo de la course)",
+ "resLead": "Après la vidéo de la course, l’enseignant annonce un mot de passe de 4 caractères. Saisissez-le pour voir les 3 premiers et les rapports officiels ; vos paris sont alors calculés.",
  "check": "Vérifier mes paris",
  "errRes": "Choisissez trois chevaux différents pour les places 1 à 3.",
  "hit": "Gagné",
@@ -180,5 +180,12 @@
  "pU": "Uniforme",
  "pM": "Cote",
  "pS": "Vous",
- "evSimNote": "L'espérance utilise vos notes du ② (le placé utilise le milieu de sa fourchette)."
+ "evSimNote": "L'espérance utilise vos notes du ② (le placé utilise le milieu de sa fourchette).",
+ "pwLabel": "Mot de passe (4 caractères)",
+ "pwBtn": "Voir le résultat",
+ "pwNotYet": "Le résultat n’est pas encore disponible.",
+ "pw4": "Saisissez 4 caractères.",
+ "pwWait": "Vérification…",
+ "pwBad": "Mot de passe incorrect.",
+ "pwOpen": "Le résultat est ouvert"
 }

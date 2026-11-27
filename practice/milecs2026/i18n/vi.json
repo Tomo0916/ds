@@ -92,8 +92,8 @@
  "empty": "Chưa có vé nào.",
  "pickH": "Lựa chọn",
  "estNote": "Tỷ lệ cược thắng và về top (複勝) là tỷ lệ cuối cùng thật. Tỷ lệ về top được công bố dạng khoảng như \"1.2–1.5\", vì tiền thưởng phụ thuộc vào những ngựa khác cùng về top 3. Tỷ lệ của các loại vé khác là ước tính từ tỷ lệ cược thắng.",
- "resH": "Nhập kết quả (sau khi xem video cuộc đua)",
- "resLead": "Cả lớp cùng xem video, nghe giáo viên công bố, rồi nhập ngựa hạng 1–3. Với vé trúng, hãy nhập số tiền trả thưởng thật được công bố (cho mỗi ¥100) để tính chính xác.",
+ "resH": "Xem kết quả (sau khi xem video cuộc đua)",
+ "resLead": "Sau khi cùng xem video cuộc đua, giáo viên sẽ công bố mật khẩu 4 ký tự. Nhập vào để xem hạng 1–3 và tiền trả thưởng chính thức; vé của bạn sẽ được tính.",
  "check": "Đối chiếu",
  "errRes": "Hãy chọn ba ngựa khác nhau cho hạng 1–3.",
  "hit": "Trúng",
@@ -190,5 +190,12 @@
  "pU": "Đều",
  "pM": "Tỷ lệ",
  "pS": "Bạn",
- "evSimNote": "Kỳ vọng dùng đánh giá của bạn ở ② (place dùng điểm giữa khoảng tỷ lệ)."
+ "evSimNote": "Kỳ vọng dùng đánh giá của bạn ở ② (place dùng điểm giữa khoảng tỷ lệ).",
+ "pwLabel": "Mật khẩu (4 ký tự)",
+ "pwBtn": "Xem kết quả",
+ "pwNotYet": "Chưa có kết quả.",
+ "pw4": "Hãy nhập 4 ký tự.",
+ "pwWait": "Đang kiểm tra…",
+ "pwBad": "Sai mật khẩu.",
+ "pwOpen": "Đã mở kết quả"
 }

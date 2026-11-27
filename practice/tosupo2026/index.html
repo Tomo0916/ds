@@ -90,6 +90,9 @@
 .stp b{min-width:18px;text-align:center;font-variant-numeric:tabular-nums}
 .qa details{border-bottom:1px solid var(--rule);padding:8px 0}.qa summary{cursor:pointer;font-weight:600}.qa p{margin:6px 0 0}
 .evh3{margin:18px 0 6px;font-size:17px}
+.pw-row input { font: 700 1.3rem/1 ui-monospace, monospace; letter-spacing: .3em; width: 7.5em; text-align: center; text-transform: lowercase; }
+.res-open .ok { font-weight: 700; color: var(--ok); margin: 0 0 6px; } .res-list { margin: 0 0 8px; padding-left: 0; list-style: none; font-size: 1.05rem; } .res-list li { margin: 2px 0; }
+.paid { font-weight: 700; } .paytab td { vertical-align: top; } .paytab .pk { display: inline-block; min-width: 6em; font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
@@ -100,6 +103,7 @@
 </div>
 <script src="../../assets/core.js?v=20261125c"></script>
 <script src="race.js?v=20261126d"></script>
+<script src="lock.js?v=20261127a"></script>
 <script>
 {
 const { rb, esc, fill, detect, loadAll, langSelect, apply, fillText, plain } = window.AI;
@@ -213,7 +217,7 @@ function label(t, sel) {
 }
 
 async function render() {
-  result = null;
+  loadResult();
   const [U, D] = await loadAll(["../../assets/i18n", "i18n"], lang);
   u = U.ui; L = D;
   apply(lang); fillText(u);
@@ -261,13 +265,14 @@ async function render() {
         <p class="note">${rb(L.estNote)} ${rb(L.evSimNote)}</p>
       </div></section>
     <section class="card" id="resc"><h2>${rb(L.resH)}</h2><p>${rb(L.resLead)}</p>
-      <div class="sim"><div class="row">${[1, 2, 3].map(n => `<label>${rb(fill(L.fin, { n }))}<select id="r${n}"><option value="">—</option>${horseOpts()}</select></label>`).join("")}
-        <button class="btn primary" id="check">${rb(L.check)}</button></div>
+      <div class="sim">${result ? resultHTML() : `<div class="row pw-row"><label>${rb(L.pwLabel)}<input id="pw" type="text" inputmode="text" maxlength="4" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="••••"></label>
+        <button class="btn primary" id="check">${rb(L.pwBtn)}</button></div>`}
         <p class="msg" id="rmsg"></p><div id="out"></div></div></section>
     <section class="card"><h2>${rb(L.refH)}</h2><ul>${L.reflect.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section>
     <p class="note">${rb(L.src)}</p>`;
   setupEv();
   setupSim();
+  if (result) summary();
 }
 
 function setupEv() {
@@ -402,7 +407,7 @@ function setupSim() {
     sets = []; save(); drawTickets(); drawPick();
   };
   drawPick(); drawTickets();
-  document.getElementById("check").onclick = check;
+  { const c = document.getElementById("check"); if (c) c.onclick = check; const w = document.getElementById("pw"); if (w) w.onkeydown = e => { if (e.key === "Enter") check(); }; }
 }
 
 
@@ -415,22 +420,53 @@ function drawTickets() {
   tb.innerHTML = `<thead><tr><th>${rb(L.type)}</th><th>${rb(L.pickH)}</th><th class="num">${rb(L.amount)}</th><th class="num">${rb(L.odds)}</th><th class="num">${rb(L.ifHit)}</th><th class="num">${rb(L.cEv)}</th>${result ? `<th>${rb(L.payH)}</th>` : ""}<th></th></tr></thead><tbody>` +
     bets.map((b, i) => {
       const o = estOdds(b.t, b.s), h = result && hits(b.t, b.s, ...result);
-      return `<tr class="${h ? "hit" : ""}"><td>${tName(b.t)}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num" style="white-space:nowrap">${oddsDisp(b.t, b.s)}</td><td class="num">${o ? yr(payRange(b.t, b.s, b.a)) : "—"}</td><td class="num">${(e => e === null ? "—" : e.toFixed(2) + " " + vchip(e))(evOf(b.t, b.s))}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> <input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
+      return `<tr class="${h ? "hit" : ""}"><td>${tName(b.t)}</td><td>${label(b.t, b.s)}</td><td class="num">${yen(b.a)}</td><td class="num" style="white-space:nowrap">${oddsDisp(b.t, b.s)}</td><td class="num">${o ? yr(payRange(b.t, b.s, b.a)) : "—"}</td><td class="num">${(e => e === null ? "—" : e.toFixed(2) + " " + vchip(e))(evOf(b.t, b.s))}</td>${result ? `<td>${h ? `<b>${rb(L.hit)}</b> ${payOf(b.t, b.s) ? `<span class="paid">${yen(payOf(b.t, b.s))}</span>` : `<input type="number" min="100" step="10" data-i="${i}" placeholder="${esc(plain(L.actualPh))}" value="${b.act || ""}">`}` : rb(L.miss)}</td>` : ""}<td><button class="x" data-del="${i}" aria-label="delete">×</button></td></tr>`;
     }).join("") + `</tbody>`;
   tb.querySelectorAll("[data-del]").forEach(x => x.onclick = () => { bets.splice(+x.dataset.del, 1); save(); drawTickets(); if (result) summary(); });
   tb.querySelectorAll("input[data-i]").forEach(x => x.oninput = () => { bets[+x.dataset.i].act = x.value; save(); summary(); });
 }
-function check() {
-  const r = [1, 2, 3].map(n => +document.getElementById("r" + n).value), m = document.getElementById("rmsg");
-  if (r.some(x => !x) || new Set(r).size < 3) { m.innerHTML = rb(L.errRes); return; }
-  m.textContent = ""; result = r; drawTickets(); summary();
+/* the result: locked with the teacher's password (lock.js); opened here, then kept in this browser */
+const RES_KEY = KEY + "-res";
+let pay = null;
+function loadResult() { result = null; pay = null; try { const v = JSON.parse(localStorage.getItem(RES_KEY) || "null"); if (v && Array.isArray(v.r)) { result = v.r; pay = v.pay || null; } } catch (e) {} }
+const b64u = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+async function unlock(pw) {
+  const k = window.RACE_LOCK; if (!k || !crypto.subtle) return null;
+  const enc = new TextEncoder(), base = await crypto.subtle.importKey("raw", enc.encode(pw.normalize("NFKC").toLowerCase()), "PBKDF2", false, ["deriveKey"]);
+  const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64u(k.s), iterations: k.it, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+  try { return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64u(k.iv) }, key, b64u(k.ct)))); } catch (e) { return null; }
+}
+async function check() {
+  const m = document.getElementById("rmsg"), inp = document.getElementById("pw"), btn = document.getElementById("check"), pw = (inp.value || "").trim();
+  if (!window.RACE_LOCK) { m.innerHTML = rb(L.pwNotYet); return; }
+  if (pw.length !== 4) { m.innerHTML = rb(L.pw4); return; }
+  btn.disabled = true; m.innerHTML = rb(L.pwWait);
+  const v = await unlock(pw);
+  btn.disabled = false;
+  if (!v) { m.innerHTML = rb(L.pwBad); inp.select(); return; }
+  result = v.r; pay = v.pay || null;
+  try { localStorage.setItem(RES_KEY, JSON.stringify(v)); } catch (e) {}
+  document.querySelector("#resc .sim").innerHTML = resultHTML() + `<p class="msg" id="rmsg"></p><div id="out"></div>`;
+  drawTickets(); summary();
+}
+/** the official payout (per ¥100) of a ticket, if it won */
+function payOf(t, sel) {
+  if (!pay || !pay[t]) return null;
+  const s = sel.map(Number), sorted = [...s].sort((a, b) => a - b).join("-");
+  const key = t === "win" || t === "place" ? String(s[0]) : t === "wakuren" ? [...s].sort((a, b) => a - b).join("-") : t === "umatan" || t === "trifecta" ? s.join(">") : sorted;
+  return pay[t][key] || null;
+}
+function resultHTML() {
+  const nm = n => { const h = RACE.horses.find(x => x[1] === n); return h ? `${n} ${esc(h[2])}` : n; };
+  const pays = pay ? Object.keys(TYPES).filter(t => pay[t]).map(t => `<tr><td>${tName(t)}</td><td>${Object.entries(pay[t]).map(([k, v]) => `<span class="pk">${esc(k.replace(/>/g, " → ").replace(/-/g, " - "))}</span> ${yen(v)}`).join("<br>")}</td></tr>`).join("") : "";
+  return `<div class="res-open"><p class="ok">🔓 ${rb(L.pwOpen)}</p><ol class="res-list">${result.map((n, i) => `<li><b>${rb(fill(L.fin, { n: i + 1 }))}</b> ${nm(n)}</li>`).join("")}</ol>${pays ? `<div class="scroll"><table class="tk paytab"><tbody>${pays}</tbody></table></div>` : ""}</div>`;
 }
 function summary() {
   const used = bets.reduce((s, b) => s + b.a, 0);
   let back = 0, estOnly = false;
   bets.forEach(b => {
     if (!hits(b.t, b.s, ...result)) return;
-    const act = +b.act;
+    const act = payOf(b.t, b.s) || +b.act;
     if (act >= 100) back += b.a / 100 * act;
     else { estOnly = true; back += b.a / 100 * Math.round((estOdds(b.t, b.s) || 0) * 100); }
   });
