@@ -93,6 +93,22 @@
 .pw-row input { font: 700 1.3rem/1 ui-monospace, monospace; letter-spacing: .3em; width: 7.5em; text-align: center; text-transform: lowercase; }
 .res-open .ok { font-weight: 700; color: var(--ok); margin: 0 0 6px; } .res-list { margin: 0 0 8px; padding-left: 0; list-style: none; font-size: 1.05rem; } .res-list li { margin: 2px 0; }
 .paid { font-weight: 700; } .paytab td { vertical-align: top; } .paytab .pk { display: inline-block; min-width: 6em; font-variant-numeric: tabular-nums; }
+/* PC (wide screens): side by side */
+@media (min-width: 1100px) {
+  .wrap { max-width: 1400px; }
+  .pc { display: grid; gap: 20px; align-items: start; }
+  .pc > * { min-width: 0; }
+  .pc > .card, .pc-side > .card { margin-top: 0; }
+  .pc-top { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: stretch; margin-bottom: 20px; }
+  .pc-top .goalbox { margin-bottom: 0; }
+  .pc-card { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); margin: 20px 0; }
+  .pc-why .why { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; }
+  .pc-card > .card:last-child { position: sticky; top: 16px; }
+  .pc-side { display: grid; gap: 20px; align-content: start; }
+  .pc-ev { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 32px; }
+  .pc-sim { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); margin-top: 20px; }
+  .pc-sticky { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; }
+}
 </style>
 </head>
 <body>
@@ -234,24 +250,23 @@ async function render() {
   const rows = H.map((h, i) => `<tr><td><span class="waku" style="background:${["#ffffff", "#222222", "#e53935", "#1e5bd8", "#f2c200", "#2e9d3a", "#f57c00", "#ec6fa8"][h[0] - 1]};color:${["#111", "#fff", "#fff", "#fff", "#111", "#fff", "#fff", "#111"][h[0] - 1]}">${h[0]}</span></td><td class="num">${h[1]}</td><td class="hn">${esc(h[2])}</td><td style="white-space:nowrap">${esc(latin ? h[4] : h[3])}</td>${R.showKin ? `<td class="num">${h[10].toFixed(1)}</td>` : ""}<td class="last">${last(h)}</td><td>${dchg(h)}</td><td class="num"><b>${h[8].toFixed(1)}</b></td><td class="num" style="white-space:nowrap">${plTxt(h[1])}</td><td class="num">${h[9]}</td><td class="num"><span class="pbar" style="width:${Math.round(80 / h[8] * 1.6)}px"></span>${(80 / h[8]).toFixed(1)}%</td></tr>`).join("");
   const byPop = [...H].sort((a, b) => a[9] - b[9]);
   const why = byPop.map(h => `<div class="w"><span class="chip">${rb(fill(L.popn, { n: h[9] }))}</span><div><b>${h[1]} ${esc(h[2])}</b> <span class="note">${h[8].toFixed(1)}</span><p>${rb(L.reasons[h[1] - 1])}</p></div></div>`).join("");
-    main.innerHTML = `<span class="tag">${rb(L.tag)}</span>
+    main.innerHTML = `<div class="pc pc-top"><div><span class="tag">${rb(L.tag)}</span>
     <h1>${rb(L.title)}</h1><p class="note" style="font-size:18px;margin-top:0">${rb(L.sub)}</p>
-    <div class="goalbox"><h3>${rb(L.howH)}</h3><ol class="goal">${L.how.map(x => `<li>${rb(x)}</li>`).join("")}</ol></div>
-    <section class="card"><h2>${rb(L.raceH)}</h2><ul>${L.race.map(x => `<li>${rb(x)}</li>`).join("")}</ul><p>${rb(L.course)}</p></section>
+    <div class="goalbox"><h3>${rb(L.howH)}</h3><ol class="goal">${L.how.map(x => `<li>${rb(x)}</li>`).join("")}</ol></div></div>
+    <section class="card"><h2>${rb(L.raceH)}</h2><ul>${L.race.map(x => `<li>${rb(x)}</li>`).join("")}</ul><p>${rb(L.course)}</p></section></div>
     <section class="card"><h2>${rb(L.cardH)}</h2><div class="scroll"><table class="rtab"><thead><tr><th>${rb(u.cardW)}</th><th>${rb(u.cardN)}</th><th>${rb(u.cardName)}</th><th>${rb(u.cardJockey)}</th>${R.showKin ? `<th>${rb(u.cardKin)}</th>` : ""}<th>${rb(L.colLast)}</th><th>${rb(L.colDist)}</th><th>${rb(L.colOdds)}</th><th>${rb(L.colPlace)}</th><th>${rb(L.colPop)}</th><th>${rb(L.colProb)}</th></tr></thead><tbody>${rows}</tbody></table></div>
       <p class="note">${rb(L.cardNote)}</p></section>
-    <section class="card"><h2>${rb(L.whyH)}</h2><p>${rb(L.whyLead)}</p><div class="why">${why}</div></section>
-    <section class="card"><h2>${rb(L.hintH)}</h2><ul>${L.hints.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section>
+    <div class="pc pc-card"><section class="card pc-why"><h2>${rb(L.whyH)}</h2><p>${rb(L.whyLead)}</p><div class="why">${why}</div></section>
+    <section class="card"><h2>${rb(L.hintH)}</h2><ul>${L.hints.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section></div>
     <section class="card" id="evc"><h2>${rb(L.evH)}</h2><p>${rb(L.evLead)}</p>
       <h3 class="evh3">${rb(L.eqH)}</h3><p>${rb(fill(L.eqLead, { n: NH, n1: NH - 1, n2: NH - 2, all: NH * (NH - 1) * (NH - 2) }))}</p>
       <div class="scroll"><table class="evt" id="eqt"></table></div><p class="note">${rb(L.eqNote)}</p>
-      <h3 class="evh3">${rb(L.qH)}</h3><div class="qa" id="qa"></div>
-      <h3 class="evh3">${rb(L.mineH)}</h3><p>${rb(L.mineLead)}</p>
+      <div class="pc pc-ev"><div><h3 class="evh3">${rb(L.qH)}</h3><div class="qa" id="qa"></div></div>
+      <div><h3 class="evh3">${rb(L.mineH)}</h3><p>${rb(L.mineLead)}</p>
       <p><button class="btn" id="rtreset">${rb(L.reset)}</button></p>
-      <div class="scroll"><table class="evt" id="mine"></table></div><p class="note">${rb(L.evNote)}</p></section>
-    <section class="card" id="simc"><h2>${rb(L.simH)}</h2><p>${rb(L.simLead)}</p>
+      <div class="scroll"><table class="evt" id="mine"></table></div><p class="note">${rb(L.evNote)}</p></div></div></section>
+    <div class="pc pc-sim"><section class="card" id="simc"><h2>${rb(L.simH)}</h2><p>${rb(L.simLead)}</p>
       <div class="sim">
-        <div class="wallet"><span>${rb(L.budget)} <b>${yen(BUDGET)}</b></span><span>${rb(L.used)} <b id="used"></b></span><span>${rb(L.left)} <b id="left"></b></span></div>
         <div class="bt-tabs" id="btabs">${Object.keys(TYPES).map(t => `<button type="button" data-t="${t}">${tTab(t)}</button>`).join("")}</div>
         <div class="bt-sub"><div class="m-tabs" id="moderow"><button type="button" data-m="n">${mName("n")}</button><button type="button" data-m="f">${mName("f")}</button><button type="button" data-m="b">${mName("b")}</button></div><span class="note" id="rateNote"></span></div>
         <p class="note" id="multiNote">${rb(L.multiNote)}</p><div class="scroll"><table class="ptab" id="pick"></table></div>
@@ -261,13 +276,15 @@ async function render() {
           <button class="btn primary" id="add">${rb(L.add)}</button></div>
         <p class="note" id="est" style="margin:0"></p>
         <p class="msg" id="msg"></p>
-        <div class="scroll"><table class="tk" id="tickets"></table></div>
-        <p class="note">${rb(L.estNote)} ${rb(L.evSimNote)}</p>
       </div></section>
+    <div class="pc-side pc-sticky"><section class="card" id="tkc"><h2>${rb(L.pickH)} · ${rb(L.amount)}</h2>
+      <div class="wallet"><span>${rb(L.budget)} <b>${yen(BUDGET)}</b></span><span>${rb(L.used)} <b id="used"></b></span><span>${rb(L.left)} <b id="left"></b></span></div>
+      <div class="scroll"><table class="tk" id="tickets"></table></div>
+      <p class="note">${rb(L.estNote)} ${rb(L.evSimNote)}</p></section>
     <section class="card" id="resc"><h2>${rb(L.resH)}</h2><p>${rb(L.resLead)}</p>
       <div class="sim">${result ? resultHTML() : `<div class="row pw-row"><label>${rb(L.pwLabel)}<input id="pw" type="text" inputmode="text" maxlength="4" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="••••"></label>
         <button class="btn primary" id="check">${rb(L.pwBtn)}</button></div>`}
-        <p class="msg" id="rmsg"></p><div id="out"></div></div></section>
+        <p class="msg" id="rmsg"></p><div id="out"></div></div></section></div></div>
     <section class="card"><h2>${rb(L.refH)}</h2><ul>${L.reflect.map(x => `<li>${rb(x)}</li>`).join("")}</ul></section>
     <p class="note">${rb(L.src)}</p>`;
   setupEv();
