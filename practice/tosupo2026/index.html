@@ -107,6 +107,10 @@
   .pc-side { display: grid; gap: 20px; align-content: start; }
   .pc-ev { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 32px; }
   .pc-sim { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); margin-top: 20px; }
+  .pc-sim:has(.res-open) { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); }
+  .pc-sticky .tk { font-size: 13px; }
+  .pc-sticky .tk td, .pc-sticky .tk th { padding: 7px 4px; }
+  .pc-sticky .tk input { width: 72px; }
   .pc-sticky { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; }
 }
 </style>
@@ -422,7 +426,7 @@ function setupSim() {
     const usedNow = bets.reduce((s, b) => s + b.a, 0);
     if (usedNow + a * C.length > BUDGET) { msg.innerHTML = rb(L.errOver) + " " + rb(fill(L.needH, { a: yen(a * C.length), l: yen(BUDGET - usedNow) })); return; }
     C.forEach(s2 => { const same = bets.find(b => b.t === bt && b.s.join() === s2.join()); if (same) same.a += a; else bets.push({ t: bt, s: s2, a, act: "" }); });
-    sets = []; save(); drawTickets(); drawPick();
+    sets = []; save(); drawTickets(); drawPick(); if (result) summary();
   };
   drawPick(); drawTickets();
   { const c = document.getElementById("check"); if (c) c.onclick = check; const w = document.getElementById("pw"); if (w) w.onkeydown = e => { if (e.key === "Enter") check(); }; }
@@ -456,6 +460,7 @@ async function unlock(pw) {
 }
 async function check() {
   const m = document.getElementById("rmsg"), inp = document.getElementById("pw"), btn = document.getElementById("check"), pw = (inp.value || "").trim();
+  if (btn.disabled) return;
   if (!window.RACE_LOCK) { m.innerHTML = rb(L.pwNotYet); return; }
   if (pw.length !== 4) { m.innerHTML = rb(L.pw4); return; }
   btn.disabled = true; m.innerHTML = rb(L.pwWait);
