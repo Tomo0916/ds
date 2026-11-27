@@ -1,2 +1,2 @@
-/* The result, locked with the teacher's password (made by tools/race-lock.mjs). Not set yet. */
-window.RACE_LOCK = null;
+/* The result, locked with the teacher's password (made by tools/race-lock.mjs). */
+window.RACE_LOCK = {"it":400000,"s":"nSpmoWehmYeqgDCCB8LELA==","iv":"oEBJ/YZdh/ED99cx","ct":"mfiR/au+Cl0pNf3MXzz5LTSXEXstEQ1S5hOk93c2ai2nJzVg5CAa67AbiBA9N0zQmBmblwwP7PGeDPN3tn8gQf3hB/pmPBATJcYQobLKCIPjTFbm+P1UO6INo0B6wciZfkCBQJcM+GVtbdvwRYRKLFtq8nG8bsskb4fZt94soJP6RkhhV/K0VbNu20EZ5BHDurEFc9ki5/2gsCX4uZlMkUA70NkH0uK+TouSB1eIXfTZlKQXN7scE7KOvFWrlEgKeQpK/Yze8/97pvQkfjSlRM/WFHFfhkHTiD0sOgwes96TxgrhJli1k6H6rlefIO8zh74cLTQr1BJ/aggJB2OSKxx5h75Y"};
