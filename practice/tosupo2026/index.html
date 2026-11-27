@@ -254,7 +254,7 @@ async function render() {
         <div class="wallet"><span>${rb(L.budget)} <b>${yen(BUDGET)}</b></span><span>${rb(L.used)} <b id="used"></b></span><span>${rb(L.left)} <b id="left"></b></span></div>
         <div class="bt-tabs" id="btabs">${Object.keys(TYPES).map(t => `<button type="button" data-t="${t}">${tTab(t)}</button>`).join("")}</div>
         <div class="bt-sub"><div class="m-tabs" id="moderow"><button type="button" data-m="n">${mName("n")}</button><button type="button" data-m="f">${mName("f")}</button><button type="button" data-m="b">${mName("b")}</button></div><span class="note" id="rateNote"></span></div>
-        <div class="scroll"><table class="ptab" id="pick"></table></div>
+        <p class="note" id="multiNote">${rb(L.multiNote)}</p><div class="scroll"><table class="ptab" id="pick"></table></div>
         <div class="buybar"><div class="bb-pts"><span>${rb(L.ptsH)}</span><b id="npts">0</b></div>
           <label class="bb-amt"><span>${rb(L.perTicket)}</span><span class="amtbox"><input type="number" id="amt" min="100" step="100" value="100"><span>${rb(L.yenUnit)}</span></span></label>
           <div class="bb-tot"><span>${rb(L.totalH)}</span><b id="ntot">¥0</b></div>
@@ -372,10 +372,11 @@ function setupSim() {
       body = H.map(h => `<tr class="${sets.some(x => x.includes(h[1])) ? "sel" : ""}"><td><span class="waku" title="${h[0]}" style="background:${WK[h[0] - 1]};color:${WT[h[0] - 1]}">${h[1]}</span></td><td><span class="nm">${esc(h[2])}</span><div class="sub">${esc(["ja", "easy"].includes(lang) ? h[3] : h[4])}</div></td><td class="num"><b>${bt === "place" ? plTxt(h[1]) : h[8].toFixed(1)}</b><div class="sub pop">${rb(fill(L.popn, { n: h[9] }))}</div></td>${Array.from({ length: nc }, (_, i) => cell(i, h[1])).join("")}</tr>`).join("");
     }
     pick.innerHTML = head + `<tbody>${body}</tbody>`;
+    document.getElementById("multiNote").hidden = T.n !== 1;
     pick.querySelectorAll(".cb").forEach(c => c.onclick = () => {
       const i = +c.dataset.i, v = +c.dataset.v;
-      if (mode === "n") {
-        // normal: one choice per column
+      if (mode === "n" && TYPES[bt].n > 1) {
+        // normal: one choice per column (win and place: as many horses as you like, one ticket each)
         sets[i] = sets[i].includes(v) ? [] : [v];
       } else sets[i] = sets[i].includes(v) ? sets[i].filter(x => x !== v) : [...sets[i], v].sort((x, y) => x - y);
       drawPick();

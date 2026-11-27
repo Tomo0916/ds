@@ -197,5 +197,6 @@
  "pw4": "Saisissez 4 caractères.",
  "pwWait": "Vérification…",
  "pwBad": "Mot de passe incorrect.",
- "pwOpen": "Le résultat est ouvert"
+ "pwOpen": "Le résultat est ouvert",
+ "multiNote": "Pour le gagnant et le placé, vous pouvez choisir plusieurs chevaux d’un coup (un pari par cheval)."
 }

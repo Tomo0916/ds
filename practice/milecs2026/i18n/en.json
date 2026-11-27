@@ -197,5 +197,6 @@
  "pw4": "Please type 4 characters.",
  "pwWait": "Checking…",
  "pwBad": "Wrong password.",
- "pwOpen": "The result is open"
+ "pwOpen": "The result is open",
+ "multiNote": "For win and place you can pick several horses at once (one ticket per horse)."
 }
